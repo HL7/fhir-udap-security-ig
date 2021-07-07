@@ -1,0 +1,66 @@
+# ╭────────────────────ImplementationGuide-hl7.fhir.us.udap-security.json──────────────────────────╮
+# │  The properties below are used to create the ImplementationGuide resource. For a list of       │
+# │  supported properties, see:                                                                    │
+# │  http://build.fhir.org/ig/HL7/fhir-shorthand/branches/beta/sushi.html#ig-development           │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+id: hl7.fhir.us.udap-security
+canonical: http://hl7.org/fhir/us/udap-security
+name: UDAPSecurity
+title: "Security for Scalable Registration, Authentication, and Authorization"
+description: "This implementation guide describes how to extend OAuth 2.0 to support secure and scalable workflows for business-to-business (B2B) apps that implement the client credentials flow or authorization code flow."
+status: draft
+license: "CC-BY-4.0"
+version: 0.9.0
+fhirVersion: 4.0.1
+copyrightYear: 2021+
+releaseLabel: ci-build
+date: 2021-06-09
+jurisdiction: "urn:iso:std:iso:3166#US"
+publisher:
+  name: HL7 International - Security WG
+  url: http://www.hl7.org/Special/committees/secure
+dependencies:
+  hl7.fhir.us.core: 3.1.1
+
+parameters:
+  show-inherited-invariants: false
+  apply-jurisdiction: true
+  apply-publisher: true
+  active-tables: false
+  apply-contact: true
+  apply-version: true
+  usage-stats-opt-out: true
+  excludexml: true
+  excludejsn: false
+  excludettl: true
+  excludemap: true
+  excludeexample: true
+
+pages:
+  index.md:
+    title: Home
+  discovery.md:
+  registration.md:
+  consumer.md:
+    title: Consumer-Facing
+  b2b.md:
+    title: Business-to-Business
+  user.md:
+    title: User Authentication
+  downloads.md:
+
+# ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
+# │  To control the menu.xml using this config, uncomment and set the "menu" property.             │
+# ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+menu:
+  Home: index.html
+  Discovery: discovery.html
+  Registration: registration.html
+  Authorization and Authentication:
+    Consumer-Facing: consumer.html
+    Business-to-Business: b2b.html
+    User Authentication: user.html
+  Downloads: downloads.html
+  FHIR Artifacts: artifacts.html
+
+  
