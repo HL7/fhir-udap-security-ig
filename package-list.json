@@ -1,0 +1,26 @@
+﻿{
+  "package-id": "hl7.fhir.us.udap-security",
+  "title": "Security for Scalable Registration, Authentication, and Authorization",
+  "canonical": "http://hl7.org/fhir/us/udap-security",
+  "introduction": "This implementation guide describes a framework for scalable registration, authentication, and authorization based on the UDAP framework.",
+  "category": "Security",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build for UDAP Security FHIR IG (latest in version control)",
+      "path": "http://build.fhir.org/ig/HL7/udap-security",
+      "status": "ci-build",
+      "current": true
+    },
+    {
+      "version": "0.9.0",
+      "date": "2021Sep",
+      "desc": "UDAP Security IG First STU ballot",
+      "sequence": "STU 1",
+      "path": "http://hl7.org/fhir/us/udap-security/2021Sep",
+      "status": "ballot",
+      "fhirVersion": "4.0.1",
+      "current": false
+    }
+  ]
+}
