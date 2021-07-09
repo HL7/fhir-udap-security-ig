@@ -1,16 +1,16 @@
 Alias: $restful-security-service = http://terminology.hl7.org/CodeSystem/restful-security-service
 Alias: $udap-capability-rest-security-service = http://fhir.udap.org/CodeSystem/capability-rest-security-service
 
-Instance: udap-security-capabilitystatement
+Instance: udap-server
 InstanceOf: CapabilityStatement
-Title: "UDAP Security CapabilityStatement"
+Title: "UDAP Server CapabilityStatement"
 Usage: #definition
 Description: "CapabilityStatement indicating server support for UDAP workflows"
 
-* url = "http://hl7.org/fhir/us/udap-security/CapabilityStatement/udap-security-capabilitystatement"
+* url = "http://hl7.org/fhir/us/udap-security/CapabilityStatement/udap-server"
 * version = "0.9.0"
-* name = "UDAPSecurityCapabilityStatement"
-* title = "UDAP Security CapabilityStatement"
+* name = "UDAPServerCapabilityStatement"
+* title = "UDAP Server CapabilityStatement"
 * status = #active
 * experimental = false
 * date = "2021-06-14"
