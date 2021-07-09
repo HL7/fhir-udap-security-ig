@@ -4,20 +4,6 @@ This Security FHIR IG has been established upon the recommendations of ONC's FHI
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
 </div>
 
-<div class="bg-info" markdown="1">
-Publishing Punch list:
-
-- [ ] verify section numbers and links for internal section references
-
-Where possible, new and updated content will be highlighted with green text and background
-{:.new-content}
-
-{{ site.data.pl.list[0].desc }}
-
-</div>
-
-{{ site.data.ig.description }}
-
 ### About This Guide
 
 This implementation guide describes how to extend OAuth 2.0 and the HL7 SMART App Launch Framework using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.

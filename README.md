@@ -2,7 +2,7 @@
 
 ## View the IG
 
-### [Current build](https://build.fhir.org/ig/HL7/udap-security)
+### [Current build](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/)
 
 ## Scope
 

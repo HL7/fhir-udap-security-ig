@@ -5,7 +5,7 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
-<artifact id="StructureDefinition/udap-security-capabilitystatement" key="StructureDefinition-udap-security-capabilitystatement" name="UDAPSecurityCapabilityStatement"/>
+<artifact id="CapabilityStatement/udap-server" key="CapabilityStatement-udap-server" name="UDAP Server CapabilityStatement"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="toc" name="Table of Contents"/>
