@@ -1,4 +1,4 @@
 == Suppressed Messages ==
 # Warnings and Information messages to be ignored and reason
 # external code system (UDAP.org)
-INFORMATION: CapabilityStatement/udap-security-capabilitystatement: CapabilityStatement.rest[0].security.service[1].coding[0]: Code System URI 'http://fhir.udap.org/CodeSystem/capability-rest-security-service' is unknown so the code cannot be validated
+INFORMATION: CapabilityStatement/udap-server: CapabilityStatement.rest[0].security.service[1].coding[0]: Code System URI 'http://fhir.udap.org/CodeSystem/capability-rest-security-service' is unknown so the code cannot be validated
