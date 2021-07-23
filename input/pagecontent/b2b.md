@@ -135,21 +135,21 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        String containing a code identifying the purpose for which the data is being requested. For US Realm, the value of the string <strong>SHALL</strong> be a code from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set. Trust communities <strong>SHOULD</strong> further constrain the allowed values from this value set.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, the value of each string <strong>SHALL</strong> be a code from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set. Trust communities <strong>SHOULD</strong> further constrain the allowed values from this value set.
       </td>
     </tr>
     <tr>
       <td><code>consent_policy</code></td>
       <td><span class="label label-warning">optional</span></td>
       <td>
-        An array of one or more strings, each containing a URI identifiying a privacy consent directive policy or other policy consistent with the <code>purpose_of_use</code> parameter.
+        An array of one or more strings, each containing a URI identifiying a privacy consent directive policy or other policy consistent with the value of the <code>purpose_of_use</code> parameter.
       </td>
     </tr>
     <tr>
       <td><code>consent_reference</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        An array of one or more strings, each containing the absolute URL of a FHIR [Consent] or [DocumentReference] resource containing or referencing a privacy consent directive relevant to the purpose identified by the <code>purpose_of_use</code> parameter and the policy or policies identified by the <code>consent_policy</code> parameter. The issuer of this Authorization Extension Object <strong>SHALL</strong> only include URLs that are resolvable by the receiving party. If a referenced resource does not include the raw document data inline in the resource or as a contained resource, then it <strong>SHALL</strong> include a URL to the attachment data that is resolvable by the receiving party. Omit if <code>consent_policy</code> is not present.
+        An array of one or more strings, each containing the absolute URL of a FHIR [Consent] or [DocumentReference] resource containing or referencing a privacy consent directive relevant to a purpose identified by the <code>purpose_of_use</code> parameter and the policy or policies identified by the <code>consent_policy</code> parameter. The issuer of this Authorization Extension Object <strong>SHALL</strong> only include URLs that are resolvable by the receiving party. If a referenced resource does not include the raw document data inline in the resource or as a contained resource, then it <strong>SHALL</strong> include a URL to the attachment data that is resolvable by the receiving party. Omit if <code>consent_policy</code> is not present.
       </td>
     </tr>
   </tbody>
