@@ -4,15 +4,20 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata, available for discovery by client applications. Servers **SHALL** allow access to the following metadata URLs to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server:
 
-1. A CapabilityStatement at {baseURL}/metadata. The CapabilityStatement **SHALL** include:
-    1. the OAuth 2.0 URIs Extension on the rest.security element as per [Section 3.1](http://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html#declaring-support-for-oauth2-endpoints) of the HL7 SMART App Launch Framework, and list the `authorize`, `token`, and `register` components.
-    1. the following codes in the rest.security.service list: http://hl7.org/fhir/restful-security-service\|SMART-on-FHIR and (if UDAP workflows are supported) http://fhir.udap.org/CodeSystem/capability-rest-security-service\|UDAP.
-1. SMART configuration metadata at {baseURL}/.well-known/smart-configuration. The metadata **SHALL** be structured as per [Section 4](http://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html#using-well-known) of the HL7 SMART App Launch Framework, and include the respective endpoint URLs for the `authorization_endpoint`, `token_endpoint`, and `registration_endpoint` keys, and the string `"private_key_jwt"` in the array of endpoint authentication methods for the `token_endpoint_auth_methods` key.
+1. A CapabilityStatement at {baseURL}/metadata, that **SHALL** include the following code in the rest.security.service list: `http://fhir.udap.org/CodeSystem/capability-rest-security-service\|UDAP`.
 1. UDAP metadata as defined below at {baseURL}/.well-known/udap, structured as a JSON object as per section 1 of [UDAP Dynamic Client Registration](http://www.udap.org/udap-dynamic-client-registration.html) and discussed further in [Section 2.2].
+
+It is expected that most clients will begin an interaction with a FHIR server by retrieving the server's CapabilityStatement. Thus, the inclusion of the `UDAP` code in the CapabilityStatement as described above is intended to signal to client applications that the server supports at least one UDAP workflow and that UDAP metadata is available at the metadata endpoint defined above. However, clients **MAY** attempt to retrieve the UDAP metadata from the metadata endpoint even if the `UDAP` code is not present in the CapabilityStatement. If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows, even if the `UDAP` code is included in the CapabilityStatement.
+
+Note: Servers conforming to this guide are generally expected to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
+{:.bg-info}
 
 ### Required UDAP Metadata
 
 The metadata returned from the UDAP metadata endpoint defined above **SHALL** represent the server's capabilities with respect to the UDAP workflows described in this guide. If no UDAP workflows are supported, the server **SHALL** return a 404 Not Found response to the metadata request. For elements that are represented by JSON arrays, clients **SHALL** interpret an empty array value to mean that the corresponding capability is NOT supported by the server.
+
+Note: There is some expected overlap in the UDAP metadata elements defined below and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
+
 
 <table class="table">
   <thead>
@@ -162,21 +167,21 @@ A server's UDAP metadata **SHOULD** include the `signed_endpoints` metadata elem
       <td><code>authorization_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's authorization endpoint, **REQUIRED** if the `authorization_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's authorization endpoint, <strong>REQUIRED</strong> if the <code>authorization_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's token endpoint, **REQUIRED** if the `token_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's token endpoint, <strong>REQUIRED</strong> if the <code>token_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
     <tr>
       <td><code>registration_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's registration endpoint, **REQUIRED** if the `registration_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's registration endpoint, <strong>REQUIRED</strong> if the <code>registration_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
   </tbody>
