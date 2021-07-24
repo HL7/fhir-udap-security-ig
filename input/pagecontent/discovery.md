@@ -167,21 +167,21 @@ A server's UDAP metadata **SHOULD** include the `signed_endpoints` metadata elem
       <td><code>authorization_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's authorization endpoint, **REQUIRED** if the `authorization_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's authorization endpoint, <strong>REQUIRED</strong> if the <code>authorization_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's token endpoint, **REQUIRED** if the `token_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's token endpoint, <strong>REQUIRED</strong> if the <code>token_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
     <tr>
       <td><code>registration_endpoint</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the URI of the server's registration endpoint, **REQUIRED** if the `registration_endpoint` parameter is included in the unsigned metadata
+        A string containing the URI of the server's registration endpoint, <strong>REQUIRED</strong> if the <code>registration_endpoint</code> parameter is included in the unsigned metadata
       </td>
     </tr>
   </tbody>
