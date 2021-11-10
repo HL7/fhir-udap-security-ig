@@ -68,14 +68,14 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       <td><code>authorization_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's authorization endpoint
+        A string containing the absolute URL of the Authorization Server's authorization endpoint
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's token endpoint if the server supports UDAP JWT-Based Client Authentication.
+        A string containing the absolute URL of the Authorization Server's token endpoint if the server supports UDAP JWT-Based Client Authentication.
       </td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       <td><code>registration_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
+        A string containing the absolute URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
       </td>
     </tr>
     <tr>
