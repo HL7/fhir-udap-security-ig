@@ -29,7 +29,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The unique identifying URI client for this client application and client app operator. This URI <strong>SHALL</strong> match the value of a <code>uniformResourceIdentifier</code> entry in the Subject Alternative Name extension of the client's certificate included
+        The unique identifying URI for this client application and client app operator. This URI <strong>SHALL</strong> match the value of a <code>uniformResourceIdentifier</code> entry in the Subject Alternative Name extension of the client's certificate included
         in the <code>x5c</code> JWT header.
       </td>
     </tr>
@@ -65,7 +65,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed
+        A string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed
       </td>
     </tr>
     <tr>
@@ -107,14 +107,14 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>subject_id</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a unique identifier for subject; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for subjects who have not been assigned an NPI.
+        String containing a unique identifier for the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for subjects who have not been assigned an NPI.
       </td>
     </tr>
     <tr>
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the subject; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be a code from the National Uniform Claim Committee (NUCC) Provider Taxonomy.
+        String containing a code identifying the role of the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be a code from the National Uniform Claim Committee (NUCC) Provider Taxonomy.
       </td>
     </tr>
     <tr>
@@ -128,14 +128,14 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>organization_id</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        String containing a unique identifier for the organization. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
+        String containing a unique identifier for the organizational requestor. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
       </td>
     </tr>
     <tr>
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, the value of each string <strong>SHALL</strong> be a code from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set. Trust communities <strong>SHOULD</strong> further constrain the allowed values from this value set.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant.
       </td>
     </tr>
     <tr>

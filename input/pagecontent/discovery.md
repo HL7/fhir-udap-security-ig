@@ -2,12 +2,11 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 ### Discovery of Endpoints
 
-A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata, available for discovery by client applications. Servers **SHALL** allow access to the following metadata URLs to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server:
+A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Servers **SHALL** allow access to the following metadata URL to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server: {baseURL}/.well-known/udap
 
-1. A CapabilityStatement at {baseURL}/metadata, that **SHALL** include the following code in the rest.security.service list: `http://fhir.udap.org/CodeSystem/capability-rest-security-service|UDAP`.
-1. UDAP metadata as defined below at {baseURL}/.well-known/udap, structured as a JSON object as per section 1 of [UDAP Dynamic Client Registration](http://www.udap.org/udap-dynamic-client-registration.html) and discussed further in [Section 2.2].
+UDAP Metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](http://www.udap.org/udap-server-metadata.html) and discussed further in [Section 2.2].
 
-It is expected that most clients will begin an interaction with a FHIR server by retrieving the server's CapabilityStatement. Thus, the inclusion of the `UDAP` code in the CapabilityStatement as described above is intended to signal to client applications that the server supports at least one UDAP workflow and that UDAP metadata is available at the metadata endpoint defined above. However, clients **MAY** attempt to retrieve the UDAP metadata from the metadata endpoint even if the `UDAP` code is not present in the CapabilityStatement. If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows, even if the `UDAP` code is included in the CapabilityStatement.
+If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
 Note: Servers conforming to this guide are generally expected to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
 {:.bg-info}
@@ -69,14 +68,14 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       <td><code>authorization_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's authorization endpoint
+        A string containing the absolute URL of the Authorization Server's authorization endpoint
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's token endpoint if the server supports UDAP JWT-Based Client Authentication.
+        A string containing the absolute URL of the Authorization Server's token endpoint if the server supports UDAP JWT-Based Client Authentication.
       </td>
     </tr>
     <tr>
@@ -98,7 +97,7 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       <td><code>registration_endpoint</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        A string containing the URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
+        A string containing the absolute URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
       </td>
     </tr>
     <tr>
@@ -132,7 +131,7 @@ A server's UDAP metadata **SHOULD** include the `signed_endpoints` metadata elem
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Issuer of the JWT -- unique identifying server URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the client's certificate included in the <code>x5c</code> JWT header, and <strong>SHALL</strong> be equal to the server's {baseURL}
+        Issuer of the JWT -- unique identifying server URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the server's certificate included in the <code>x5c</code> JWT header, and <strong>SHALL</strong> be equal to the server's {baseURL}
       </td>
     </tr>
     <tr>
