@@ -107,14 +107,14 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>subject_id</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a unique identifier for subject; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for subjects who have not been assigned an NPI.
+        String containing a unique identifier for the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for subjects who have not been assigned an NPI.
       </td>
     </tr>
     <tr>
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the subject; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be a code from the National Uniform Claim Committee (NUCC) Provider Taxonomy.
+        String containing a code identifying the role of the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be a code from the National Uniform Claim Committee (NUCC) Provider Taxonomy.
       </td>
     </tr>
     <tr>
@@ -128,7 +128,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>organization_id</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        String containing a unique identifier for the organization. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
+        String containing a unique identifier for the organizational requestor. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
       </td>
     </tr>
     <tr>
