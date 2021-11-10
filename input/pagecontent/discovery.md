@@ -4,7 +4,7 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Servers **SHALL** allow access to the following metadata URL to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server: {baseURL}/.well-known/udap
 
-UDAP Metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Dynamic Client Registration](http://www.udap.org/udap-dynamic-client-registration.html) and discussed further in [Section 2.2].
+UDAP Metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](http://www.udap.org/udap-server-metadata.html) and discussed further in [Section 2.2].
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
