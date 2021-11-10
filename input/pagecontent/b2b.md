@@ -135,7 +135,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, the value of each string <strong>SHALL</strong> be a code from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set. Trust communities <strong>SHOULD</strong> further constrain the allowed values from this value set.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant.
       </td>
     </tr>
     <tr>
