@@ -132,7 +132,7 @@ A server's UDAP metadata **SHOULD** include the `signed_endpoints` metadata elem
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Issuer of the JWT -- unique identifying server URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the client's certificate included in the <code>x5c</code> JWT header, and <strong>SHALL</strong> be equal to the server's {baseURL}
+        Issuer of the JWT -- unique identifying server URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the server's certificate included in the <code>x5c</code> JWT header, and <strong>SHALL</strong> be equal to the server's {baseURL}
       </td>
     </tr>
     <tr>
