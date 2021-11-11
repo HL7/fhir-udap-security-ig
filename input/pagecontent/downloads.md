@@ -15,6 +15,6 @@ Editor: Luis C. Maas, EMR Direct and UDAP.org
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
-The members of the ONC FHIR at Scale Taskforce (FAST) Security Tiger Team
-The members of the HL7/UDAP.org joint project working group
+The members of the ONC FHIR at Scale Taskforce (FAST) Security Tiger Team<br>
+The members of the HL7/UDAP.org joint project working group<br>
 The members of the HL7 Security Work Group
