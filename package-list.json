@@ -9,7 +9,16 @@
       "version": "current",
       "desc": "Continuous Integration Build for UDAP Security FHIR IG (latest in version control)",
       "path": "http://build.fhir.org/ig/HL7/udap-security",
-      "status": "ci-build",
+      "status": "ci-build"
+    },
+    {
+      "version": "1.0.0",
+      "date": "2021-11-10",
+      "desc": "UDAP Security IG STU1",
+      "sequence": "STU 1",
+      "path": "http://hl7.org/fhir/us/udap-security/STU1",
+      "status": "trial-use",
+      "fhirversion": "4.0.1",
       "current": true
     },
     {

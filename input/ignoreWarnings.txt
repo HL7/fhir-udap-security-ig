@@ -1,4 +1,7 @@
 == Suppressed Messages ==
 # Warnings and Information messages to be ignored and reason
-# external code system (UDAP.org)
-INFORMATION: CapabilityStatement/udap-server: CapabilityStatement.rest[0].security.service[1].coding[0]: Code System URI 'http://fhir.udap.org/CodeSystem/capability-rest-security-service' is unknown so the code cannot be validated
+# None
+#
+# Errors
+# IG contains no FHIR artifacts
+ERROR: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide)
