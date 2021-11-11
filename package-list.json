@@ -8,7 +8,7 @@
     {
       "version": "current",
       "desc": "Continuous Integration Build for UDAP Security FHIR IG (latest in version control)",
-      "path": "http://build.fhir.org/ig/HL7/udap-security",
+      "path": "http://build.fhir.org/ig/HL7/fhir-udap-security-ig",
       "status": "ci-build"
     },
     {
