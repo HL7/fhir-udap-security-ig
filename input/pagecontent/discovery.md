@@ -109,7 +109,7 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       </td>
     </tr>
     <tr>
-      <td><code>signed_endpoints</code></td>
+      <td><code>signed_metadata</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
         A string containing a JWT listing the server's endpoints, as defined in [Section 2.3] below.
@@ -120,11 +120,11 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHOULD** include the `signed_endpoints` metadata element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
+A server's UDAP metadata **SHOULD** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
 
 <table class="table">
   <thead>
-    <th colspan="3">Signed endpoints JWT claims</th>
+    <th colspan="3">Signed Metadata JWT claims</th>
   </thead>
   <tbody>
         <tr>
