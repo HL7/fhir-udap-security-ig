@@ -1,3 +1,5 @@
+This guide supports consumer-facing client applications using the authorization code grant type. 
+
 Consumer-facing client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow, as extended by the SMART App Launch Framework, and with the additional options and constraints discussed below.
 
 ### Obtaining an authorization code
