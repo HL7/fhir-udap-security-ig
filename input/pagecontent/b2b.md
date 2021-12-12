@@ -127,7 +127,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
     </tr>
     <tr>
       <td><code>organization_name</code></td>
-      <td><span class="label label-success">required</span></td>
+      <td><span class="label label-warning">optional</span></td>
       <td>
         String containing the human readable name of the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject.
       </td>
@@ -136,7 +136,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>organization_id</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        String containing a unique identifier for the organizational requestor. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
+        String containing a unique identifier for the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
       </td>
     </tr>
     <tr>
