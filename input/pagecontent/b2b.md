@@ -122,7 +122,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be a code from the National Uniform Claim Committee (NUCC) Provider Taxonomy.
+        String containing a code identifying the role of the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant.
       </td>
     </tr>
     <tr>
