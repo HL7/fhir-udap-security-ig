@@ -4,7 +4,7 @@
 [Registration]: registration.html
 [Consumer-Facing]: consumer.html
 [Business-to-Business]: b2b.html
-[User Authentication]: user.html
+[Tiered OAuth for User Authentication]: user.html
 [FHIR Artifacts]: artifacts.html
 [Section 1.2]: index.html#json-web-token-jwt-requirements
 [Section 1.2.3]: index.html#jwt-headers

@@ -46,7 +46,7 @@ pages:
   b2b.md:
     title: Business-to-Business
   user.md:
-    title: User Authentication
+    title: Tiered OAuth for User Authentication
   downloads.md:
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
@@ -59,7 +59,7 @@ menu:
   Authorization and Authentication:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
-    User Authentication: user.html
+    Tiered OAuth for User Authentication: user.html
   Downloads: downloads.html
   #FHIR Artifacts: artifacts.html #note: no artifacts
 

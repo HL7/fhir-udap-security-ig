@@ -18,7 +18,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Registration]\: This page describes workflows for dynamic registration of client applications.
 - [Consumer-Facing]\: This page provides detailed guidance for authorization and authentication of consumer-facing apps.
 - [Business-to-Business]\: This page provides detailed guidance for authorization and authentication of B2B apps.
-- [User Authentication]\: This page provides detailed guidance for user authentication.
+- [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
 
 ### JSON Web Token (JWT) Requirements
