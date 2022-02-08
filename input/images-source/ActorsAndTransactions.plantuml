@@ -1,0 +1,12 @@
+@startuml
+actor "Human User" as User
+agent "App/Client Registry" as Registry
+agent "Secure Client" as Client
+agent "FHIR Server" as Server
+agent "Authorization Server" as Auth
+
+User -> Registry : Find a useful app
+User -down-> Client : Use that useful app
+Client -> Server : ANY request/response
+Server -> Auth: Introspect Auth Token
+@enduml
