@@ -261,7 +261,11 @@ Client applications using the client credentials grant and authenticating with a
 
 Authorization servers receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per Sections 6 and 7 of UDAP JWT-Based Client Authentication.
 
-For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes. 
+For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
+
+<div class="stu-note" markdown="1">
+This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
+</div>
 
 ### Refresh tokens
 
