@@ -108,21 +108,21 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>subject_name</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing the human readable name of the human requestor; required when applicable; omit if request was not triggered by human action. 
+        String containing the human readable name of the human or non-human requestor; required if known.
       </td>
     </tr>
     <tr>
       <td><code>subject_id</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a unique identifier for the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, the value of the string <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for subjects who have not been assigned an NPI.
+        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, the value <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for non-human requestors and for requestors who have not been assigned an NPI. See Section 5.2.1.2 below for the preferred format of the identifier value string.
       </td>
     </tr>
     <tr>
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the human requestor; required if known when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant.
+        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values and formats, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of the code value string.
       </td>
     </tr>
     <tr>
@@ -143,7 +143,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of each code value string array element.
       </td>
     </tr>
     <tr>
@@ -162,6 +162,18 @@ The B2B Authorization Extension Object is used by client apps following the `cli
     </tr>
   </tbody>
 </table>
+
+##### Preferred format for identifiers and codes
+
+The preferred format to represent an identifier or code as a string value within an authorization extension object is as a Uniform Resource Identifier (URI) as defined in [RFC 3986]. Trust communities are encouraged to use this preferred format, but are not required to do so to be considered conformant with this guide. 
+
+If the identifier or code is itself a URI, then the native representation is preferred. Otherwise, the preferred method to construct a URI is as follows:
+
+For identifiers, concatenate a URI identifying the namespace, the '#' character, and the unique identifier assigned within the namespace. 
+
+For codes, concatenate a URI identifying the code system, the '#' character, and a code taken from the code system.
+
+For example, the U.S. NPI number 1234567890 can be represented as `urn:oid:2.16.840.1.113883.4.6#1234567890` and the purpose of use treatment can be represented as `urn:oid:2.16.840.1.113883.5.8#TREAT`.
 
 #### Submitting a token request
 
