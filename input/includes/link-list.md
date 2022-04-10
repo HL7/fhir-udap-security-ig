@@ -21,7 +21,10 @@
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
 [UDAP Tiered OAuth for User Authentication]: https://www.udap.org/udap-user-auth.html
 [UDAP Tiered OAuth]: https://www.udap.org/udap-user-auth.html
+[Section 1.5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-1.5
 [Section 4.1.2.1 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1
+[Section 5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-5
+[Section 6 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-6
 [Section 3.1.2.1 of OIDC Core]: https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 [Section 3.1.3.1 of OIDC Core]: https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
 [Section 3.1.3.5 of OIDC Core]: https://openid.net/specs/openid-connect-core-1_0.html#TokenResponseValidation
