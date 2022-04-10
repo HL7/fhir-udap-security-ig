@@ -80,7 +80,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>extensions</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        An array of JSON objects containing the HL7 B2B Authorization Extension Object defined below; required for B2B client apps using the <code>client_credentials</code> flow; omit for client apps using the <code>authorization_code</code> flow
+        A JSON object containing one or more extensions. The HL7 B2B Authorization Extension Object defined below is required for B2B client apps using the <code>client_credentials</code> flow; omit for client apps using the <code>authorization_code</code> flow
       </td>
     </tr>
   </tbody>
@@ -90,7 +90,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 ##### B2B Authorization Extension Object
 
-The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` array of the Authentication JWT as the value associated with the key name `hl7-b2b`.
+The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
 
 <table class="table">
   <thead>
