@@ -27,7 +27,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The unique identifying URI client for this client application and client app operator. This URI <strong>SHALL</strong> match the value of a <code>uniformResourceIdentifier</code> entry in the Subject Alternative Name extension of the client's certificate included
+        The unique identifying URI for this client application and client app operator. This URI <strong>SHALL</strong> match the value of a <code>uniformResourceIdentifier</code> entry in the Subject Alternative Name extension of the client's certificate included
         in the <code>x5c</code> JWT header.
       </td>
     </tr>
