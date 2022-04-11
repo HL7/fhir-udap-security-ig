@@ -71,6 +71,10 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
 
 The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. the value of `exp` minus the value of `iat` **SHALL NOT** exceed 300 seconds. The Authorization Server **MAY** ignore any unrecognized claims in the Authentication Token. The Authentication Token **SHALL** be signed and serialized using the JSON compact serialization method.
 
+<div class="stu-note" markdown="1">
+This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify FHIR servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
+</div>
+
 #### Submitting a token request
 
 For client applications authenticating with a shared secret, the client application and server **SHALL** follow the token request and response protocol in Section 7.1.3 of the HL7 SMART App Launch Framework.
