@@ -92,6 +92,10 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
 
 The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. the value of `exp` minus the value of `iat` **SHALL** NOT exceed 300 seconds. The Authorization Server **MAY** ignore any unrecognized claims in the Authentication Token. The Authentication Token **SHALL** be signed and serialized using the JSON compact serialization method.
 
+<div class="stu-note" markdown="1">
+For client and servers that also support the SMART App Launch IG v2: the SMART IG requires the `iss` claim in the Authentication Token to be identical to the `sub` claim, whereas this guide requires the `iss` claim to list a unique URI as described in the table above. A server can differentiate which workflow was requested by the client (UDAP or SMART) by the presence or absence of the `udap` parameter in the token request, as per Section 5.2.2 below.
+</div>
+
 ##### B2B Authorization Extension Object
 
 The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
