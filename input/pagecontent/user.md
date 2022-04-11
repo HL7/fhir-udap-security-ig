@@ -14,7 +14,10 @@ The meaning of the extension parameter `idp` is undefined if `udap` is absent fr
 
 For the purposes of the interactions between the data holder and the IdP, the data holder takes on the role of client app and the IdP takes on the role of server/data holder and interacts as per Section 3 of [UDAP Tiered OAuth], as detailed below.
 
-Upon receiving an authorization request with a preferred IdP, the data holder first determines whether or not it trusts the IdP to perform user authentication, by retrieving and validating the IdP's UDAP metadata from `{baseURL}/.well-known/udap`, as discussed in [Section 2.2]. At a minimum, IdPs **SHALL** include `"openid"` and `"udap"` in the array of scopes returned for the `scopes_supported` parameter. 
+This section describes the interactions between a data holder and an IdP where both parties support this implementation guide and where trust can be established via UDAP certificates. Note that this does not preclude data holders from validating trust with an IdP via other non-UDAP means that are outside the scope of this document, or from making authentication requests to IdPs that do not support UDAP workflows.
+{:.bg-info}
+
+Upon receiving an authorization request with a preferred IdP, the data holder first determines whether or not it trusts the IdP to perform user authentication, by retrieving and validating the IdP's UDAP metadata from `{baseURL}/.well-known/udap`, as discussed in [Section 2.2]. At a minimum, IdPs that support this guide **SHALL** include `"openid"` and `"udap"` in the array of scopes returned for the `scopes_supported` parameter. 
 
 If the IdP is trusted and the data holder is not yet registered as a client with the IdP and the IdP supports UDAP Dynamic Registration, then the data holder **SHALL** register as a client with the IdP as per [Section 3] of this guide.
 
