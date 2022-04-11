@@ -10,7 +10,7 @@ For authorization code flow, the User is expected to be interacting with the Req
 
 Thus, this guide provides two different paths (client credentials grants and authorization code grants with Tiered OAuth) that a user affiliated with the Requestor without credentials on the Responder's system may use to obtain access to data held by the Responder.
 
-B2B client applications registered to use the authorization code grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, as extended by the SMART App Launch Framework, and with the additional options and constraints discussed below. 
+B2B client applications registered to use the authorization code grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints discussed below. 
 
 Client applications registered to use the client credentials grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, and with the additional options and constraints discussed below. As noted in [Section 3], the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor.
 
@@ -18,13 +18,13 @@ Client applications registered to use the client credentials grant **SHALL** obt
 
 The section does not apply to client applications registered to use the client credentials grant.
 
-Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [section 7.1.1](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-1-app-asks-for-authorization) of the HL7 SMART App Launch Framework, with the following additional constraints. Client applications are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
+Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications that also support the SMART App Launch IG are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
 
-Servers **SHALL** handle and respond to authorization code requests as per [section 7.1.2](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-2-ehr-evaluates-authorization-request-asking-for-end-user-input) of the HL7 SMART App Launch Framework.
+Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 ### Obtaining an access token
 
-Client applications using the authorization code flow **SHALL** exchange authorization codes for access tokens as per section [7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the HL7 SMART App Launch Framework, with the following additional options and constraints. Client applications using the client credentials flow do not use authorization codes.
+Client applications using the authorization code flow **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints. Client applications using the client credentials flow do not use authorization codes.
 
 #### Constructing Authentication Token
 

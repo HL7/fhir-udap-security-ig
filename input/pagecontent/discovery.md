@@ -8,14 +8,14 @@ UDAP Metadata **SHALL** be structured as a JSON object as per section 1 of [UDA
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
-Note: Servers conforming to this guide are generally expected to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
+Note: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
 {:.bg-info}
 
 ### Required UDAP Metadata
 
 The metadata returned from the UDAP metadata endpoint defined above **SHALL** represent the server's capabilities with respect to the UDAP workflows described in this guide. If no UDAP workflows are supported, the server **SHALL** return a 404 Not Found response to the metadata request. For elements that are represented by JSON arrays, clients **SHALL** interpret an empty array value to mean that the corresponding capability is NOT supported by the server.
 
-Note: There is some expected overlap in the UDAP metadata elements defined below and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
+Note: For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined below and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
 
 
 <table class="table">
@@ -60,7 +60,7 @@ Note: There is some expected overlap in the UDAP metadata elements defined below
       <td><code>scopes_supported</code></td>
       <td><span class="label label-info">recommended</span></td>
       <td>
-        An array of one or more strings containing scopes supported by the Authorization Server, as defined at <http://hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html>. The server <strong>MAY</strong> support different subsets of these scopes for different client types or entities. E.g.:<br>
+        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> support different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
       </td>
     </tr>

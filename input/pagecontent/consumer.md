@@ -1,20 +1,20 @@
 This guide supports consumer-facing client applications using the authorization code grant type. 
 
-Consumer-facing client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow, as extended by the SMART App Launch Framework, and with the additional options and constraints discussed below.
+Consumer-facing client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow, with the additional options and constraints discussed below.
 
 ### Obtaining an authorization code
 
-Client applications **SHALL** request an authorization code as per [section 7.1.1](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-1-app-asks-for-authorization) of the HL7 SMART App Launch Framework, with the following additional constraints. Client applications are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
+Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications that also support the SMART App Launch IG are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
 
-Servers **SHALL** handle and respond to authorization code requests as per [section 7.1.2](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-2-ehr-evaluates-authorization-request-asking-for-end-user-input) of the HL7 SMART App Launch Framework.
+Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 ### Obtaining an access token
 
-Client applications **SHALL** exchange authorization codes for access tokens as per [section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the HL7 SMART App Launch Framework, with the following additional options and constraints.
+Client applications **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints.
 
 #### Constructing Authentication Token
 
-If the client app has registered to authenticate using a private key rather than a shared client_secret, then the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in section 5.1 of UDAP JWT-Based Client Authentication and detailed further in [Section 4.2.2] of this guide. This overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch Framework v1.0.0.
+If the client app has registered to authenticate using a private key rather than a shared client_secret, then the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in section 5.1 of UDAP JWT-Based Client Authentication and detailed further in [Section 4.2.2] of this guide. For clients and servers that also support the SMART App Launch IG, this overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
 
 Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in Section 4 of UDAP JWT-Based Client Authentication:
 
@@ -78,7 +78,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 #### Submitting a token request
 
-For client applications authenticating with a shared secret, the client application and server **SHALL** follow the token request and response protocol in Section 7.1.3 of the HL7 SMART App Launch Framework.
+For client applications authenticating with a shared secret, the client application and server **SHALL** follow the token request and response protocol in Section 4.1.3 and Section 4.1.4 of RFC 6749.
 
 Client applications authenticating with a private key and Authentication Token as per [Section 4.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per Section 5.1 of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
