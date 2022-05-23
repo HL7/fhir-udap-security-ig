@@ -34,10 +34,13 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><code>udap_profiles_supported</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings identifying the core UDAP profiles supported by the Authorization Server, from the following set: 
-        <br><code>"udap_dcr"</code> for UDAP Dynamic Client Registration,
-        <br><code>"udap_authn"</code> for UDAP JWT-Based Client Authentication,
-        <br><code>"udap_authz"</code> for UDAP Client Authorization Grants using JSON Web Tokens (e.g., to indicate support for Authorization Extension Objects), and
+        An array of two or more strings identifying the core UDAP profiles supported by the Authorization Server.
+        The array <strong>SHALL</strong> include: 
+        <br><code>"udap_dcr"</code> for UDAP Dynamic Client Registration, and
+        <br><code>"udap_authn"</code> for UDAP JWT-Based Client Authentication.
+        <br>If the <code>grant_types_supported</code> parameter includes the string <code>"client_credentials"</code>, then the array <strong>SHALL</strong> also include:
+        <br><code>"udap_authz"</code> for UDAP Client Authorization Grants using JSON Web Tokens to indicate support for Authorization Extension Objects.
+        <br>If the server supports the user authentication workflow described in <a href="user.html#tiered-oauth-for-user-authentication">Section 6</a>, then the array <strong>SHALL</strong> also include:
         <br><code>"udap_to"</code> for UDAP Tiered OAuth for User Authentication.
       </td>
     </tr>
