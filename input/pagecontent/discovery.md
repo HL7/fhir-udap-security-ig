@@ -31,8 +31,37 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       </td>
     </tr>
     <tr>
+      <td><code>udap_profiles_supported</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of one or more strings identifying the core UDAP profiles supported by the Authorization Server, from the following set: 
+        <br><code>"udap_dcr"</code> for UDAP Dynamic Client Registration,
+        <br><code>"udap_authn"</code> for UDAP JWT-Based Client Authentication,
+        <br><code>"udap_authz"</code> for UDAP Client Authorization Grants using JSON Web Tokens (e.g., to indicate support for Authorization Extension Objects), and
+        <br><code>"udap_to"</code> for UDAP Tiered OAuth for User Authentication.
+      </td>
+    </tr>
+    <tr>
+      <td><code>udap_authorization_extensions_supported</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of zero or more recognized key names 
+        for Authorization Extension Objects supported by the Authorization Server. If the Authorization Server supports the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a>, then the following key name <strong>SHALL</strong> be included:<br>
+        <code>["hl7-b2b"]</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>udap_authorization_extensions_required</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        An array of zero or more recognized key names 
+        for Authorization Extension Objects required by the Authorization Server in every token request. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
+        <code>["hl7-b2b"]</code>
+      </td>
+    </tr>
+    <tr>
       <td><code>udap_certifications_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         An array of zero or more certification URIs supported by the Authorization Server, e.g.:<br>
         <code>["https://www.example.com/udap/profiles/example-certification"]</code>
@@ -40,15 +69,15 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>udap_certifications_required</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-warning">conditional</span></td>
       <td>
-        An array of zero or more certification URIs required by the Authorization Server, e.g.:<br>
+        An array of zero or more certification URIs required by the Authorization Server. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_certifications_supported</code> parameter is not an empty array. Example:<br>
         <code>["https://www.example.com/udap/profiles/example-certification"]</code>
       </td>
     </tr>
     <tr>
       <td><code>grant_types_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         An array of one or more grant types supported by the Authorization Server, e.g.:<br>
         <code>["authorization_code", "refresh_token",  "client_credentials"]</code><br>
@@ -58,7 +87,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>scopes_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-info">optional</span></td>
       <td>
         An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> support different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
@@ -66,28 +95,28 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>authorization_endpoint</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-warning">conditional</span></td>
       <td>
-        A string containing the absolute URL of the Authorization Server's authorization endpoint
+        A string containing the absolute URL of the Authorization Server's authorization endpoint. This parameter <strong>SHALL</strong> be present if the value of the <code>grant_types_supported</code> parameter includes the string <code>"authorization_code"</code>
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
-        A string containing the absolute URL of the Authorization Server's token endpoint if the server supports UDAP JWT-Based Client Authentication.
+        A string containing the absolute URL of the Authorization Server's token endpoint for UDAP JWT-Based Client Authentication.
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint_auth_methods_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         Fixed array with one value: <code>["private_key_jwt"]</code>
       </td>
     </tr>
     <tr>
       <td><code>token_endpoint_auth_signing_alg_values_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         Array of strings identifying one or more signature algorithms supported by the Authorization Server for validation of signed JWTs submitted to the token endpoint for client authentication. For example:<br>
         <code>["RS256", "ES384"]</code>
@@ -95,7 +124,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>registration_endpoint</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         A string containing the absolute URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
       </td>
@@ -117,6 +146,8 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
   </tbody>
 </table>
+
+An Authorization Server **MAY** include additional metadata elements in its metadata response as described in UDAP Server Metadata. However, a conforming client application might not support additional metadata elements.
 
 ### Signed metadata elements
 
