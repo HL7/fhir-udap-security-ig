@@ -110,7 +110,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>signed_metadata</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
         A string containing a JWT listing the server's endpoints, as defined in [Section 2.3] below.
       </td>
@@ -120,7 +120,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHOULD** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
 
 <table class="table">
   <thead>
@@ -185,5 +185,7 @@ A server's UDAP metadata **SHOULD** include the `signed_metadata` element. The v
     </tr>
   </tbody>
 </table>
+
+Note: The use of the `signed_metadata` parameter in this guide is intended to align with [Section 2.1 of RFC 8414]. However, the requirements specified in this section are stricter than the corresponding requirements in RFC 8414.
 
 {% include link-list.md %}
