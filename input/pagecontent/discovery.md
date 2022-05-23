@@ -126,7 +126,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><code>registration_endpoint</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A string containing the absolute URL of the Authorization Server's registration endpoint if the server supports UDAP Dynamic Client Registration.
+        A string containing the absolute URL of the Authorization Server's registration endpoint.
       </td>
     </tr>
     <tr>
