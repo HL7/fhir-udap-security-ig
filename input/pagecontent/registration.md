@@ -4,6 +4,12 @@ Before FHIR data requests can be made, Client applications operators **SHALL** r
 
 Authorization Servers **SHALL** support dynamic registration as specified in the UDAP Dynamic Client Registration profile at <http://www.udap.org/udap-dynamic-client-registration.html> with the additional options and constraints defined in this guide. Confidential clients that can secure a secret **MAY** use this dynamic client registration protocol as discussed further below to obtain a `client_id`. Other client types **SHOULD** follow the manual registration processes for each Authorization Server. Future versions of this guide may add support for dynamic client registration by public clients which cannot protect a private key.
 
+The dynamic registration workflow is summarized in the following diagram:
+<br>
+<div>
+{% include registration.svg %}
+</div>
+
 ### Software Statement
 
 To register dynamically, the client application first constructs a software statement as per [section 2](https://www.udap.org/udap-dynamic-client-registration.html#section-2) of UDAP Dynamic Client Registration.

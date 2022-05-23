@@ -1,0 +1,10 @@
+@startuml
+skinparam sequenceMessageAlign left
+skinparam shadowing false
+hide footbox
+participant "Client App" as App
+participant "Authorization Server" as Server
+
+App -> Server : Registration request
+App <-- Server : Registration response
+@enduml
