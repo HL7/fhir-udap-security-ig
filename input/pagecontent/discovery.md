@@ -55,7 +55,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><span class="label label-warning">conditional</span></td>
       <td>
         An array of zero or more recognized key names 
-        for Authorization Extension Objects required by the Authorization Server in every token request. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
+        for Authorization Extension Objects required by the Authorization Server in every token request. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_authorization_extensions_supported</code> parameter is not an empty array. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
         <code>["hl7-b2b"]</code>
       </td>
     </tr>
