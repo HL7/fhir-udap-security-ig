@@ -125,6 +125,10 @@ The software statement **SHALL** contain the required header elements specified 
 
 The unique client URI used for the `iss` claim **SHALL** match the uriName entry in the Subject Alternative Name extension of the client app operator's X.509 certificate, and **SHALL** uniquely identify a single client app operator and application over time. The software statement is intended for one-time use with a single OAuth 2.0 server. As such, the `aud` claim **SHALL** list the URL of the OAuth Server's registration endpoint, and the lifetime of the software statement (`exp` minus `iat`) **SHALL** be 5 minutes.
 
+<div class="stu-note" markdown="1">
+1. This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify FHIR servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
+</div>
+
 ### Example
 
 #### Client Credentials

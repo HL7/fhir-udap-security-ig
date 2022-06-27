@@ -84,7 +84,6 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
 The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. the value of `exp` minus the value of `iat` **SHALL NOT** exceed 300 seconds. The Authorization Server **MAY** ignore any unrecognized claims in the Authentication Token. The Authentication Token **SHALL** be signed and serialized using the JSON compact serialization method.
 
 <div class="stu-note" markdown="1">
-1. This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify FHIR servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
 1. For client and servers that also support the SMART App Launch IG v2: the SMART IG requires the `iss` claim in the Authentication Token to be identical to the `sub` claim, whereas this guide requires the `iss` claim to list a unique URI as described in the table above. A server can differentiate which workflow was requested by the client (UDAP or SMART) by the presence or absence of the `udap` parameter in the token request, as per Section 4.2.2 below.
 </div>
 
