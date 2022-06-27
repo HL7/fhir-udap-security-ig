@@ -18,13 +18,25 @@ Client applications registered to use the client credentials grant **SHALL** obt
 
 The section does not apply to client applications registered to use the client credentials grant.
 
+The workflow for obtaining an authorization code is summarized in the following diagram:
+<br>
+<div>
+{% include authz.svg %}
+</div>
+
 Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications that also support the SMART App Launch IG are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 ### Obtaining an access token
 
-Client applications using the authorization code flow **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints. Client applications using the client credentials flow do not use authorization codes.
+The workflow for obtaining an access token is summarized in the following diagram:
+<br>
+<div>
+{% include token.svg %}
+</div>
+
+Client applications using the authorization code flow **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints. Client applications using the client credentials flow do not use authorization codes when requesting an access token.
 
 #### Constructing Authentication Token
 

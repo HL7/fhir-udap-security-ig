@@ -4,11 +4,23 @@ Consumer-facing client applications **SHALL** obtain an access token for access 
 
 ### Obtaining an authorization code
 
+The workflow for obtaining an authorization code is summarized in the following diagram:
+<br>
+<div>
+{% include authz.svg %}
+</div>
+
 Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications that also support the SMART App Launch IG are **NOT REQUIRED** to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication.
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 ### Obtaining an access token
+
+The workflow for obtaining an access token is summarized in the following diagram:
+<br>
+<div>
+{% include token.svg %}
+</div>
 
 Client applications **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints.
 

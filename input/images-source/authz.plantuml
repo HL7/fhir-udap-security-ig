@@ -1,0 +1,10 @@
+@startuml
+skinparam sequenceMessageAlign left
+skinparam shadowing false
+hide footbox
+participant "Client App" as App
+participant "Authorization Server" as Server
+App -> Server : Authorization request
+Server --> Server : Server incorporates user input\ninto authorization decision
+App <-- Server : Authorization response
+@enduml

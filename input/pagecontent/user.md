@@ -2,6 +2,12 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 Client applications registered to use the authorization code grant MAY utilize the user authentication workflow described in [UDAP Tiered OAuth for User Authentication], as profiled below. The UDAP Tiered OAuth workflow allows the client application to include the base URL of a preferred OpenID Connect Identity Provider (IdP) service in the initial request to the data holder's OAuth authorization endpoint. If Tiered OAuth is supported by the data holder and the data holder trusts the IdP indicated by the client, then the data holder will request that the IdP authenticate the user, and return authentication results and optional identity information directly to the data holder using standard OIDC workflows. Note that the client application does not interact directly with the IdP as part of this workflow.
 
+The Tiered OAuth workflow is summarized in the following diagram:
+<br>
+<div>
+{% include tiered.svg %}
+</div>
+
 ### Client Authorization Request to Data Holder
 
 The client app indicates the preferred Identity Provider to the data holder as per Section 2 of the [UDAP Tiered OAuth] specification by modifying the authorization endpoint request described in [Section 4.1] for consumer-facing apps or [Section 5.1] for business-to-business apps as follows:

@@ -1,0 +1,20 @@
+@startuml
+skinparam sequenceMessageAlign left
+skinparam shadowing false
+hide footbox
+participant "Client App" as App
+participant "Data Holder's\nAuthorization Server" as Server
+participant "Identity Provider's\nAuthorization Server" as IDP
+App -> Server : Authorization request\n(including idp parameter)
+Server->IDP: Discovery request
+Server<--IDP: Discovery response
+Server->IDP: Registration request (if needed)
+Server<--IDP: Registration response
+Server -> IDP: Authentication request\n(including openid scope)
+IDP-->IDP: IdP incorporates user input\n into authentication decision
+Server <-- IDP : Authentication response
+Server -> IDP: Token request
+Server <-- IDP: Token response\n(including id_token)
+Server-->Server: Data Holder incorporates user\ninput into authorization decision
+App <-- Server : Authorization response
+@enduml
