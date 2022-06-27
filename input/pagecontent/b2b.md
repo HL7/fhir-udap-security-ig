@@ -53,8 +53,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The unique identifying URI for this client application and client app operator. This URI <strong>SHALL</strong> match the value of a <code>uniformResourceIdentifier</code> entry in the Subject Alternative Name extension of the client's certificate included
-        in the <code>x5c</code> JWT header.
+        The application's <code>client_id</code> as assigned by the Authorization Server during the registration process
       </td>
     </tr>
     <tr>
@@ -103,10 +102,6 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
 </table>
 
 The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. the value of `exp` minus the value of `iat` **SHALL** NOT exceed 300 seconds. The Authorization Server **MAY** ignore any unrecognized claims in the Authentication Token. The Authentication Token **SHALL** be signed and serialized using the JSON compact serialization method.
-
-<div class="stu-note" markdown="1">
-For client and servers that also support the SMART App Launch IG v2: the SMART IG requires the `iss` claim in the Authentication Token to be identical to the `sub` claim, whereas this guide requires the `iss` claim to list a unique URI as described in the table above. A server can differentiate which workflow was requested by the client (UDAP or SMART) by the presence or absence of the `udap` parameter in the token request, as per Section 5.2.2 below.
-</div>
 
 ##### B2B Authorization Extension Object
 
