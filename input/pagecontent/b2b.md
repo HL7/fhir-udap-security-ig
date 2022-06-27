@@ -61,14 +61,14 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>sub</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The application's <code>client_id</code> as assigned by the authorization server during the registration process
+        The application's <code>client_id</code> as assigned by the Authorization Server during the registration process
       </td>
     </tr>
     <tr>
       <td><code>aud</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The FHIR authorization server's token endpoint URL
+        The FHIR Authorization Server's token endpoint URL
       </td>
     </tr>
     <tr>
@@ -217,7 +217,7 @@ Client applications using the authorization code grant and authenticating with a
       <td><code>code</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The code that the app received from the authorization server
+        The code that the app received from the Authorization Server
       </td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ Client applications using the client credentials grant and authenticating with a
   </tbody>
 </table>
 
-Authorization servers receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per Sections 6 and 7 of UDAP JWT-Based Client Authentication.
+An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per Sections 6 and 7 of UDAP JWT-Based Client Authentication.
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 

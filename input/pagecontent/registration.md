@@ -89,7 +89,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>logo_uri</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        A URL string referencing an image associated with the client application, i.e. a logo. If <code>grant_types</code> includes <code>"authorization_code"</code>, client applications <strong>SHALL</strong> include this field, and the authorization server <strong>MAY</strong> display this logo to the user during the authorization process. The URL <strong>SHALL</strong> use the https scheme and reference a PNG, JPG, or GIF image file, e.g. <code>"https://myapp.example.com/MyApp.png"</code>
+        A URL string referencing an image associated with the client application, i.e. a logo. If <code>grant_types</code> includes <code>"authorization_code"</code>, client applications <strong>SHALL</strong> include this field, and the Authorization Server <strong>MAY</strong> display this logo to the user during the authorization process. The URL <strong>SHALL</strong> use the https scheme and reference a PNG, JPG, or GIF image file, e.g. <code>"https://myapp.example.com/MyApp.png"</code>
       </td>
     </tr>
     <tr>
