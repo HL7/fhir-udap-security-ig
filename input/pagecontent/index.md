@@ -69,4 +69,16 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
   </tbody>
 </table>
 
+### Trust Community Checklist
+
+This section lists some additional topics to be addressed by trust communities adopting this guide:
+
+1. Assignment of unique URIs to servers for use in certificates and in the `iss` and `sub` claims of signed metadata elements (see [Section 2.3]).
+1. Assignment of unique URIs to client applications for use in certificates and in the `iss` and `sub` claims of software statements (see [Section 3.1]).
+1. Assignment of unique URIs to organizational requestors for use in a B2B Authorization Extension Object (see `organization_id` in [Section 5.2.1.1]).
+1. Allowed values for requestor roles in a B2B Authorization Extension Object (see `subject_role` in [Section 5.2.1.1]).
+1. Permitted purposes of use for which data may be requested in a B2B Authorization Extension Object (see `purpose_of_use` in [Section 5.2.1.1]).
+1. Consent and authorization policies that may be asserted in a B2B Authorization Extension Object and supporting documentation (see `consent_policy` and `consent_reference` in [Section 5.2.1.1]).
+1. Other community policies or conditions that an actor may need to meet before exchanging data with community participants or with other trust communities. Examples include community legal agreements, certificate policies, policies regarding what claims an actor has the authority to assert, and other community requirements relating to the specific use cases, client types and/or grant types supported by the community.
+
 {% include link-list.md %}

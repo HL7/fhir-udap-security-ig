@@ -11,11 +11,13 @@
 [Section 2.2]: discovery.html#required-udap-metadata
 [Section 2.3]: discovery.html#signed-metadata-elements
 [Section 3]: registration.html#registration
+[Section 3.1]: registration.html#software-statement
 [Section 4.1]: consumer.html#obtaining-an-authorization-code
 [Section 4.2.1]: consumer.html#constructing-authentication-token
 [Section 4.2.2]: consumer.html#submitting-a-token-request
 [Section 5.1]: b2b.html#obtaining-an-authorization-code
 [Section 5.2.1]: b2b.html#constructing-authentication-token
+[Section 5.2.1.1]: b2b.html#b2b-authorization-extension-object
 [Section 5.2.2]: b2b.html#submitting-a-token-request
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
