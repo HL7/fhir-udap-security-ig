@@ -1,6 +1,6 @@
 The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them.
 
-Before FHIR data requests can be made, Client applications operators **SHALL** register each of their applications with the Authorization Servers identified by the FHIR servers with which they wish to exchange data.  Client applications **SHALL** use the client_id assigned by an Authorization Server in subsequent authorization and token requests to that server.
+Before FHIR data requests can be made, Client application operators **SHALL** register each of their applications with the Authorization Servers identified by the FHIR servers with which they wish to exchange data.  Client applications **SHALL** use the client_id assigned by an Authorization Server in subsequent authorization and token requests to that server.
 
 Authorization Servers **SHALL** support dynamic registration as specified in the UDAP Dynamic Client Registration profile at <http://www.udap.org/udap-dynamic-client-registration.html> with the additional options and constraints defined in this guide. Confidential clients that can secure a secret **MAY** use this dynamic client registration protocol as discussed further below to obtain a `client_id`. Other client types **SHOULD** follow the manual registration processes for each Authorization Server. Future versions of this guide may add support for dynamic client registration by public clients which cannot protect a private key.
 
@@ -196,7 +196,7 @@ Content-Type: application/json
 }
 ```
 
-The Authorization Server **SHALL** validate the registration request as per Section 4 of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters. If a new registration is successful, the Authorization Server **SHALL** return a registration response with a HTTP 201 response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration.html#section-5.2) of UDAP Dynamic Client Registration.
+The Authorization Server **SHALL** validate the registration request as per Section 4 of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters. If a new registration is successful, the Authorization Server **SHALL** return a registration response with a `201 Created` HTTP response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration.html#section-5.2) of UDAP Dynamic Client Registration.
 
 ### Inclusion of Certifications and Endorsements
 
@@ -212,6 +212,6 @@ If an Authorization Server receives a valid registration request with a software
 
 If an Authorization Server receives a valid registration request with a software statement that contains an empty `grant_types` array from a previously registered application, the server **SHOULD** interpret this as a request to cancel the previous registration. A client application **SHALL** interpret a registration response that contains an empty `grant_types` array as a confirmation that the registration for the `client_id` listed in the response has been cancelled by the Authorization Server.
 
-If the Authorization Server returns the same `client_id` in the registration response for a modification request, it SHOULD also return an HTTP 200 response code. If the Authorization Server returns a new `client_id` in the registration response, the client application **SHALL** use only the new `client_id` in subsequent transactions with the Authorization Server.
+If the Authorization Server returns the same `client_id` in the registration response for a modification request, it SHOULD also return a `200 OK` HTTP response code. If the Authorization Server returns a new `client_id` in the registration response, the client application **SHALL** use only the new `client_id` in subsequent transactions with the Authorization Server.
 
 {% include link-list.md %}

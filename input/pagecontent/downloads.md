@@ -9,6 +9,10 @@ The following package file includes an NPM package file used by many FHIR tools.
 The following ZIP file contains a downloadable version of this IG that can be hosted locally:
 [Downloadable Copy](full-ig.zip)
 
+### Notices
+
+HL7&reg;, FHIR&reg;, the HL7&reg; logo, and the FHIR&reg; flame design are registered trademarks of Health Level Seven International. UDAP&trade; and the gear design are trademarks of UDAP.org.
+
 ### Credits
 
 Editor: Luis C. Maas, EMR Direct and UDAP.org

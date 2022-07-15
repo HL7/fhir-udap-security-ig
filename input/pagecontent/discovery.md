@@ -10,7 +10,7 @@ The discovery workflow is summarized in the following diagram:
 {% include discovery.svg %}
 </div>
 
-UDAP Metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](http://www.udap.org/udap-server-metadata.html) and discussed further in [Section 2.2].
+UDAP metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](http://www.udap.org/udap-server-metadata.html) and discussed further in [Section 2.2].
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
@@ -19,7 +19,7 @@ Note: Servers conforming to this guide are generally expected, but not required,
 
 ### Required UDAP Metadata
 
-The metadata returned from the UDAP metadata endpoint defined above **SHALL** represent the server's capabilities with respect to the UDAP workflows described in this guide. If no UDAP workflows are supported, the server **SHALL** return a 404 Not Found response to the metadata request. For elements that are represented by JSON arrays, clients **SHALL** interpret an empty array value to mean that the corresponding capability is NOT supported by the server.
+The metadata returned from the UDAP metadata endpoint defined above **SHALL** represent the server's capabilities with respect to the UDAP workflows described in this guide. If no UDAP workflows are supported, the server **SHALL** return a `404 Not Found` response to the metadata request. For elements that are represented by JSON arrays, clients **SHALL** interpret an empty array value to mean that the corresponding capability is NOT supported by the server.
 
 Note: For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined below and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
 

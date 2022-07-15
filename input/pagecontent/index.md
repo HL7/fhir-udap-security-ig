@@ -1,5 +1,5 @@
 <div class="stu-note" markdown="1">
-This Security FHIR IG has been established upon the recommendations of ONC's FHIR at Scale Task Force (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. The workflows defined in the Unified Data Access Profiles (UDAP) have been used in several FHIR IGs, including the Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
+This Security FHIR&reg; IG has been established upon the recommendations of ONC's FHIR at Scale Taskforce (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. The workflows defined in the Unified Data Access Profiles (UDAP&trade;) have been used in several FHIR IGs, including the Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
 
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
 </div>
@@ -8,7 +8,7 @@ Additional enhancements include a formal definition for a B2B Authorization Exte
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
 
-The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Task Force’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guide incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html). This guide is also intended to be compatible and harmonious with client and server use of versions 1 or 2 of the [HL7 SMART App Launch IG](http://hl7.org/fhir/smart-app-launch/history).
+The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html). This guide is also intended to be compatible and harmonious with client and server use of versions 1 or 2 of the [HL7 SMART App Launch IG](http://hl7.org/fhir/smart-app-launch/history).
 {:.bg-info}
 
 This Guide is divided into several pages which are listed at the top of each page in the menu bar.
@@ -59,7 +59,7 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
       <td><span class="label label-success">required</span></td>
       <td>
         An array of one or more strings containing the X.509 certificate or
-        certificate chain, with the leaf certificate corresponding to the
+        certificate chain, where the leaf certificate corresponds to the
         key used to digitally sign the JWT. Each string in the array is the
         base64-encoded DER representation of the corresponding certificate, with the leaf
         certificate appearing as the first (or only) element of the array.<br>
