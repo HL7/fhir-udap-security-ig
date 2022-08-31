@@ -217,9 +217,9 @@ Client applications using the authorization code grant and authenticating with a
     </tr>
     <tr>
       <td><code>redirect_uri</code></td>
-      <td><span class="label label-success">required</span></td>
+      <td><span class="label label-warning">conditional</span></td>
       <td>
-        The client application's redirection URI matching the <code>redirect_uri</code> value included in the initial authorization endpoint request
+        The client application's redirection URI. This parameter <strong>SHALL</strong> be present only if the <code>redirect_uri</code> parameter was included in the authorization request in Section 5.1, and their values <strong>SHALL</strong> be identical.
       </td>
     </tr>
     <tr>
