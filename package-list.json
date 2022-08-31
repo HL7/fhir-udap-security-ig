@@ -13,7 +13,7 @@
     },
     {
       "version": "1.0.0",
-      "date": "2021-11-10",
+      "date": "2022-08-31",
       "desc": "UDAP Security IG STU1",
       "sequence": "STU 1",
       "path": "http://hl7.org/fhir/us/udap-security/STU1",
