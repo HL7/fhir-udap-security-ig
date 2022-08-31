@@ -74,6 +74,7 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
 This section lists some additional topics to be addressed by trust communities adopting this guide:
 
 1. Assignment of unique URIs to servers for use in certificates and in the `iss` and `sub` claims of signed metadata elements (see [Section 2.3]).
+1. URI used to identify the community in metadata requests (see [Section 2.4]).
 1. Assignment of unique URIs to client applications for use in certificates and in the `iss` and `sub` claims of software statements (see [Section 3.1]).
 1. Assignment of unique URIs to organizational requestors for use in a B2B Authorization Extension Object (see `organization_id` in [Section 5.2.1.1]).
 1. Allowed values for requestor roles in a B2B Authorization Extension Object (see `subject_role` in [Section 5.2.1.1]).

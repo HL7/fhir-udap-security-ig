@@ -8,8 +8,10 @@
 [FHIR Artifacts]: artifacts.html
 [Section 1.2]: index.html#json-web-token-jwt-requirements
 [Section 1.2.3]: index.html#jwt-headers
+[Section 2.1]: discovery.html#discovery-of-endpoints
 [Section 2.2]: discovery.html#required-udap-metadata
 [Section 2.3]: discovery.html#signed-metadata-elements
+[Section 2.4]: discovery.html#multiple-trust-communities
 [Section 3]: registration.html#registration
 [Section 3.1]: registration.html#software-statement
 [Section 4.1]: consumer.html#obtaining-an-authorization-code
