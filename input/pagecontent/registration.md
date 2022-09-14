@@ -2,7 +2,7 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 Before FHIR data requests can be made, Client application operators **SHALL** register each of their applications with the Authorization Servers identified by the FHIR servers with which they wish to exchange data.  Client applications **SHALL** use the client_id assigned by an Authorization Server in subsequent authorization and token requests to that server.
 
-Authorization Servers **SHALL** support dynamic registration as specified in the UDAP Dynamic Client Registration profile at <http://www.udap.org/udap-dynamic-client-registration.html> with the additional options and constraints defined in this guide. Confidential clients that can secure a secret **MAY** use this dynamic client registration protocol as discussed further below to obtain a `client_id`. Other client types **SHOULD** follow the manual registration processes for each Authorization Server. Future versions of this guide may add support for dynamic client registration by public clients which cannot protect a private key.
+Authorization Servers **SHALL** support dynamic registration as specified in the UDAP Dynamic Client Registration profile at <https://www.udap.org/udap-dynamic-client-registration-stu1.html> with the additional options and constraints defined in this guide. Confidential clients that can secure a secret **MAY** use this dynamic client registration protocol as discussed further below to obtain a `client_id`. Other client types **SHOULD** follow the manual registration processes for each Authorization Server. Future versions of this guide may add support for dynamic client registration by public clients which cannot protect a private key.
 
 The dynamic registration workflow is summarized in the following diagram:
 <br>
@@ -12,7 +12,7 @@ The dynamic registration workflow is summarized in the following diagram:
 
 ### Software Statement
 
-To register dynamically, the client application first constructs a software statement as per [section 2](https://www.udap.org/udap-dynamic-client-registration.html#section-2) of UDAP Dynamic Client Registration.
+To register dynamically, the client application first constructs a software statement as per [section 2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-2) of UDAP Dynamic Client Registration.
 
 The software statement **SHALL** contain the required header elements specified in [Section 1.2.3] of this guide and the JWT claims listed in the table below.  The software statement **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the software statement and with the private key that corresponds to the public key listed in the client's X.509 certificate identified in the `x5c` header of the software statement.
 
@@ -196,11 +196,11 @@ Content-Type: application/json
 }
 ```
 
-The Authorization Server **SHALL** validate the registration request as per Section 4 of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters. If a new registration is successful, the Authorization Server **SHALL** return a registration response with a `201 Created` HTTP response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration.html#section-5.2) of UDAP Dynamic Client Registration.
+The Authorization Server **SHALL** validate the registration request as per Section 4 of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters. If a new registration is successful, the Authorization Server **SHALL** return a registration response with a `201 Created` HTTP response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.2) of UDAP Dynamic Client Registration.
 
 ### Inclusion of Certifications and Endorsements
 
-Authorization Servers **MAY** support the inclusion of certifications and endorsements by client application operators using the certifications framework outlined in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements.html). Authorization Servers **SHALL** ignore unsupported or unrecognized certifications.
+Authorization Servers **MAY** support the inclusion of certifications and endorsements by client application operators using the certifications framework outlined in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html). Authorization Servers **SHALL** ignore unsupported or unrecognized certifications.
 
 Authorization Servers **MAY** require registration requests to include one or more certifications. If an Authorization Server requires the inclusion of a certain certification, then the Authorization Server **SHALL** communicate this by including the corresponding certification URI in the `udap_certifications_required` element of its UDAP metadata.
 

@@ -10,7 +10,7 @@ The discovery workflow is summarized in the following diagram:
 {% include discovery.svg %}
 </div>
 
-UDAP metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](http://www.udap.org/udap-server-metadata.html) and discussed further in [Section 2.2].
+UDAP metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html) and discussed further in [Section 2.2].
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 

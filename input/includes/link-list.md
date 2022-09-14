@@ -23,8 +23,8 @@
 [Section 5.2.2]: b2b.html#submitting-a-token-request
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
-[UDAP Tiered OAuth for User Authentication]: https://www.udap.org/udap-user-auth.html
-[UDAP Tiered OAuth]: https://www.udap.org/udap-user-auth.html
+[UDAP Tiered OAuth for User Authentication]: https://www.udap.org/udap-user-auth-stu1.html
+[UDAP Tiered OAuth]: https://www.udap.org/udap-user-auth-stu1.html
 [RFC 3986]: https://datatracker.ietf.org/doc/html/rfc3986
 [Section 1.5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-1.5
 [Section 4.1.2.1 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1
