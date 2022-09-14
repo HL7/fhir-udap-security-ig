@@ -21,6 +21,7 @@
 [Section 5.2.1]: b2b.html#constructing-authentication-token
 [Section 5.2.1.1]: b2b.html#b2b-authorization-extension-object
 [Section 5.2.2]: b2b.html#submitting-a-token-request
+[Section 6]: user.html
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
 [UDAP Tiered OAuth for User Authentication]: https://www.udap.org/udap-user-auth-stu1.html
