@@ -12,4 +12,4 @@ For more information about this project see the project [Confluence Page](https:
 
 ## Pull Requests
 
-Please make all pull requests against the 'main' branch only. The 'master' branch is a copy of the 'main' branch and only exists because HL7's current IG build framework requires a branch with this name to be present in order to work properly. Once the build framework issue is resolved, the 'master' branch will be removed.
+Please make all pull requests against the 'main' branch only.
