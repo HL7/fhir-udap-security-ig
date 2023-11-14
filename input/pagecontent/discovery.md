@@ -150,7 +150,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><code>signed_metadata</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A string containing a JWT listing the server's endpoints, as defined in [Section 2.3] below.
+        A string containing a JWT listing the server's endpoints, as defined in <a href="#signed-metadata-elements">Section 2.3</a> below.
       </td>
     </tr>
   </tbody>
