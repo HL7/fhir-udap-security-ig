@@ -2,7 +2,7 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 ### Discovery of Endpoints
 
-A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Servers **SHALL** allow access to the following metadata URL to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server: {baseURL}/.well-known/udap
+A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Servers **SHALL** respond to `GET` requests with the following metadata URL to unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server: {baseURL}/.well-known/udap
 
 The discovery workflow is summarized in the following diagram:
 <br>
