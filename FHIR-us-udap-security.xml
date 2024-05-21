@@ -10,13 +10,13 @@
 <artifact deprecated="true" id="CapabilityStatement/udap-server" key="CapabilityStatement-udap-server" name="UDAP Server CapabilityStatement"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
-<page key="toc" name="Table of Contents"/>
-<page key="index" name="Home"/>
-<page key="discovery" name="Discovery"/>
-<page key="registration" name="Registration"/>
-<page key="consumer" name="Consumer-Facing"/>
-<page key="b2b" name="Business-to-Business"/>
-<page key="user" name="Tiered OAuth for User Authentication"/>
-<page key="downloads" name="Downloads"/>
 <page key="artifacts" name="Artifacts Summary"/>
+<page key="b2b" name="Business-to-Business"/>
+<page key="consumer" name="Consumer-Facing"/>
+<page key="discovery" name="Discovery"/>
+<page key="downloads" name="Downloads"/>
+<page key="index" name="Home"/>
+<page key="registration" name="Registration"/>
+<page key="toc" name="Table of Contents"/>
+<page key="user" name="Tiered OAuth for User Authentication"/>
 </specification>
