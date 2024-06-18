@@ -13,7 +13,7 @@ license: "CC-BY-4.0"
 version: 1.0.1
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU 1 Update
+releaseLabel: STU 1.0.1
 date: 2023-11-10
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
@@ -31,10 +31,8 @@ parameters:
   apply-version: true
   usage-stats-opt-out: true
   excludexml: true
-  excludejsn: false
   excludettl: true
   excludemap: true
-  excludeexample: true
 
 pages:
   index.md:
@@ -47,7 +45,10 @@ pages:
     title: Business-to-Business
   user.md:
     title: Tiered OAuth for User Authentication
-  downloads.md:
+  about.md:
+  changelog_1_0_1.md:
+    title: Change Log - 1.0.1
+    
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │  To control the menu.xml using this config, uncomment and set the "menu" property.             │
@@ -60,7 +61,8 @@ menu:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
-  Downloads: downloads.html
+  About: about.html
+  Change Log: changelog_1_0_1.html
   #FHIR Artifacts: artifacts.html #note: no artifacts
 
   

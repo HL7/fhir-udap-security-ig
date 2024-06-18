@@ -26,9 +26,9 @@ Client applications **SHALL** exchange authorization codes for access tokens as 
 
 #### Constructing Authentication Token
 
-If the client app has registered to authenticate using a private key rather than a shared client_secret, then the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in section 5.1 of UDAP JWT-Based Client Authentication and detailed further in [Section 4.2.2] of this guide. For clients and servers that also support the SMART App Launch IG, this overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
+If the client app has registered to authenticate using a private key rather than a shared client_secret, then the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication and detailed further in [Section 4.2.2] of this guide. For clients and servers that also support the SMART App Launch IG, this overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
 
-Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in Section 4 of UDAP JWT-Based Client Authentication:
+Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in [Section 4](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication:
 
 <table class="table">
   <thead>
@@ -74,7 +74,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed
+        A nonce string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed. The client <strong>SHALL</strong> accept JWTs with jti's used after expiration.
       </td>
     </tr>
   </tbody>
@@ -86,7 +86,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 For client applications authenticating with a shared secret, the client application and server **SHALL** follow the token request and response protocol in Section 4.1.3 and Section 4.1.4 of RFC 6749.
 
-Client applications authenticating with a private key and Authentication Token as per [Section 4.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per Section 5.1 of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications authenticating with a private key and Authentication Token as per [Section 4.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -138,7 +138,7 @@ Client applications authenticating with a private key and Authentication Token a
   </tbody>
 </table>
 
-An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per Sections 6 and 7 of UDAP JWT-Based Client Authentication.
+An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication.
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes. 
 

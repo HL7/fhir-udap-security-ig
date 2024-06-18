@@ -40,9 +40,9 @@ Client applications using the authorization code flow **SHALL** exchange authori
 
 #### Constructing Authentication Token
 
-Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in section 5.1 of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
+Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
 
-Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in Section 4 of UDAP JWT-Based Client Authentication:
+Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in [Section 4](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication:
 
 <table class="table">
   <thead>
@@ -88,7 +88,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed
+        A string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed. The client <strong>SHALL</strong> accept JWTs with jti's used after expiration.
       </td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 ##### B2B Authorization Extension Object
 
-The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
+The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`. Implementors that support B2B `client credentials` flows **SHALL** support this B2B Authorization Extension Object.
 
 <table class="table">
   <thead>
@@ -194,7 +194,7 @@ For example, the U.S. NPI number 1234567890 can be represented as `urn:oid:2.16.
 
 ##### Authorization code grant
 
-Client applications using the authorization code grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per Section 5.1 of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications using the authorization code grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -248,7 +248,7 @@ Client applications using the authorization code grant and authenticating with a
 
 ##### Client credentials grant
 
-Client applications using the client credentials grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per Section 5.2 of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications using the client credentials grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -286,7 +286,7 @@ Client applications using the client credentials grant and authenticating with a
   </tbody>
 </table>
 
-An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per Sections 6 and 7 of UDAP JWT-Based Client Authentication.
+An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth.html) of UDAP JWT-Based Client Authentication.
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 

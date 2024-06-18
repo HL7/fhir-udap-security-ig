@@ -25,7 +25,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>iss</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Issuer of the JWT -- unique identifying client URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the client's certificate included in the <code>x5c</code> JWT header
+        Issuer of the JWT -- unique identifying client URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the client's certificate included in the <code>x5c</code> JWT header and <strong>SHALL</strong> uniquely identify a single client app operator and application over time.
       </td>
     </tr>
     <tr>
@@ -60,7 +60,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this software statement. This value <strong>SHALL NOT</strong> be reused by the client app in another software statement or authentication JWT before the time specified in the <code>exp</code> claim has passed
+        A nonce string value that uniquely identifies this software statement. This value <strong>SHALL NOT</strong> be reused by the client app in another software statement or authentication JWT before the time specified in the <code>exp</code> claim has passed. The client <strong>SHALL</strong> accept JWTs with jti's used after expiration.
       </td>
     </tr>
     <tr>
@@ -123,7 +123,6 @@ The software statement **SHALL** contain the required header elements specified 
   </tbody>
 </table>
 
-The unique client URI used for the `iss` claim **SHALL** match the uriName entry in the Subject Alternative Name extension of the client app operator's X.509 certificate, and **SHALL** uniquely identify a single client app operator and application over time. The software statement is intended for one-time use with a single OAuth 2.0 server. As such, the `aud` claim **SHALL** list the URL of the OAuth Server's registration endpoint, and the lifetime of the software statement (`exp` minus `iat`) **SHALL** be 5 minutes.
 
 <div class="stu-note" markdown="1">
 1. This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify FHIR servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
@@ -206,7 +205,7 @@ Authorization Servers **MAY** require registration requests to include one or mo
 
 ### Modifying and Cancelling Registrations
 
-The client URI in the Subject Alternative Name of an X.509 certificate uniquely identifies a single application and its operator over time. Thus, a previously registered client application **MAY** request a modification of its previous registration with an Authorization Server by submitting another registration request to the same Authorization Server's registration endpoint using a certificate with a Subject Alternative Name client URI entry matching the original registration request.
+The client URI in the Subject Alternative Name of an X.509 certificate uniquely identifies a single application and its operator over time. Thus, a previously registered client application **MAY** request a modification of its previous registration with an Authorization Server by submitting another registration request to the same Authorization Server's registration endpoint using a certificate with a Subject Alternative Name client URI entry matching the original registration request. An Authorization Server with a client participating in multiple trust communitees **SHALL** make updates to the relevant registration and **SHALL NOT** overwrite an existing registration with another trust community.
 
 If an Authorization Server receives a valid registration request with a software statement containing the same `iss` value as an earlier software statement but with a different set of claims or claim values, or with a different (possibly empty) set of optional certifications and endorsements, the server **SHALL** treat this as a request to modify the registration parameters for the client application by replacing the information from the previous registration request with the information included in the new request. For example, an Application operator could use this mechanism to update a redirection URI or to remove or update a certification. If the registration modification request is accepted, the Authorization Server **SHOULD** return the same `client_id` in the registration response as for the previous registration. If it returns a different `client_id`, it **SHALL** cancel the registration for the previous `client_id`.
 

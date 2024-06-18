@@ -34,7 +34,31 @@ All JSON Web Tokens (JWTs) defined in this guide:
 
 #### Signature algorithm identifiers
 
-Signature algorithm identifiers used in this guide are defined in [Section 3.1](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) of RFC 7518. Implementations supporting the UDAP workflows defined in this guide **SHALL** support `RS256`. In addition to the algorithm required by the referenced UDAP specifications, this guide also permits the use of `ES256` and `ES384`. Implementations **SHOULD** support `ES256`, and **MAY** support `ES384` and/or `RS384`.
+Signature algorithm identifiers used in this guide are defined in [Section 3.1](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) of RFC 7518.
+
+<table class="table">
+   <thead>
+      <th colspan="3">Signature Algorithm Identifier Conformance</th>
+   </thead>
+   <tbody>
+      <tr>
+         <td><code>RS256</code></td>
+         <td>Implementers <b>SHALL</b> support this algorithm</td>
+      </tr>
+      <tr>
+         <td><code>ES256</code></td>
+         <td>Implementers <b>SHOULD</b> support this algorithm</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm</td>
+      </tr>
+      <tr>
+         <td><code>RS384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm</td>
+      </tr>
+   </tbody>
+</table>
 
 #### JWT headers
 
