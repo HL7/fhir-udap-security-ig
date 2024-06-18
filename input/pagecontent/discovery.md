@@ -1,4 +1,4 @@
-The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them.
+The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them. The client and the server **SHALL** conform to the underlying server metadata profile.
 
 ### Discovery of Endpoints
 
@@ -160,7 +160,7 @@ An Authorization Server **MAY** include additional metadata elements in its meta
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. [RS256] **SHALL** be used to sign its server metadata. The value of this element is a JWT constructed as described in [Section 1.2] and containing the following claims:
 
 <table class="table">
   <thead>
@@ -226,6 +226,8 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
   </tbody>
 </table>
 
+The client and server **SHALL** validate the signed endpoints as per Section 3 in [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html).
+
 Note: The use of the `signed_metadata` parameter in this guide is intended to align with [Section 2.1 of RFC 8414]. However, the requirements specified in this section are stricter than the corresponding requirements in RFC 8414.
 
 ### Multiple Trust Communities
@@ -234,6 +236,8 @@ A server that participates in more than one trust community may be issued differ
 
 To address this, a client application **MAY** add the optional query parameter `community` to the metadata request URL described in [Section 2.1] to indicate that it trusts certificates issued by the community identified by the parameter value. The value of the parameter **SHALL** be a URI as determined by the trust community for this purpose.
 
-Server support for the `community` parameter is optional. If a server supports this parameter and recognizes the URI value, it **SHALL** select a certificate intended for use within the identified trust community, if it has been issued such a certificate, and use that certificate when generating the signed JWT returned for the `signed_metadata` element. If a server supports different UDAP capabilities for different communities, it **MAY** also return different values for other metadata elements described in [Section 2.2] as appropriate for the identified community. If the server does not recognize the community URI or does not have a suitable certificate for the identified community, it **MAY** return a `404 Not Found` response to the metadata request to indicate that no UDAP workflows are supported by server in the context of that community, or it **MAY** return its default metadata, i.e. the metadata that it would have returned if the `community` parameter was not included in the request.
+Server support for the `community` parameter is optional. If a server supports this parameter and recognizes the URI value, it **SHALL** select a certificate intended for use within the identified trust community, if it has been issued such a certificate, and use that certificate when generating the signed JWT returned for the `signed_metadata` element. If a server supports different UDAP capabilities for different communities, it **MAY** also return different values for other metadata elements described in [Section 2.2] as appropriate for the identified community. If the server does not recognize the community URI or does not have a suitable certificate for the identified community, it **MAY** return a `204 No Content` response to the metadata request to indicate that no UDAP workflows are supported by server in the context of that community, or it **MAY** return its default metadata, i.e. the metadata that it would have returned if the `community` parameter was not included in the request.
+
+Note: The authors recommend that the client be prepared to handle server metadata signed with a key for a different trust community than expected, regardless if the community parameter was used.
 
 {% include link-list.md %}
