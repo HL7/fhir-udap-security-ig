@@ -14,7 +14,7 @@
 <page key="about" name="About"/>
 <page key="artifacts" name="Artifacts Summary"/>
 <page key="b2b" name="Business-to-Business"/>
-<page key="changelog_1_0_1" name="Change Log - 1.0.1"/>
+<page key="changelog" name="Change Log"/>
 <page key="consumer" name="Consumer-Facing"/>
 <page key="discovery" name="Discovery"/>
 <page deprecated="true" key="downloads" name="Downloads"/>
