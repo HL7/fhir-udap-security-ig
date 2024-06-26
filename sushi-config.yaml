@@ -46,8 +46,8 @@ pages:
   user.md:
     title: Tiered OAuth for User Authentication
   about.md:
-  changelog_1_1.md:
-    title: Change Log - 1.1
+  changelog.md:
+    title: Change Log
 
     
 
@@ -63,7 +63,7 @@ menu:
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
   About: about.html
-  Change Log: changelog_1_1.html
+  Change Log: changelog.html
   #FHIR Artifacts: artifacts.html #note: no artifacts
 
   
