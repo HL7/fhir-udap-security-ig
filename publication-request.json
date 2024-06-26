@@ -1,0 +1,10 @@
+{
+  "package-id" : "hl7.fhir.us.udap-security",
+  "version" : "1.1.0",
+  "path" : "http://hl7.org/fhir/us/udap-security/STU1-1",
+  "mode" : "working",
+  "status" : "release",
+  "sequence" : "STU1.1",
+  "desc" : "FHIR at Scale (FAST): Scalable Registration, Authentication, and Authorization for FHIR Ecosystem Participants - 1.1",
+  "first" : false
+}
