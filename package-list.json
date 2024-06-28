@@ -6,20 +6,21 @@
   "category": "Security",
   "list": [
     {
-      "version": "1.1.0",
-      "date": "2024-05-21",
-      "desc": "UDAP Security IG STU1.1",
-      "sequence": "STU 1.1",
-      "path": "http://hl7.org/fhir/us/udap-security/STU1-1",
-      "status": "trial-use",
-      "fhirversion": "4.0.1",
-      "current": false
-    },
-    {
       "version": "current",
       "desc": "Continuous Integration Build for UDAP Security FHIR IG (latest in version control)",
       "path": "http://build.fhir.org/ig/HL7/fhir-udap-security-ig",
-      "status": "ci-build"
+      "status": "ci-build",
+      "current": true
+    },
+    {
+      "version": "1.1.0",
+      "date": "2024-06-28",
+      "desc": "UDAP Security IG STU1 Update 1",
+      "sequence": "STU 1",
+      "path": "http://hl7.org/fhir/us/udap-security/STU1.1",
+      "status": "update",
+      "fhirversion": "4.0.1",
+      "current": true
     },
     {
       "version": "1.0.0",
