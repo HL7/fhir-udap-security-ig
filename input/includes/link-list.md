@@ -24,6 +24,7 @@
 [Section 6]: user.html
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
+[UDAP Server Metadata]: https://www.udap.org/udap-server-metadata-stu1.html
 [UDAP Tiered OAuth for User Authentication]: https://www.udap.org/udap-user-auth-stu1.html
 [UDAP Tiered OAuth]: https://www.udap.org/udap-user-auth-stu1.html
 [RFC 3986]: https://datatracker.ietf.org/doc/html/rfc3986

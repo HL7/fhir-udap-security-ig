@@ -1,4 +1,4 @@
-The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them. The client and the server **SHALL** conform to the underlying server metadata profile.
+The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them. The client and the server **SHALL** conform to the underlying server metadata profile in [UDAP Server Metadata].
 
 ### Discovery of Endpoints
 
@@ -156,7 +156,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
   </tbody>
 </table>
 
-An Authorization Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html). However, a conforming client application might not support additional metadata elements.
+An Authorization Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata]. However, a conforming client application might not support additional metadata elements.
 
 ### Signed metadata elements
 
@@ -226,7 +226,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. [RS256
   </tbody>
 </table>
 
-The client and server **SHALL** validate the signed endpoints as per Section 3 in [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html).
+The client **SHALL** validate the signed metadata returned by the server as per Section 3 of [UDAP Server Metadata].
 
 Note: The use of the `signed_metadata` parameter in this guide is intended to align with [Section 2.1 of RFC 8414]. However, the requirements specified in this section are stricter than the corresponding requirements in RFC 8414.
 
