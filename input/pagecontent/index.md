@@ -4,7 +4,7 @@ This Security FHIR&reg; IG has been established upon the recommendations of ONC'
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
 </div>
 
-### About This Guide
+### Introduction
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
 
@@ -43,19 +43,19 @@ Signature algorithm identifiers used in this guide are defined in [Section 3.1](
    <tbody>
       <tr>
          <td><code>RS256</code></td>
-         <td>Implementers <b>SHALL</b> support this algorithm</td>
+         <td>Implementers <b>SHALL</b> support this algorithm.</td>
       </tr>
       <tr>
          <td><code>ES256</code></td>
-         <td>Implementers <b>SHOULD</b> support this algorithm</td>
-      </tr>
-      <tr>
-         <td><code>ES384</code></td>
-         <td>Implementers <b>MAY</b> support this algorithm</td>
+         <td>Implementers <b>SHOULD</b> support this algorithm.</td>
       </tr>
       <tr>
          <td><code>RS384</code></td>
-         <td>Implementers <b>MAY</b> support this algorithm</td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
       </tr>
    </tbody>
 </table>
