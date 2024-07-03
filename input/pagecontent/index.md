@@ -4,7 +4,7 @@ This Security FHIR&reg; IG has been established upon the recommendations of ONC'
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
 </div>
 
-### About This Guide
+### Introduction
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
 
@@ -43,19 +43,19 @@ Signature algorithm identifiers used in this guide are defined in [Section 3.1](
    <tbody>
       <tr>
          <td><code>RS256</code></td>
-         <td>Implementers <b>SHALL</b> support this algorithm</td>
+         <td>Implementers <b>SHALL</b> support this algorithm.</td>
       </tr>
       <tr>
          <td><code>ES256</code></td>
-         <td>Implementers <b>SHOULD</b> support this algorithm</td>
-      </tr>
-      <tr>
-         <td><code>ES384</code></td>
-         <td>Implementers <b>MAY</b> support this algorithm</td>
+         <td>Implementers <b>SHOULD</b> support this algorithm.</td>
       </tr>
       <tr>
          <td><code>RS384</code></td>
-         <td>Implementers <b>MAY</b> support this algorithm</td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
       </tr>
    </tbody>
 </table>
@@ -87,11 +87,17 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
         key used to digitally sign the JWT. Each string in the array is the
         base64-encoded DER representation of the corresponding certificate, with the leaf
         certificate appearing as the first (or only) element of the array.<br>
-        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">https://tools.ietf.org/html/rfc7515#section-4.1.6</a>
+        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">Section 4.1.6 of RFC 7515</a>.
       </td>
     </tr>
   </tbody>
 </table>
+
+#### JWT Claims
+
+All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
+
+Additional JWT Claim requirements are defined later in this guide. 
 
 ### Trust Community Checklist
 

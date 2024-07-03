@@ -88,7 +88,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed. The client <strong>SHALL</strong> accept JWTs with jti's used after expiration.
+        A nonce string value that uniquely identifies this authentication JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 ##### B2B Authorization Extension Object
 
-The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`. Implementors that support B2B `client credentials` flows **SHALL** support this B2B Authorization Extension Object.
+The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`. Servers that support the B2B `client credentials` flow described in this guide **SHALL** support this B2B Authorization Extension Object.
 
 <table class="table">
   <thead>
