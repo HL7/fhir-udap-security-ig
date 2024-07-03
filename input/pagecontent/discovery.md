@@ -199,7 +199,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this JWT. This value <strong>SHALL NOT</strong> be reused by the server in another JWT before the time specified in the <code>exp</code> claim has passed. The server <strong>SHALL</strong> accept JWTs with jti's reused after expiration.
+        A nonce string value that uniquely identifies this JWT. See [Section 1.2.4] for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>

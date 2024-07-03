@@ -88,7 +88,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A string value that uniquely identifies this authentication JWT. This value <strong>SHALL NOT</strong> be reused by the client app in another authentication JWT before the time specified in the <code>exp</code> claim has passed. The client <strong>SHALL</strong> accept JWTs with jti's reused after expiration.
+        A nonce string value that uniquely identifies this authentication JWT. See [Section 1.2.4] for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>

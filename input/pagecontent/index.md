@@ -93,6 +93,12 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
   </tbody>
 </table>
 
+#### JWT Claims
+
+All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
+
+Additional JWT Claim requirements are defined later in this guide. 
+
 ### Trust Community Checklist
 
 This section lists some additional topics to be addressed by trust communities adopting this guide:
