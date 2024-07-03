@@ -199,7 +199,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this JWT. See [Section 1.2.4] for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
