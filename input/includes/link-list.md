@@ -32,6 +32,7 @@
 [Section 4.1.2.1 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1
 [Section 5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-5
 [Section 6 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-6
+[Section 3.2.1 of RFC 7591]: https://datatracker.ietf.org/doc/html/rfc7591#section-3.2.1
 [Section 2.1 of RFC 8414]: https://datatracker.ietf.org/doc/html/rfc8414#section-2.1
 [Section 3.1.2.1 of OIDC Core]: https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 [Section 3.1.3.1 of OIDC Core]: https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest

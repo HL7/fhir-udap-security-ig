@@ -195,7 +195,11 @@ Content-Type: application/json
 }
 ```
 
-The Authorization Server **SHALL** validate the registration request as per [Section 4](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-4) of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters. If a new registration is successful, the Authorization Server **SHALL** return a registration response with a `201 Created` HTTP response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.2) of UDAP Dynamic Client Registration.
+The Authorization Server **SHALL** validate the registration request as per [Section 4](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-4) of UDAP Dynamic Client Registration. This includes validation of the JWT payload and signature, validation of the X.509 certificate chain, and validation of the requested application registration parameters.
+
+If a new registration is successful, the Authorization Server **SHALL** return a registration response with a `201 Created` HTTP response code as per [Section 5.1](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.1) of UDAP Dynamic Client Registration, including the unique `client_id` assigned by the Authorization Server to that client app. Since the UDAP Dynamic Client Registration profile specifies that a successful registration response is returned as per [Section 3.2.1 of RFC 7591], the authorization server **MAY** reject or replace any of the client's requested metadata values submitted during the registration and substitute them with suitable values.
+
+If a new registration is not successful, e.g. it is rejected by the server for any reason, the Authorization Server **SHALL** return an error response as per [Section 5.2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-5.2) of UDAP Dynamic Client Registration.
 
 ### Inclusion of Certifications and Endorsements
 
