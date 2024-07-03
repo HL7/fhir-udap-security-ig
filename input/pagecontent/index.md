@@ -87,7 +87,7 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
         key used to digitally sign the JWT. Each string in the array is the
         base64-encoded DER representation of the corresponding certificate, with the leaf
         certificate appearing as the first (or only) element of the array.<br>
-        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">https://tools.ietf.org/html/rfc7515#section-4.1.6</a>
+        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">Section 4.1.6 of RFC 7515</a>.
       </td>
     </tr>
   </tbody>
