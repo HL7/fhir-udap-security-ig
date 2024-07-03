@@ -39,7 +39,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>aud</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The Authorization Server's "registration URL" (the same URL to which the registration request  will be posted)
+        The Authorization Server's "registration URL" (the same URL to which the registration request will be posted)
       </td>
     </tr>
     <tr>
