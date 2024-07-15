@@ -13,7 +13,7 @@ license: "CC-BY-4.0"
 version: 1.1.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU1 Update
+releaseLabel: STU1.1
 date: 2024-06-28
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
