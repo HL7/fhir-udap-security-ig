@@ -1,9 +1,9 @@
 {
-  "name": "hl7.udap.template",
+  "name": "hl7.udap-fast.template",
   "version": "0.9.1",
   "type": "fhir.template",
   "license": "CC-BY-4.0",
-  "description": "HL7/UDAP.org joint Template - for use with FHIR IGs published jointly by HL7 and UDAP.org",
+  "description": "HL7/UDAP.org joint Template - for use with FHIR IGs published jointly by HL7 and UDAP.org, when FAST logo is also included",
   "author": "https://www.udap.org",
   "canonical": "http://github.com/udap-tools/ig-template-udap",
   "base": "hl7.fhir.template",
