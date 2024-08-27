@@ -98,7 +98,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><code>scopes_supported</code></td>
       <td><span class="label label-info">optional</span></td>
       <td>
-        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> support different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
+        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
       </td>
     </tr>
