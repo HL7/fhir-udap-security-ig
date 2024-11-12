@@ -1,5 +1,5 @@
 <div class="stu-note" markdown="1">
-This Security FHIR&reg; IG has been established upon the recommendations of ONC's FHIR at Scale Taskforce (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. The workflows defined in the Unified Data Access Profiles (UDAP&trade;) have been used in several FHIR IGs, including the Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
+This Security FHIR&reg; IG has been established upon the recommendations of ONC's FHIR at Scale Taskforce (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. The workflows defined in the Unified Data Access Profiles (UDAP&trade;) have been used in several FHIR IGs, including the TEFCA Facilitated FHIR IG, Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
 
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
 </div>
@@ -19,6 +19,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Consumer-Facing]\: This page provides detailed guidance for authorization and authentication of consumer-facing apps.
 - [Business-to-Business]\: This page provides detailed guidance for authorization and authentication of B2B apps.
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
+- [General Guidance]\: This page provides general guidance applicable to multiple authorization and authentication workflows.
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
 
 ### JSON Web Token (JWT) Requirements

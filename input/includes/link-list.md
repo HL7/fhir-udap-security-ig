@@ -5,6 +5,7 @@
 [Consumer-Facing]: consumer.html
 [Business-to-Business]: b2b.html
 [Tiered OAuth for User Authentication]: user.html
+[General Guidance]: general.html
 [FHIR Artifacts]: artifacts.html
 [Section 1.2]: index.html#json-web-token-jwt-requirements
 [Section 1.2.3]: index.html#jwt-headers
