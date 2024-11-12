@@ -52,8 +52,7 @@ Note: invalid_client_metadata is the corresponding registration request error.
 
 This section provides a template for a UDAP Certification that can be used by client applications or third parties to declare additional information about the client application at the time of registration.
 
-A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 1.2.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification.
-
+A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 1.2.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator or by a third party using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification.
 
 <table class="table">
   <thead>
@@ -145,12 +144,25 @@ A client application or third party **MAY** construct a certification by constru
         A JSON object containing one or more of the keys listed in the following section.</code>
       </td>
     </tr>
-    <tr>
   </tbody>
 </table>
 
+Note: A certification self-signed by a client app operator can be used to declare the intended use of the application within a trust community. Certifications signed by a third party, such as the trust community administrator or an independent accreditor, can be used to assist servers in determining what a client application is authorized to do within a trust community. For example, a trust community administrator could use this certification to communicate the use cases for which a particular client application operator has been approved.
 #### Basic certification extension keys
 
-TBD
+<table class="table">
+  <thead>
+    <th colspan="3">Client Application Certification JWT Extensions Keys</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>exchange_purpose</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Array of strings, each containing a URI identifying an exchange purpose recognized by the trust community.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 

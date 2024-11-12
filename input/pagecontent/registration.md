@@ -207,7 +207,7 @@ Authorization Servers **MAY** support the inclusion of certifications and endors
 
 Authorization Servers **MAY** require registration requests to include one or more certifications. If an Authorization Server requires the inclusion of a certain certification, then the Authorization Server **SHALL** communicate this by including the corresponding certification URI in the `udap_certifications_required` element of its UDAP metadata.
 
-An example template application to declare additional information about the client application at the time of registration is described in [Section 8.3] of this guilde.
+An example template application to declare additional information about the client application at the time of registration is described in [Section 7.3] of this guilde.
 
 ### Modifying and Cancelling Registrations
 

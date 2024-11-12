@@ -28,7 +28,7 @@ Client applications registered to use the authorization code grant **SHALL** req
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
-Client applications and Authorization Servers using the authorization code flow **SHALL** conform to the additional constraints for authorization code flow found in [Section 8.1] of this guide.
+Client applications and Authorization Servers using the authorization code flow **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.1] of this guide.
 
 ### Obtaining an access token
 
