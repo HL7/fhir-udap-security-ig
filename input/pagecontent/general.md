@@ -47,3 +47,110 @@ Note: invalid_client_metadata is the corresponding registration request error.
 Note: invalid_client_metadata is the corresponding registration request error.
 {:bg-info}
 1. A server **SHALL** include the `scope` parameter in a token response if the set of scopes granted by the server to the client application is not identical to the set of scopes requested by the client application, or if the client application does not include a set of requested scopes in its request.
+
+### Certification template for client applications
+
+This section provides a template for a UDAP Certification that can be used by client applications or third parties to declare additional information about the client application at the time of registration.
+
+A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 1.2.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification.
+
+
+<table class="table">
+  <thead>
+    <th colspan="3">Client Application Certification JWT Claims</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>iss</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Issuer of the JWT -- unique identifying URI of the signing entity. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the signer's certificate included in the <code>x5c</code> JWT header and <strong>SHALL</strong> uniquely identify a single signing entity over time.
+      </td>
+    </tr>
+    <tr>
+      <td><code>sub</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Subject of the JWT -- unique identifying client URI. This <strong>SHALL</strong> match the value of a uniformResourceIdentifier entry in the Subject Alternative Name extension of the client's certificate and <strong>SHALL</strong> uniquely identify a single client app operator and applications over time.
+        For a self-signed certification, this is same as <code>iss</code>.
+      </td>
+    </tr>
+    <tr>
+      <td><code>aud</code></td>
+      <td><span class="label label-warning">optional</span></td>
+      <td>
+        The "registration URL" of the intended Authorization server(s), i.e. the same URL to which the registration request will be posted. If absent, this certification is intended for all Authorization Servers. The value can be a single string or array of strings.
+      </td>
+    </tr>
+    <tr>
+      <td><code>exp</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Expiration time integer for this software statement, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC). The <code>exp</code> time <strong>SHALL</strong> be no more than 3 years after the value of the <code>iat</code> claim.
+      </td>
+    </tr>
+    <tr>
+      <td><code>iat</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Issued time integer for this software statement, expressed in seconds since the "Epoch"
+      </td>
+    </tr>
+    <tr>
+      <td><code>jti</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        A nonce string value that uniquely identifies this software statement. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+      </td>
+    </tr>
+    <tr>
+      <td><code>certification_name</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        string with fixed value: "HL7 Basic Client App Certification"
+      </td>
+    </tr>
+    <tr>
+      <td><code>certification_uris</code></td>
+      <td><span class="label label-warning">required</span></td>
+      <td>
+        array of one string with fixed value: ["TBD"]
+      </td>
+    </tr>
+    <tr>
+      <td><code>grant_types</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Array of strings, each representing a requested grant type, from the following list: <code>"authorization_code"</code>, <code>"refresh_token"</code>, <code>"client_credentials"</code>. The array <strong>SHALL</strong> include either <code>"authorization_code"</code> or <code>"client_credentials"</code>, but not both. The value <code>"refresh_token"</code> <strong>SHALL NOT</strong> be present in the array unless <code>"authorization_code"</code> is also present.
+      </td>
+    </tr>
+    <tr>
+      <td><code>response_types</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        Array of strings. If <code>grant_types</code> contains <code>"authorization_code"</code>, then this element <strong>SHALL</strong> have a fixed value of <code>["code"]</code>, and <strong>SHALL</strong> be omitted otherwise
+      </td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        String containing a space delimited list of scopes requested by the client application for use in subsequent requests. The Authorization Server <strong>MAY</strong> consider this list when deciding the scopes that it will allow the application to subsequently request. Note for client apps that also support the SMART App Launch framework: apps requesting the <code>"client_credentials"</code> grant type <strong>SHOULD</strong> request system scopes; apps requesting the <code>"authorization_code"</code> grant type <strong>SHOULD</strong> request user or patient scopes.
+      </td>
+    </tr>
+    <tr>
+      <td><code>extensions</code></td>
+      <td><span class="label label-success">optional</span></td>
+      <td>
+        A JSON object containing one or more of the keys listed in the following section.</code>
+      </td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+#### Basic certification extension keys
+
+TBD
+
+

@@ -207,6 +207,8 @@ Authorization Servers **MAY** support the inclusion of certifications and endors
 
 Authorization Servers **MAY** require registration requests to include one or more certifications. If an Authorization Server requires the inclusion of a certain certification, then the Authorization Server **SHALL** communicate this by including the corresponding certification URI in the `udap_certifications_required` element of its UDAP metadata.
 
+An example template application to declare additional information about the client application at the time of registration is described in [Section 8.3] of this guilde.
+
 ### Modifying and Cancelling Registrations
 
 Within a trust community, the client URI in the Subject Alternative Name of an X.509 certificate uniquely identifies a single application and its operator over time. Thus, a registered client application **MAY** request a modification of its registration with an Authorization Server by submitting another registration request to the same Authorization Server's registration endpoint with a software statement containing a certificate corresponding to the same trust community and with the same `iss` value as was used in the original registration request. An Authorization Server accepting such a request **SHALL** only update the registration previously made in the context of the corresponding trust community, as detailed in the next paragraph, and **SHALL NOT** overwrite an existing registration made in the context of a different trust community.

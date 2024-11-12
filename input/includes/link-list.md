@@ -25,6 +25,7 @@
 [Section 5.2.2]: b2b.html#submitting-a-token-request
 [Section 6]: user.html
 [Section 8.1]: general.html#authorization-code-flow
+[Section 8.3]: general.html#authorization-code-flow
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
 [UDAP Server Metadata]: https://www.udap.org/udap-server-metadata-stu1.html

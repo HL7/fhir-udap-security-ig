@@ -7,6 +7,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
 |[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
 |[FHIR-43005](https://jira.hl7.org/browse/FHIR-43005)|Clarify server may grant a subset of "scopes_supported"|
+|[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add self-certification example for exchange purpose|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
 
 ### Version 1.1.0 - STU1 Update 1
