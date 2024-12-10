@@ -9,6 +9,9 @@ name: UDAPSecurity
 title: "Security for Scalable Registration, Authentication, and Authorization"
 description: "This implementation guide describes how to extend OAuth 2.0 to support secure and scalable workflows for business-to-business (B2B) apps that implement the client credentials flow or authorization code flow."
 status: active
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: sec
 license: "CC-BY-4.0"
 version: 2.0.0-ballot
 fhirVersion: 4.0.1

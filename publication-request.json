@@ -1,7 +1,7 @@
 {
   "package-id" : "hl7.fhir.us.udap-security",
   "version" : "2.0.0-ballot",
-  "path" : "http://hl7.org/fhir/us/udap-security/STU2",
+  "path" : "http://hl7.org/fhir/us/udap-security/2025Jan",
   "mode" : "working",
   "status" : "ballot",
   "sequence" : "STU 2",

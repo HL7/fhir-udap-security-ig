@@ -1,5 +1,3 @@
 == Suppressed Messages ==
 # IG contains no FHIR artifacts
 ERROR: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide|4.0.1)
-# IG contains no FHIR artifacts
-ERROR: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide: When HL7 is publishing a resource, the owning committee must be stated using the http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension
