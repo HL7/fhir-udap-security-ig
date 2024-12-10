@@ -166,7 +166,7 @@ This section lists two example extension keys that could be considered for inclu
 
 
 <div class="bg-info">
-Note: The example keys listed below in the description of the `privacy_disclosures` extension key are derived from an example Certification previously published by Carequality, which can be viewed <a href="https://carequality.org/wp-content/uploads/2020/12/Carequality-Consumer-Facing-App-Certification-Profile.pdf">here</a>.
+Note: The example keys listed below in the description of the <code>privacy_disclosures</code> extension key are derived from an example Certification previously published by Carequality, which can be viewed <a href="https://carequality.org/wp-content/uploads/2020/12/Carequality-Consumer-Facing-App-Certification-Profile.pdf">here</a>.
 </div>
 
 <table class="table">
