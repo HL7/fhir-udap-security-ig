@@ -186,9 +186,9 @@ Note: The example keys `privacy_disclosures` are derived from keys previously pu
       <td><span class="label label-warning">optional</span></td>
       <td>
         A JSON object containing a set of privacy-related keys and acceptable values established by the trust community. <br>Examples:
-        <br>1. the key `funding` could be used to express the app's source of funding.
-        <br>2. the key `data_storage` could be used to identify where a patient's data is stored.
-        <br>3. the key `data_access_notification` could be used to indicate whether a user is notified when their data is accessed by someone else.
+        <br>1. the key <code>funding</code> could be used to express the app's source of funding.
+        <br>2. the key <code>data_storage</code> could be used to identify where a patient's data is stored.
+        <br>3. the key <code>data_access_notification</code> could be used to indicate whether a user is notified when their data is accessed by someone else.
       </td>
     </tr>
   </tbody>
