@@ -162,7 +162,12 @@ A client application or third party **MAY** construct a certification by constru
 Note: A certification self-signed by a client app operator can be used to declare the intended use of the application within a trust community. Certifications signed by a third party, such as the trust community administrator or an independent accreditor, can be used to assist servers in determining what a client application is authorized to do within a trust community. For example, a trust community administrator could use this certification to communicate the exchange purposes for which a particular client application operator has been approved.
 #### Certification extension keys example
 
-This section lists two example extension keys that could be considered for inclusion in a Certification.
+This section lists two example extension keys that could be considered for inclusion in a Certification. When defining a Certification, a trust community **MAY** define one or more extension keys to be included in the `extensions` object of the Certification JWT. The value of each extension key **SHALL** be a JSON value or a JSON object. For example, a Certification definition could specify a number, an array of strings, or a FHIR [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) resource as the value of an extension key.
+
+
+<div class="bg-info">
+Note: The example keys `privacy_disclosures` are derived from keys previously published by Carequality. The full Carequality example can be viewed [here](https://carequality.org/wp-content/uploads/2020/12/Carequality-Consumer-Facing-App-Certification-Profile.pdf).
+</div>
 
 <table class="table">
   <thead>
@@ -188,8 +193,3 @@ This section lists two example extension keys that could be considered for inclu
     </tr>
   </tbody>
 </table>
-
-<div class="bg-info">
-Note: The example keys `privacy_disclosures` are derived from keys previously published by Carequality.
-</div>
-
