@@ -34,7 +34,7 @@ The constraints enumerated below apply for scope negotiation between client appl
 1. Client applications and servers **MAY** support wildcard scopes.
 1. A client application **MAY** request a wildcard scope only if wildcards are specified in the server's `scopes_supported` metadata list.
 1. If a client application requests a wildcard scope and the server supports wildcards, then the server **SHOULD** return either the wildcard scope or an expanded set of scopes that the client has been granted in its response.
-1. If a client application requests a wildcard scope and the server does **NOT** support wildcard scopes, then the server **SHOULD** respond with an error of "invalid_scope".
+1. If a client application requests a wildcard scope and the server does not support wildcard scopes, then the server **SHOULD** respond with an error of "invalid_scope".
 
     <div class="bg-info">
     Note: "invalid_client_metadata" is the corresponding registration request error.
