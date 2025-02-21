@@ -155,7 +155,7 @@ Example software statement, prior to Base64URL encoding and signature, for a B2B
 
 #### Authorization Code
 
-Example software statement, prior to Base64URL encoding and signature, for a B2B app that is requesting the use of the client credentials grant type (non-normative, the "." between the header and claims objects is a convenience notation only):
+Example software statement, prior to Base64URL encoding and signature, for a B2C app that is requesting the use of the authorization code grant type (non-normative, the "." between the header and claims objects is a convenience notation only):
 
 ```
 {
