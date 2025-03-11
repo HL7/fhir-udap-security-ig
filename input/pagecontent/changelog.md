@@ -15,6 +15,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
+|[FHIR-49142](https://jira.hl7.org/browse/FHIR-49142)|Invalid conformance language corrected|
 
 ### Version 1.1.0 - STU1 Update 1
 
