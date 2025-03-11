@@ -25,7 +25,7 @@ A wildcard scope is a scope that can be alternatively represented as a set of no
 
 The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers.
 
-1. The `scopes_supported` metadata **SHALL** be present in the .well-known/smartconfiguration or .well-known/udap object, as applicable, and **SHALL** list all scopes supported including all supported wildcard scopes.
+1. The `scopes_supported` metadata **SHALL** be present in the .well-known/udap object and **SHALL** list all scopes supported including all supported wildcard scopes.
 
     <div class="note-to-balloters">
     `scopes_supported` is currently optional in the Discovery section of this guide. References to SMART specific content should be removed.
