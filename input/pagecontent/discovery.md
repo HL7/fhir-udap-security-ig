@@ -64,7 +64,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><span class="label label-warning">conditional</span></td>
       <td>
         An array of zero or more recognized key names 
-        for Authorization Extension Objects required by the Authorization Server in every token request. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_authorization_extensions_supported</code> parameter is not an empty array. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
+        for Authorization Extension Objects required by the Authorization Server in every token request. The array <strong>SHALL NOT</strong> include key names that are not also elements of the <code>udap_authorization_extensions_supported</code> array. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_authorization_extensions_supported</code> parameter is not an empty array. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
         <code>["hl7-b2b"]</code>
       </td>
     </tr>
@@ -80,7 +80,7 @@ Note: For servers that also support the SMART App Launch Framework, there is som
       <td><code>udap_certifications_required</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        An array of zero or more certification URIs required by the Authorization Server. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_certifications_supported</code> parameter is not an empty array. Example:<br>
+        An array of zero or more certification URIs required by the Authorization Server. The array <strong>SHALL NOT</strong> include certification URIs that are not also elements of the <code>udap_certifications_supported</code> array. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_certifications_supported</code> parameter is not an empty array. Example:<br>
         <code>["https://www.example.com/udap/profiles/example-certification"]</code>
       </td>
     </tr>

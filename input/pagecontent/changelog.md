@@ -6,6 +6,7 @@ Changes from the previous version are summarized below with links to the corresp
 |---------|----------|
 |[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
 |[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
+|[FHIR-43003](https://jira.hl7.org/browse/FHIR-43003)|Update server metadata requirements for extensions and certifications |
 |[FHIR-43005](https://jira.hl7.org/browse/FHIR-43005)|Clarify server may grant a subset of "scopes_supported"|
 |[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
 |[FHIR-43022](https://jira.hl7.org/browse/FHIR-43022)|Clarify use of a client secret is not permitted|
