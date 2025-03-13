@@ -267,6 +267,13 @@ Client applications using the client credentials grant and authenticating with a
       </td>
     </tr>
     <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Space-delimited list of requested scopes of access.
+      </td>
+    </tr>
+    <tr>
       <td><code>client_assertion_type</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
