@@ -140,9 +140,9 @@ Note: For servers that also support the SMART App Launch Framework, there is som
     </tr>
     <tr>
       <td><code>registration_endpoint_jwt_signing_alg_values_supported</code></td>
-      <td><span class="label label-info">recommended</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
-        Array of strings identifying one or more signature algorithms supported by the Authorization Server for validation of signed software statements, certification, and endorsements submitted to the registration endpoint. For example:<br>
+        Array of strings identifying one or more signature algorithms supported by the Authorization Server for validation of signed software statements, certifications, and endorsements submitted to the registration endpoint. For example:<br>
         <code>["RS256", "ES384"]</code>
       </td>
     </tr>

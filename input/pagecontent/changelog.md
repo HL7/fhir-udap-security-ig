@@ -19,6 +19,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-49142](https://jira.hl7.org/browse/FHIR-49142)|Invalid conformance language corrected|
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
+|[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 
 ### Version 1.1.0 - STU1 Update 1
 
