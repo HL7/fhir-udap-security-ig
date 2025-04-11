@@ -49,7 +49,7 @@ pages:
   user.md:
     title: Tiered OAuth for User Authentication
   general.md:
-    title: General Guidance
+    title: General Requirements
   about.md:
   changelog.md:
     title: Change Log
@@ -67,7 +67,7 @@ menu:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
-    General Guidance: general.html
+    General Requirements: general.html
   About: about.html
   Change Log: changelog.html
   #FHIR Artifacts: artifacts.html #note: no artifacts
