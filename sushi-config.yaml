@@ -13,11 +13,11 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: sec
 license: "CC-BY-4.0"
-version: 2.0.0-ballot
+version: 2.0.0-ci
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU2 Ballot
-date: 2024-12-02
+releaseLabel: STU2 Post-Ballot CI
+date: 2025-04-15
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Security
