@@ -11,6 +11,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
 |[FHIR-43022](https://jira.hl7.org/browse/FHIR-43022)|Clarify use of a client secret is not permitted|
 |[FHIR-43024](https://jira.hl7.org/browse/FHIR-43024)|Add STU Note regarding concurrent use with SMART|
+|[FHIR-43120](https://jira.hl7.org/browse/FHIR-43120)|Clarify JWT conformance requirements|
 |[FHIR-45173](https://jira.hl7.org/browse/FHIR-45173)|Add certification example for privacy disclosures|
 |[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|

@@ -28,13 +28,13 @@ Guidance regarding the use of this IG with the SMART App Launch Framework can be
 
 ### JSON Web Token (JWT) Requirements
 
-The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them.
+Both the producers and consumers of JWTs specified in this guide **SHALL** conform to the requirements of [RFC 7515] and the additional requirements below.
 
 #### General requirements and serialization
 
 All JSON Web Tokens (JWTs) defined in this guide:
-1. **SHALL** conform to the mandatory requirements of [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
-1. **SHALL** be JSON Web Signatures conforming to the mandatory requirements of [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515).
+1. **SHALL** conform to the mandatory requirements of [RFC 7519].
+1. **SHALL** be JSON Web Signatures as defined in [RFC 7515].
 1. **SHALL** be serialized using JWS Compact Serialization as per [Section 7.1](https://datatracker.ietf.org/doc/html/rfc7515#section-7.1) of RFC 7515.
 
 #### Signature algorithm identifiers
