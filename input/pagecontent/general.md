@@ -253,9 +253,9 @@ Note: The example keys listed below in the description of the <code>privacy_disc
 
 ### Using this guide with the SMART App Launch framework
 
-    <div class="bg-info">
-    Note: This section is being added per FHIR-49185 and is not yet completed. As a first step, the SMART note from the intro page and all SMART related comments have been consolidated here. Additional specific points mentioned in the ticket will be added.
-    </div>
+<div class="bg-info">
+Editor's Note: This section is being added per FHIR-49185 and is not yet completed. As a first step, the SMART note from the intro page and all SMART related comments have been consolidated here. Additional specific points mentioned in the ticket will be added.
+</div>
 
 This guide is intended to be compatible and harmonious with client and server use of versions 1 or 2 of the HL7 SMART App Launch IG. Although the use of the SMART App Launch framework is not required to be conformant with this guide, this section provides guidance on how the UDAP and SMART App Launch frameworks can be used together successfully.
 
@@ -267,17 +267,17 @@ Key Algorithms: JWT-based authentication in version 2 of the SMART IG requires s
 
 Consistent use of both guides: the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as “Dynamic Client Registration”, authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for both client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community.
 
-    <div class="bg-info">
-    Editor's Note: The preceding paragraph may be moved back to section 1uring final editorial review.
-    </div>
+<div class="bg-info">
+Editor's Note: The preceding paragraph may be moved back to section 1 during final editorial review.
+</div>
 
 Discovery: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
 
 Note: For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined in Section 2 and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
 
-    <div class="bg-info">
-    Editor's Note: The SHALL requirement in the previous paragraph is duplicative with the text in Section 2.
-    </div>
+<div class="bg-info">
+Editor's Note: The SHALL requirement in the previous paragraph is duplicative with the text in Section 2.
+</div>
 
 Note for client apps that also support the SMART App Launch framework: apps requesting the `"client_credentials"` grant type **SHOULD** request `system` scopes; apps requesting the `"authorization_code"` grant type **SHOULD** request `user` or `patient` scopes.
 
