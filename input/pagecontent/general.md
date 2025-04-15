@@ -55,7 +55,7 @@ The constraints in the following subsections apply to all workflows utilizing th
       <td><code>code_challenge_method</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Fixed value: <code>"S256"</code>
+        Fixed value: <code>S256</code>
       </td>
     </tr>
   </tbody>
