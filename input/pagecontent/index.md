@@ -8,12 +8,8 @@ Additional enhancements include a formal definition for a B2B Authorization Exte
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
 
-The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html). This guide is also intended to be compatible and harmonious with client and server use of versions 1 or 2 of the [HL7 SMART App Launch IG](http://hl7.org/fhir/smart-app-launch/history.html).
+The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html).
 {:.bg-info}
-
-<div class="stu-note" markdown="1">
-The FAST Security project team is working to identify any potential incompatibilities experienced by servers or client applications that support both this IG and the SMART App Launch IG concurrently. For example, while not an incompatibility per se, JWT-based authentication in version 2 of the SMART IG requires server support for either the RS384 or ES384 signature algorithms, while this IG requires server support for RS256. However, this does not present a compatibility issue because RS256 is permitted as an optional algorithm in the SMART IG, while both RS384 and ES384 are permitted as optional algorithms in this IG. Therefore, using any of these three signature algorithms would be compliant with both IGs. Additionally, the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as "Dynamic Client Registration", authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for <strong>both</strong> client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community. Implementers are requested to submit feedback regarding any other potential issues they have identified related to the concurrent use of both IGs so these may be addressed and resolved during ballot reconciliation.
-</div>
 
 This Guide is divided into several pages which are listed at the top of each page in the menu bar.
 
@@ -25,6 +21,8 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [General Guidance]\: This page provides general guidance applicable to multiple authorization and authentication workflows.
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
+
+Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.4].
 
 ### JSON Web Token (JWT) Requirements
 
