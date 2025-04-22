@@ -7,9 +7,9 @@
 [Tiered OAuth for User Authentication]: user.html
 [General Guidance]: general.html
 [FHIR Artifacts]: artifacts.html
-[Section 1.2]: index.html#json-web-token-jwt-requirements
-[Section 1.2.3]: index.html#jwt-headers
-[Section 1.2.4]: index.html#jwt-claims
+[Section 7.1]: general.html#json-web-token-jwt-requirements
+[Section 7.1.3]: general.html#jwt-headers
+[Section 7.1.4]: general.html#jwt-claims
 [Section 2.1]: discovery.html#discovery-of-endpoints
 [Section 2.2]: discovery.html#required-udap-metadata
 [Section 2.3]: discovery.html#signed-metadata-elements
@@ -24,8 +24,8 @@
 [Section 5.2.1.1]: b2b.html#b2b-authorization-extension-object
 [Section 5.2.2]: b2b.html#submitting-a-token-request
 [Section 6]: user.html
-[Section 7.1]: general.html#authorization-code-flow
-[Section 7.3]: general.html#certification-example-for-client-applications
+[Section 7.2]: general.html#authorization-code-flow
+[Section 7.4.1]: general.html#certification-example-for-client-applications
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
 [UDAP Server Metadata]: https://www.udap.org/udap-server-metadata-stu1.html

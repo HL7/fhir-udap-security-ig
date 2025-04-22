@@ -160,7 +160,7 @@ An Authorization Server **MAY** include additional metadata elements in its meta
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](index.html#signature-algorithm-identifiers) signature algorithm.
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](general.html#signature-algorithm-identifiers) signature algorithm.
 
 <table class="table">
   <thead>
@@ -199,7 +199,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this JWT. See <a href="general.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
