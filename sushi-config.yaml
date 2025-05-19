@@ -22,8 +22,8 @@ jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Security
   url: http://www.hl7.org/Special/committees/secure
-dependencies:
-  hl7.fhir.us.core: 3.1.1
+#dependencies:
+#  hl7.fhir.us.core: 3.1.1 #note: This IG has no dependencies (FHIR-50929)
 
 parameters:
   show-inherited-invariants: false
