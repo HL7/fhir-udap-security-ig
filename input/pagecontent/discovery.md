@@ -154,7 +154,7 @@ An Authorization Server **MAY** include additional metadata elements in its meta
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](index.html#signature-algorithm-identifiers) signature algorithm.
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](index.html#signature-algorithm-identifiers) signature algorithm. Metadata values conveyed in the signed metadata **SHALL** take precedence over the corresponding values conveyed using plain JSON elements.
 
 <table class="table">
   <thead>
