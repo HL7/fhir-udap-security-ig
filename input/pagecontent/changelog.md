@@ -26,6 +26,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
+|[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
 
 ### Version 1.1.0 - STU1 Update 1
 
