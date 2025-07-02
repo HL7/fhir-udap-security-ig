@@ -46,6 +46,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-43116](https://jira.hl7.org/browse/FHIR-43116)|Clarify that registration updates are requested within the context of the client's trust community|
 |[FHIR-43121](https://jira.hl7.org/browse/FHIR-43121)|Remove duplicated requirements for "iss" parameter in software statement|
 |[FHIR-43554](https://jira.hl7.org/browse/FHIR-43554)|Clarify allowed registration claims returned by server may be different than claims submitted in software statement|
+|[FHIR-51423](https://jira.hl7.org/browse/FHIR-43121)|State IG FMM maturity level|
 
 <style>
 table, th, td 
