@@ -1,4 +1,6 @@
 <div class="stu-note" markdown="1">
+<strong>This IG is currently undergoing ballot reconciliation in preparation for publication of STU2.</strong>
+
 This Security FHIR&reg; IG has been established upon the recommendations of ONC's FHIR at Scale Taskforce (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. The workflows defined in the Unified Data Access Profiles (UDAP&trade;) have been used in several FHIR IGs, including the TEFCA Facilitated FHIR IG, Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
 
 Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
@@ -8,12 +10,8 @@ Additional enhancements include a formal definition for a B2B Authorization Exte
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
 
-The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html). This guide is also intended to be compatible and harmonious with client and server use of versions 1 or 2 of the [HL7 SMART App Launch IG](http://hl7.org/fhir/smart-app-launch/history.html).
+The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html).
 {:.bg-info}
-
-<div class="stu-note" markdown="1">
-The FAST Security project team is working to identify any potential incompatibilities experienced by servers or client applications that support both this IG and the SMART App Launch IG concurrently. For example, while not an incompatibility per se, JWT-based authentication in version 2 of the SMART IG requires server support for either the RS384 or ES384 signature algorithms, while this IG requires server support for RS256. However, this does not present a compatibility issue because RS256 is permitted as an optional algorithm in the SMART IG, while both RS384 and ES384 are permitted as optional algorithms in this IG. Therefore, using any of these three signature algorithms would be compliant with both IGs. Additionally, the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as "Dynamic Client Registration", authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for <strong>both</strong> client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community. Implementers are requested to submit feedback regarding any other potential issues they have identified related to the concurrent use of both IGs so these may be addressed and resolved during ballot reconciliation.
-</div>
 
 This Guide is divided into several pages which are listed at the top of each page in the menu bar.
 
@@ -25,6 +23,86 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [General Guidance]\: This page provides general guidance applicable to multiple authorization and authentication workflows.
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
+
+Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.4].
+
+### JSON Web Token (JWT) Requirements
+
+Both the producers and consumers of JWTs specified in this guide **SHALL** conform to the requirements of [RFC 7515] and the additional requirements below.
+
+#### General requirements and serialization
+
+All JSON Web Tokens (JWTs) defined in this guide:
+1. **SHALL** conform to the mandatory requirements of [RFC 7519].
+1. **SHALL** be JSON Web Signatures as defined in [RFC 7515].
+1. **SHALL** be serialized using JWS Compact Serialization as per [Section 7.1](https://datatracker.ietf.org/doc/html/rfc7515#section-7.1) of RFC 7515.
+
+#### Signature algorithm identifiers
+
+Signature algorithm identifiers used in this guide are defined in [Section 3.1](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) of RFC 7518.
+
+<table class="table">
+   <thead>
+      <th colspan="3">Signature Algorithm Identifier Conformance</th>
+   </thead>
+   <tbody>
+      <tr>
+         <td><code>RS256</code></td>
+         <td>Implementers <b>SHALL</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES256</code></td>
+         <td>Implementers <b>SHOULD</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>RS384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+   </tbody>
+</table>
+
+#### JWT headers
+
+All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and Encryption (JOSE) header as defined in [Section 4](https://datatracker.ietf.org/doc/html/rfc7515#section-4) of RFC 7515 that conforms to the following requirements:
+
+<table class="table">
+  <thead>
+    <th colspan="3">JWT Header Values</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alg</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        A string identifying the signature algorithm used to sign the JWT. For
+        example:<br>
+        <code>"RS256"</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>x5c</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of one or more strings containing the X.509 certificate or
+        certificate chain, where the leaf certificate corresponds to the
+        key used to digitally sign the JWT. Each string in the array is the
+        base64-encoded DER representation of the corresponding certificate, with the leaf
+        certificate appearing as the first (or only) element of the array.<br>
+        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">Section 4.1.6 of RFC 7515</a>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### JWT Claims
+
+All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
+
+Additional JWT Claim requirements are defined later in this guide. 
 
 ### Trust Community Checklist
 

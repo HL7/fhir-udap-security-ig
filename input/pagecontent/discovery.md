@@ -14,15 +14,9 @@ UDAP metadata **SHALL** be structured as a JSON object as per section 1 of [UDA
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
-Note: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
-{:.bg-info}
-
 ### Required UDAP Metadata
 
 The metadata returned from the UDAP metadata endpoint defined above **SHALL** represent the server's capabilities with respect to the UDAP workflows described in this guide. If no UDAP workflows are supported, the server **SHALL** return a `404 Not Found` response to the metadata request. For elements that are represented by JSON arrays, clients **SHALL** interpret an empty array value to mean that the corresponding capability is NOT supported by the server.
-
-Note: For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined below and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
-
 
 <table class="table">
   <thead>
@@ -160,7 +154,7 @@ An Authorization Server **MAY** include additional metadata elements in its meta
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](general.html#signature-algorithm-identifiers) signature algorithm.
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](index.html#signature-algorithm-identifiers) signature algorithm. Metadata values conveyed in the signed metadata **SHALL** take precedence over the corresponding values conveyed using plain JSON elements.
 
 <table class="table">
   <thead>
@@ -234,9 +228,9 @@ Note: The use of the `signed_metadata` parameter in this guide is intended to al
 
 A server that participates in more than one trust community may be issued different certificates from each community. However, the serialization method used to sign server metadata in the previous section of this guide requires the server to select only one certificate for use in assembling the signed JWT returned for the `signed_metadata` element. This can lead to scenarios where a client application might not trust the certificate that was selected by the server, but would have trusted one of the server's other certificates for a different trust community. 
 
-To address this, a client application **MAY** add the optional query parameter `community` to the metadata request URL described in [Section 2.1] to indicate that it trusts certificates issued by the community identified by the parameter value. The value of the parameter **SHALL** be a URI as determined by the trust community for this purpose.
+To address this, a client application **SHOULD** add the optional query parameter `community` to the metadata request URL described in [Section 2.1] to indicate that it trusts certificates issued by the community identified by the parameter value. The value of the parameter **SHALL** be a URI as determined by the trust community for this purpose.
 
-Server support for the `community` parameter is optional. If a server supports this parameter and recognizes the URI value, it **SHALL** select a certificate intended for use within the identified trust community, if it has been issued such a certificate, and use that certificate when generating the signed JWT returned for the `signed_metadata` element. If a server supports different UDAP capabilities for different communities, it **MAY** also return different values for other metadata elements described in [Section 2.2] as appropriate for the identified community. If the server does not recognize the community URI or does not have a suitable certificate for the identified community, it **MAY** return a `204 No Content` response to the metadata request to indicate that no UDAP workflows are supported by server in the context of that community, or it **MAY** return its default metadata, i.e. the metadata that it would have returned if the `community` parameter was not included in the request.
+Servers **SHALL** support the `community` parameter. IF a client includes this parameter in its metadata request and the server recognizes the community URI, the server **SHALL** select a certificate intended for use within the identified trust community, if it has been issued such a certificate, and use that certificate when generating the signed JWT returned for the `signed_metadata` element. If a server supports different UDAP capabilities for different communities, it **MAY** also return different values for other metadata elements described in [Section 2.2] as appropriate for the identified community. If the server does not recognize the community URI or does not have a suitable certificate for the identified community, it **MAY** return a `204 No Content` response to the metadata request to indicate that no UDAP workflows are supported by server in the context of that community, or it **MAY** return its default metadata, i.e. the metadata that it would have returned if the `community` parameter was not included in the request.
 
 Note: The authors recommend that the client be prepared to handle server metadata signed with a key for a different trust community than expected, regardless if the community parameter was used.
 

@@ -133,7 +133,7 @@ The constraints in the following subsections apply to all workflows utilizing th
       <td><code>code_challenge_method</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Fixed value: <code>"S256"</code>
+        Fixed value: <code>S256</code>
       </td>
     </tr>
   </tbody>
@@ -310,7 +310,7 @@ Note: The example keys listed below in the description of the <code>privacy_disc
   </thead>
   <tbody>
     <tr>
-      <td><code>exchange_purpose</code></td>
+      <td><code>exchange_purposes</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
         Array of strings, each containing a URI identifying an exchange purpose recognized by the trust community.
@@ -328,3 +328,39 @@ Note: The example keys listed below in the description of the <code>privacy_disc
     </tr>
   </tbody>
 </table>
+
+### Using this guide with the SMART App Launch framework
+
+<div class="bg-info">
+Editor's Note: This section is being added per FHIR-49185 and is not yet completed. The SMART note from the intro page and all SMART related comments from the ballot version have been consolidated in this section. Additional specific points mentioned in the ticket are in the process of being added.
+</div>
+
+This guide is intended to be compatible and harmonious with client and server use of versions 1 or 2 of the HL7 SMART App Launch IG. Although the use of the SMART App Launch framework is not required to be conformant with this guide, this section provides guidance on how the UDAP and SMART App Launch frameworks can be used together successfully.
+
+<div class="stu-note" markdown="1">
+The FAST Security project team is working to identify any potential incompatibilities experienced by servers or client applications that support both this IG and the SMART App Launch IG concurrently. Implementers are requested to submit feedback regarding any other potential issues they have identified related to the concurrent use of both IGs so these may be addressed and resolved in future updates.
+</div>
+
+Key Algorithms: JWT-based authentication in version 2 of the SMART IG requires server support for either the RS384 or ES384 signature algorithms, while this IG requires server support for RS256. However, this does not present a compatibility issue because RS256 is permitted as an optional algorithm in the SMART IG, while both RS384 and ES384 are permitted as optional algorithms in this IG. Therefore, using any of these three signature algorithms would be compliant with both IGs.
+
+Consistent use of both guides: the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as “Dynamic Client Registration”, authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for both client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community.
+
+<div class="bg-info">
+Editor's Note: The preceding paragraph may be moved back to section 1 during final editorial review as it is not limited to SMART.
+</div>
+
+Discovery: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
+
+For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined in Section 2 and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
+
+<div class="bg-info">
+Editor's Note: The SHALL requirement in the previous paragraph is duplicative with the text in Section 2 and may be removed during later review.
+</div>
+
+Note for client apps that also support the SMART App Launch framework: apps requesting the `"client_credentials"` grant type **SHOULD** request `system` scopes; apps requesting the `"authorization_code"` grant type **SHOULD** request `user` or `patient` scopes.
+
+Authorization Requests: Client applications that also support the SMART App Launch IG are not required to include a launch scope or launch context requirement scope in an authorization request. However, the capability for a client application to request a launch context from the server is useful in many workflows, e.g. consumer facing workflows. Since this IG does not restrict the inclusion of additional parameters in an authorization request or in the corresponding server response, clients are able initiate either the SMART standalone or EHR launch workflows to request a launch context. For example, a client could initiate the SMART standalone launch by including the `launch/patient` scope in its authorization request to a server that supports this SMART workflow.
+
+Token Requests: For clients and servers that also support the SMART App Launch IG, the requirement to authenticate using a private key in Section 4.2.1 overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
+
+Token Response: Although this guide does not currently constrain the type or format of access tokens, the SMART App Launch framework, when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT). Since this IG does not restrict the server from including additional parameters in the token response, servers can include other parameters specified by the SMART App Launch framework for this purpose, e.g. launch context parameters.

@@ -12,18 +12,22 @@ status: active
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: sec
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 4
 license: "CC-BY-4.0"
-version: 2.0.0-ballot
+version: 2.0.0-ci
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU2 Ballot
-date: 2024-12-02
+releaseLabel: STU2 Post-Ballot CI
+date: 2025-04-15
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Security
   url: http://www.hl7.org/Special/committees/secure
-dependencies:
-  hl7.fhir.us.core: 3.1.1
+#dependencies:
+#  hl7.fhir.us.core: 3.1.1 #note: This IG has no dependencies (FHIR-50929)
 
 parameters:
   show-inherited-invariants: false
