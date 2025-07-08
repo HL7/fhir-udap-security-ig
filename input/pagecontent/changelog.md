@@ -4,6 +4,7 @@ Changes from the previous version are summarized below with links to the corresp
 
 |Ticket|Ticket Description|
 |---------|----------|
+|[FHIR-40510](https://jira.hl7.org/browse/FHIR-40510)|Update client and server requirements for "community" parameter|
 |[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
 |[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
 |[FHIR-43003](https://jira.hl7.org/browse/FHIR-43003)|Update server metadata requirements for extensions and certifications |
@@ -11,6 +12,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
 |[FHIR-43022](https://jira.hl7.org/browse/FHIR-43022)|Clarify use of a client secret is not permitted|
 |[FHIR-43024](https://jira.hl7.org/browse/FHIR-43024)|Add STU Note regarding concurrent use with SMART|
+|[FHIR-43120](https://jira.hl7.org/browse/FHIR-43120)|Clarify JWT conformance requirements|
 |[FHIR-45173](https://jira.hl7.org/browse/FHIR-45173)|Add certification example for privacy disclosures|
 |[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
@@ -21,6 +23,12 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements from home page to General Requirements section|
+|[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
+|[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
+|[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
+|[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
+|[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
+|[FHIR-51244](https://jira.hl7.org/browse/FHIR-51244)|Pluralize exchange_purpose in example certification keys table|
 
 ### Version 1.1.0 - STU1 Update 1
 
@@ -40,6 +48,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-43116](https://jira.hl7.org/browse/FHIR-43116)|Clarify that registration updates are requested within the context of the client's trust community|
 |[FHIR-43121](https://jira.hl7.org/browse/FHIR-43121)|Remove duplicated requirements for "iss" parameter in software statement|
 |[FHIR-43554](https://jira.hl7.org/browse/FHIR-43554)|Clarify allowed registration claims returned by server may be different than claims submitted in software statement|
+|[FHIR-51423](https://jira.hl7.org/browse/FHIR-43121)|State IG FMM maturity level|
 
 <style>
 table, th, td 

@@ -24,7 +24,7 @@ The workflow for obtaining an authorization code is summarized in the following 
 {% include authz.svg %}
 </div>
 
-Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications that also support the SMART App Launch IG are not required to include a launch scope or launch context requirement scope. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
+Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
@@ -134,14 +134,14 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>subject_id</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, the value <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for non-human requestors and for requestors who have not been assigned an NPI. See Section 5.2.1.2 below for the preferred format of the identifier value string.
+        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present and the human requestor has been assigned an applicable identifier. Omit for non-human requestors and for human requestors who have not been assigned an applicable identifier. See Section 5.2.1.3 below for the preferred format of the identifier value string.
       </td>
     </tr>
     <tr>
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values and formats, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of the code value string.
+        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. See Section 5.2.1.3 below for the preferred format of the code value string.
       </td>
     </tr>
     <tr>
@@ -162,7 +162,7 @@ The B2B Authorization Extension Object is used by client apps following the `cli
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of each code value string array element.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. See Section 5.2.1.3 below for the preferred format of each code value string array element.
       </td>
     </tr>
     <tr>
@@ -181,6 +181,14 @@ The B2B Authorization Extension Object is used by client apps following the `cli
     </tr>
   </tbody>
 </table>
+
+##### Preferred code systems and naming systems for US Realm
+
+For `subject_id`, trust communities <strong>SHALL</strong> constrain the allowed naming system or systems, and are encouraged to require the individual National Provider Identifier (NPI) when known for human requestors who have been assigned an individual NPI.
+
+For `subject_role`, trust communities <strong>SHOULD</strong> constrain the allowed values and formats, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant. 
+
+For `purpose_of_use`, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant.
 
 ##### Preferred format for identifiers and codes
 
