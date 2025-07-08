@@ -232,7 +232,7 @@ Note: The example keys listed below in the description of the <code>privacy_disc
   </thead>
   <tbody>
     <tr>
-      <td><code>exchange_purpose</code></td>
+      <td><code>exchange_purposes</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
         Array of strings, each containing a URI identifying an exchange purpose recognized by the trust community.
