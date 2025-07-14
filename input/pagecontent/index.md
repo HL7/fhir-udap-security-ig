@@ -21,7 +21,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Consumer-Facing]\: This page provides detailed guidance for authorization and authentication of consumer-facing apps.
 - [Business-to-Business]\: This page provides detailed guidance for authorization and authentication of B2B apps.
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
-- [General Requirements]\: This page provides general guidance applicable to multiple authorization and authentication workflows.
+- [General Requirements]\: This page provides general requirements applicable to multiple authorization and authentication workflows.
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
 
 Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.4].
