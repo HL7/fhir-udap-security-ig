@@ -81,13 +81,6 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
         A nonce string value that uniquely identifies this authentication JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
-    <tr>
-      <td><code>extensions</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        A JSON object containing one or more extensions. The HL7 B2B Authorization Extension Object defined below is required for B2B client apps using the <code>client_credentials</code> flow; omit for client apps using the <code>authorization_code</code> flow
-      </td>
-    </tr>    
   </tbody>
 </table>
 
