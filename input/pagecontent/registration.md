@@ -60,7 +60,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this software statement. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this software statement. See <a href="general.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
