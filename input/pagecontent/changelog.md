@@ -28,6 +28,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
 |[FHIR-51244](https://jira.hl7.org/browse/FHIR-51244)|Pluralize exchange_purpose in example certification keys table|
+|[FHIR-50079](https://jira.hl7.org/browse/FHIR-50079)|Add the extension claim as conditional within the JWT in section 4.2.1|
 
 ### Version 1.1.0 - STU1 Update 1
 
