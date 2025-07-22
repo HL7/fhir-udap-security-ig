@@ -14,7 +14,7 @@ Client applications **SHALL** request an authorization code as per [Section 4.1.
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749. 
 
-Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.1] of this guide.
+Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
 
 ### Obtaining an access token
 
@@ -78,7 +78,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this authentication JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this authentication JWT. See <a href="general.html#jwt-claims">Section 7.1.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
   </tbody>

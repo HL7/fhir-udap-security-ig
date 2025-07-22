@@ -1,4 +1,82 @@
-This section contains general guidance applicable to multiple authorization and authentication workflows.
+This section contains general requirements applicable to multiple authorization and authentication workflows.
+
+### JSON Web Token (JWT) Requirements
+
+Both the producers and consumers of JWTs specified in this guide **SHALL** conform to the requirements of [RFC 7515] and the additional requirements below.
+
+#### General requirements and serialization
+
+All JSON Web Tokens (JWTs) defined in this guide:
+1. **SHALL** conform to the mandatory requirements of [RFC 7519].
+1. **SHALL** be JSON Web Signatures as defined in [RFC 7515].
+1. **SHALL** be serialized using JWS Compact Serialization as per [Section 7.1](https://datatracker.ietf.org/doc/html/rfc7515#section-7.1) of RFC 7515.
+
+#### Signature algorithm identifiers
+
+Signature algorithm identifiers used in this guide are defined in [Section 3.1](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) of RFC 7518.
+
+<table class="table">
+   <thead>
+      <th colspan="3">Signature Algorithm Identifier Conformance</th>
+   </thead>
+   <tbody>
+      <tr>
+         <td><code>RS256</code></td>
+         <td>Implementers <b>SHALL</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES256</code></td>
+         <td>Implementers <b>SHOULD</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>RS384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+   </tbody>
+</table>
+
+#### JWT headers
+
+All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and Encryption (JOSE) header as defined in [Section 4](https://datatracker.ietf.org/doc/html/rfc7515#section-4) of RFC 7515 that conforms to the following requirements:
+
+<table class="table">
+  <thead>
+    <th colspan="3">JWT Header Values</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alg</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        A string identifying the signature algorithm used to sign the JWT. For
+        example:<br>
+        <code>"RS256"</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>x5c</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of one or more strings containing the X.509 certificate or
+        certificate chain, where the leaf certificate corresponds to the
+        key used to digitally sign the JWT. Each string in the array is the
+        base64-encoded DER representation of the corresponding certificate, with the leaf
+        certificate appearing as the first (or only) element of the array.<br>
+        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">Section 4.1.6 of RFC 7515</a>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### JWT Claims
+
+All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
+
+Additional JWT Claim requirements are defined elsewhere in this guide. 
 
 ### Authorization code flow
 
@@ -41,14 +119,14 @@ The constraints in the following subsections apply to all workflows utilizing th
       <td><code>state</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="#the-state-parameter">Section 7.1.1</a>
+        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="#the-state-parameter">Section 7.2.1</a>
       </td>
     </tr>
     <tr>
       <td><code>code_challenge</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        PKCE code challenge, as discussed further in <a href="#proof-key-for-code-exchange-pkce">Section 7.1.2</a>
+        PKCE code challenge, as discussed further in <a href="#proof-key-for-code-exchange-pkce">Section 7.2.2</a>
       </td>
     </tr>
     <tr>
@@ -121,7 +199,7 @@ The constraints enumerated below apply for scope negotiation between client appl
 
 This section provides an example UDAP Certification that can be used by client applications or third parties to declare additional information about the client application at the time of registration.
 
-A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 1.2.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator or by a third party using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification. Recognized Certification JWT claims and server processing rules for Certifications submitted by a client application are detailed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html). A trust community **MAY** define additional keys to be included in the `extensions` object, as demonstrated in the example below.
+A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator or by a third party using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification. Recognized Certification JWT claims and server processing rules for Certifications submitted by a client application are detailed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html). A trust community **MAY** define additional keys to be included in the `extensions` object, as demonstrated in the example below.
 
 <table class="table">
   <thead>
@@ -168,7 +246,7 @@ A client application or third party **MAY** construct a certification by constru
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this software statement. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this software statement. See <a href="general.html#jwt-claims">Section 7.1.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
@@ -268,7 +346,7 @@ Key Algorithms: JWT-based authentication in version 2 of the SMART IG requires s
 Consistent use of both guides: the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as “Dynamic Client Registration”, authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for both client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community.
 
 <div class="bg-info">
-Editor's Note: The preceding paragraph may be moved back to section 1 during final editorial review as it is not limited to SMART.
+Editor's Note: The preceding paragraph may be moved back to Section 1 during final editorial review as it is not limited to SMART.
 </div>
 
 Discovery: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.

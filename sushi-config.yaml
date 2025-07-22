@@ -21,7 +21,7 @@ version: 2.0.0-ci
 fhirVersion: 4.0.1
 copyrightYear: 2021+
 releaseLabel: STU2 Post-Ballot CI
-date: 2025-04-15
+date: 2025-07-21
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Security
@@ -53,7 +53,7 @@ pages:
   user.md:
     title: Tiered OAuth for User Authentication
   general.md:
-    title: General Guidance
+    title: General Requirements
   about.md:
   changelog.md:
     title: Change Log
@@ -71,7 +71,7 @@ menu:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
-    General Guidance: general.html
+    General Requirements: general.html
   About: about.html
   Change Log: changelog.html
   #FHIR Artifacts: artifacts.html #note: no artifacts

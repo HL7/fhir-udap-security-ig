@@ -10,7 +10,7 @@ The discovery workflow is summarized in the following diagram:
 {% include discovery.svg %}
 </div>
 
-UDAP metadata **SHALL** be structured as a JSON object as per section 1 of [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html#section-1) and discussed further in [Section 2.2].
+UDAP metadata **SHALL** be structured as a JSON object as per Section 1 of [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html#section-1) and discussed further in [Section 2.2].
 
 If a server returns a `404 Not Found` response to a `GET` request to the UDAP metadata endpoint, the client application **SHOULD** conclude that the server does not support UDAP workflows.
 
@@ -154,7 +154,7 @@ An Authorization Server **MAY** include additional metadata elements in its meta
 
 ### Signed metadata elements
 
-A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 1.2] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](index.html#signature-algorithm-identifiers) signature algorithm. Metadata values conveyed in the signed metadata **SHALL** take precedence over the corresponding values conveyed using plain JSON elements.
+A server's UDAP metadata **SHALL** include the `signed_metadata` element. The value of this element is a JWT constructed as described in [Section 7.1] and containing the claims in the table below. This JWT **SHALL** be signed using the [RS256](general.html#signature-algorithm-identifiers) signature algorithm. Metadata values conveyed in the signed metadata **SHALL** take precedence over the corresponding values conveyed using plain JSON elements.
 
 <table class="table">
   <thead>
@@ -193,7 +193,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
       <td><code>jti</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        A nonce string value that uniquely identifies this JWT. See <a href="index.html#jwt-claims">Section 1.2.4</a> for additional requirements regarding reuse of values.
+        A nonce string value that uniquely identifies this JWT. See <a href="general.html#jwt-claims">Section 7.1.4</a> for additional requirements regarding reuse of values.
       </td>
     </tr>
     <tr>
