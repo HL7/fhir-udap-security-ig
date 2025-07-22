@@ -23,6 +23,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
+|[FHIR-49181](https://jira.hl7.org/browse/FHIR-49181)|Clarify how certification template is used and the non-normative nature of examples|
 |[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
 |[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements to General Requirements page|
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|

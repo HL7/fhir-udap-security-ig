@@ -195,15 +195,23 @@ The constraints enumerated below apply for scope negotiation between client appl
 
 1. A server **SHALL** include the `scope` parameter in a token response if the set of scopes granted by the server to the client application is not identical to the set of scopes requested by the client application, or if the client application does not include a set of requested scopes in its request.
 
-### Certification example for client applications
+### Certifications for client applications
 
-This section provides an example UDAP Certification that can be used by client applications or third parties to declare additional information about the client application at the time of registration.
+As discussed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html), certifications can be used by client applications or third parties to declare additional information about a client application at the time of registration.
 
-A client application or third party **MAY** construct a certification by constructing a signed JWT as detailed in this section. The certification **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below. The certification **SHALL** be signed by the client application operator or by a third party using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the client’s X.509 certificate identified in the `x5c` header of the certification. Recognized Certification JWT claims and server processing rules for Certifications submitted by a client application are detailed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html). A trust community **MAY** define additional keys to be included in the `extensions` object, as demonstrated in the example below.
+The table in Section 7.4.1 provides a template for UDAP Certification definitions. A trust community **MAY** publish one or more Certification definitions using this template. A Certification definition specifies the values to be used for the `certification_name` and `certification_uris` keys and the allowed `grant_types`. The trust community determines whether or not the optional `scopes` and `extensions` keys will be included in their Certification definition, any restrictions on their allowed values, and whether these keys will be optional, required, or conditionally included when generating a certification. If the `extensions` keys are used, the Certification definition specifies the additional extensions keys to be included in the `extensions` object, as discussed in section 7.4.2.
+
+The trust community also determines who will sign the certification, e.g. the app operator or another party. For example, a certification self-signed by a client app operator can be used to declare the intended use of the application within a trust community, while certifications signed by another party, such as the trust community administrator or an independent accreditor, can be used to assist servers in determining what a client application is authorized to do within a trust community. Note that a trust community could use such a certification to communicate the exchange purposes for which a particular client application operator has been approved.
+
+Using a Certification definition provided by the trust community, a client application or third party **MAY** generate a certification by constructing a signed JWT conforming to requirements of the certification definition and this section. The certification **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the certification definition. The certification **SHALL** be signed by the client application operator or by a third party, as specified in the certification definition, using the signature algorithm identified in the `alg` header of the certification and with the private key that corresponds to the public key listed in the signer’s X.509 certificate identified in the `x5c` header of the certification.
+
+Recognized Certification JWT claims and server processing rules for Certifications submitted by a client application are detailed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html).
+
+#### Certification template
 
 <table class="table">
   <thead>
-    <th colspan="3">Example Client Application Certification JWT Claims</th>
+    <th colspan="3">Template for Certification JWT Claims</th>
   </thead>
   <tbody>
     <tr>
@@ -253,14 +261,15 @@ A client application or third party **MAY** construct a certification by constru
       <td><code>certification_name</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        string with fixed value: "Example HL7 Client App Certification"
+        string with fixed value defined by the trust community, e.g. "Example HL7 Client App Certification"
       </td>
     </tr>
     <tr>
       <td><code>certification_uris</code></td>
-      <td><span class="label label-warning">required</span></td>
+      <td><span class="label label-success">required</span></td>
       <td>
-        array of one string with fixed value: ["URI TBD"]
+        array of one or more string with fixed values defined by the trust community, e.g.
+        <br>["http://community.example.com/certifications/example-certifications"].
       </td>
     </tr>
     <tr>
@@ -279,51 +288,46 @@ A client application or third party **MAY** construct a certification by constru
     </tr>
     <tr>
       <td><code>scope</code></td>
-      <td><span class="label label-success">required</span></td>
+      <td><span class="label label-info">optional</span></td>
       <td>
-        String containing a space delimited list of scopes that may be requested by the client application for use in subsequent requests. The Authorization Server <strong>MAY</strong> consider this list when deciding the scopes that it will allow the application to subsequently request. Note for client apps that also support the SMART App Launch framework: apps requesting the <code>"client_credentials"</code> grant type <strong>SHOULD</strong> request system scopes; apps requesting the <code>"authorization_code"</code> grant type <strong>SHOULD</strong> request user or patient scopes.
+        String containing a space delimited list of scopes that may be requested by the client application in subsequent requests. The Authorization Server <strong>MAY</strong> consider this list when deciding the scopes that it will allow the application to subsequently request. Note for client apps that also support the SMART App Launch framework: certifications for apps requesting the <code>"client_credentials"</code> grant type <strong>SHOULD</strong> lisst system scopes; certifications for apps requesting the <code>"authorization_code"</code> grant type <strong>SHOULD</strong> list user or patient scopes.
       </td>
     </tr>
     <tr>
       <td><code>extensions</code></td>
-      <td><span class="label label-success">optional</span></td>
+      <td><span class="label label-info">optional</span></td>
       <td>
-        A JSON object containing one or more of the keys listed in the following section.
+        A JSON object containing one or more certification extension keys, as discussed in the following section.
       </td>
     </tr>
   </tbody>
 </table>
 
-Note: A certification self-signed by a client app operator can be used to declare the intended use of the application within a trust community. Certifications signed by a third party, such as the trust community administrator or an independent accreditor, can be used to assist servers in determining what a client application is authorized to do within a trust community. For example, a trust community administrator could use this certification to communicate the exchange purposes for which a particular client application operator has been approved.
 #### Certification extension keys example
 
-This section lists two example extension keys that could be considered for inclusion in a Certification. When defining a Certification, a trust community **MAY** define one or more extension keys to be included in the `extensions` object of the Certification JWT. The value of each extension key **SHALL** be a JSON value or a JSON object. For example, a Certification definition could specify a number, an array of strings, or a FHIR [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) resource as the value of an extension key.
+When defining a Certification, a trust community **MAY** define one or more extension keys to be included in the `extensions` object of the Certification JWT, the JSON type of the corresponding value, and the conditions under which the key is present, including whether the use of the key is optional, required, etc. The value of each extension key **SHALL** be a JSON value or a JSON object. For example, a Certification definition could specify that the value of a key is a number, an array of strings, or a FHIR [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) resource, as appropriate for its intended use.
 
-
-<div class="bg-info">
-Note: The example keys listed below in the description of the <code>privacy_disclosures</code> extension key are derived from an example Certification previously published by Carequality, which can be viewed <a href="https://carequality.org/wp-content/uploads/2020/12/Carequality-Consumer-Facing-App-Certification-Profile.pdf">here</a>.
-</div>
+Two non-normative examples of extension keys that could be considered for inclusion in a Certification are presented in the table below:
 
 <table class="table">
   <thead>
-    <th colspan="3">Example Client Application Certification JWT Extensions Keys</th>
+    <th colspan="2">Example Client Application Certification JWT Extensions Keys</th>
   </thead>
   <tbody>
     <tr>
-      <td><code>exchange_purposes</code></td>
-      <td><span class="label label-success">required</span></td>
+      <td><code>example_exchange_purposes</code></td>
       <td>
         Array of strings, each containing a URI identifying an exchange purpose recognized by the trust community.
       </td>
     </tr>
     <tr>
-      <td><code>privacy_disclosures</code></td>
-      <td><span class="label label-warning">optional</span></td>
+      <td><code>example_privacy_disclosures</code></td>
       <td>
-        A JSON object containing a set of privacy-related keys and acceptable values established by the trust community. <br>Examples:
+        A JSON object containing a set of privacy-related keys and acceptable values established by the trust community. <br>For example:
         <br>1. the key <code>funding</code> could be used to express the app's source of funding.
         <br>2. the key <code>data_storage</code> could be used to identify where a patient's data is stored.
         <br>3. the key <code>data_access_notification</code> could be used to indicate whether a user is notified when their data is accessed by someone else.
+        <br>Note: This example extension key is derived from an example Certification previously published by Carequality, which can be viewed <a href="https://carequality.org/wp-content/uploads/2020/12/Carequality-Consumer-Facing-App-Certification-Profile.pdf">here</a>.
       </td>
     </tr>
   </tbody>
