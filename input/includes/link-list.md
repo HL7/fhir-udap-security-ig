@@ -37,6 +37,7 @@
 [RFC 7515]: https://datatracker.ietf.org/doc/html/rfc7515
 [RFC 7519]: https://datatracker.ietf.org/doc/html/rfc7519
 [Section 1.5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-1.5
+[Section 4.1 of RFC 7519]: https://datatracker.ietf.org/doc/html/rfc7519#section-4.1
 [Section 4.1.2.1 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2.1
 [Section 5 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-5
 [Section 6 of RFC 6749]: https://datatracker.ietf.org/doc/html/rfc6749#section-6

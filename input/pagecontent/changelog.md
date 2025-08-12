@@ -17,6 +17,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-45173](https://jira.hl7.org/browse/FHIR-45173)|Add certification example for privacy disclosures|
 |[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
+|[FHIR-48921](https://jira.hl7.org/browse/FHIR-48921)|Clarify that Registered Claim Names should be omitted from registration response|
 |[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
