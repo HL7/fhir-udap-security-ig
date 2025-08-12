@@ -28,6 +28,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
 |[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements to General Requirements page|
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
+|[FHIR-49631](https://jira.hl7.org/browse/FHIR-49631)|Clarify that unassigned parameters should be omitted from registration response|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
 |[FHIR-51054](https://jira.hl7.org/browse/FHIR-51054)|Add time synchronization to community checklist|
