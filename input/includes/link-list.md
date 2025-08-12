@@ -7,6 +7,7 @@
 [Tiered OAuth for User Authentication]: user.html
 [General Guidance]: general.html
 [FHIR Artifacts]: artifacts.html
+[Section 2]: discovery.html
 [Section 2.1]: discovery.html#discovery-of-endpoints
 [Section 2.2]: discovery.html#required-udap-metadata
 [Section 2.3]: discovery.html#signed-metadata-elements

@@ -10,7 +10,9 @@ The Tiered OAuth workflow is summarized in the following diagram:
 
 ### Client Authorization Request to Data Holder
 
-The client app indicates the preferred Identity Provider to the data holder as per Section 2 of the [UDAP Tiered OAuth] specification by modifying the authorization endpoint request described in [Section 4.1] for consumer-facing apps or [Section 5.1] for business-to-business apps as follows:
+Client apps **MAY** use this workflow with data holders that support it, as indicated in the data holder's UDAP metadata as discussed in [Section 2] of this guide. A data holder that supports UDAP Tiered OAuth **SHALL** include `"udap"` in the array of scopes returned for the `scopes_supported` parameter in its UDAP metadata. When registering with a data holder that supports Tiered OAuth as per [Section 3] of this guide, client apps that intend to use the Tiered OAuth workflow **SHALL** include `udap` in the list of scopes requested in the `scope` parameter of their registration request.
+
+To begin the workflow, the client app indicates the preferred Identity Provider to the data holder as per Section 2 of the [UDAP Tiered OAuth] specification by modifying the authorization endpoint request described in [Section 4.1] for consumer-facing apps or [Section 5.1] for business-to-business apps as follows:
 1. Add `udap` to the list of scopes provided in the value of the `scope` query parameter, and
 1. Add the extension query parameter `idp` with a value equal to the base URL of the preferred OIDC IdP.
 
@@ -23,9 +25,9 @@ For the purposes of the interactions between the data holder and the IdP, the da
 This section describes the interactions between a data holder and an IdP where both parties support this implementation guide and where trust can be established via UDAP certificates. Note that this does not preclude data holders from validating trust with an IdP via other non-UDAP means that are outside the scope of this document, or from making authentication requests to IdPs that do not support UDAP workflows.
 {:.bg-info}
 
-Upon receiving an authorization request with a preferred IdP, the data holder first determines whether or not it trusts the IdP to perform user authentication, by retrieving and validating the IdP's UDAP metadata from `{baseURL}/.well-known/udap`, as discussed in [Section 2.2]. At a minimum, IdPs that support this guide **SHALL** include `"openid"` and `"udap"` in the array of scopes returned for the `scopes_supported` parameter. 
+Upon receiving an authorization request with a preferred IdP, the data holder first determines whether or not it trusts the IdP to perform user authentication, by retrieving and validating the IdP's UDAP metadata from `{baseURL}/.well-known/udap`, as discussed in [Section 2]. At a minimum, IdPs that support this guide **SHALL** include `"openid"` and `"udap"` in the array of scopes returned for the `scopes_supported` parameter. 
 
-If the IdP is trusted and the data holder is not yet registered as a client with the IdP and the IdP supports UDAP Dynamic Registration, then the data holder **SHALL** register as a client with the IdP as per [Section 3] of this guide.
+If the IdP is trusted and the data holder is not yet registered as a client with the IdP and the IdP supports UDAP Dynamic Registration, then the data holder **SHALL** register as a client with the IdP as per [Section 3] of this guide. The list of scopes requested in the data holder's registration request **SHALL** include, at a minimum, `openid` and `udap`.
 
 If the IdP is not trusted by the data holder, or if the data holder does not have and cannot obtain a client_id to use with the IdP, the data holder **MAY** reject the client app's authorization request by returning an error as per [Section 4.1.2.1 of RFC 6749], using the extension error code of `invalid_idp`. Alternatively, the data holder **MAY** attempt to authenticate the user with a different trusted IdP or its own IdP, and **MAY** interact with the user to determine a suitable alternative. A client app that receives an error code of `invalid_idp` **MAY** attempt to obtain authorization again by specifying a different IdP base URL in the `idp` authorization request parameter, or by making a new authorization request without using the Tiered OAuth workflow.
 

@@ -9,6 +9,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
 |[FHIR-43003](https://jira.hl7.org/browse/FHIR-43003)|Update server metadata requirements for extensions and certifications |
 |[FHIR-43005](https://jira.hl7.org/browse/FHIR-43005)|Clarify server may grant a subset of "scopes_supported"|
+|[FHIR-43006](https://jira.hl7.org/browse/FHIR-43006)|Clarify scope requirements for Tiered OAuth|
 |[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
 |[FHIR-43022](https://jira.hl7.org/browse/FHIR-43022)|Clarify use of a client secret is not permitted|
 |[FHIR-43024](https://jira.hl7.org/browse/FHIR-43024)|Add STU Note regarding concurrent use with SMART|
