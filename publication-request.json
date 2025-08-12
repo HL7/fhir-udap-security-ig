@@ -1,10 +1,10 @@
 {
   "package-id" : "hl7.fhir.us.udap-security",
-  "version" : "2.0.0-ballot",
-  "path" : "http://hl7.org/fhir/us/udap-security/2025Jan",
-  "mode" : "working",
-  "status" : "ballot",
+  "version" : "2.0.0",
+  "path" : "http://hl7.org/fhir/us/udap-security/STU2",
+  "mode" : "milestone",
+  "status" : "trial-use",
   "sequence" : "STU 2",
-  "desc" : "UDAP Security IG First STU2 Ballot",
+  "desc" : "UDAP Security IG STU2",
   "first" : false
 }
