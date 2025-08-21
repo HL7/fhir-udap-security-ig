@@ -5,7 +5,7 @@
 [Consumer-Facing]: consumer.html
 [Business-to-Business]: b2b.html
 [Tiered OAuth for User Authentication]: user.html
-[General Guidance]: general.html
+[General Requirements]: general.html
 [FHIR Artifacts]: artifacts.html
 [Section 2]: discovery.html
 [Section 2.1]: discovery.html#discovery-of-endpoints
