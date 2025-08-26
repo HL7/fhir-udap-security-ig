@@ -20,6 +20,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48921](https://jira.hl7.org/browse/FHIR-48921)|Clarify that Registered Claim Names should be omitted from registration response|
 |[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
+|[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-48986](https://jira.hl7.org/browse/FHIR-48986)|Add text and STU note about logical server groups|
 |[FHIR-49141](https://jira.hl7.org/browse/FHIR-49141)|Move conformance language out of home page|

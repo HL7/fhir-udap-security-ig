@@ -46,7 +46,7 @@ Client applications using the authorization code flow **SHALL** include a `code_
 
 Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
 
-Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements above and **SHALL** include the following parameters in the JWT claims defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication:
+Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication and [Section 4](https://www.udap.org/udap-client-authorization-grants.html) of UDAP Client Authorization Grants using JSON Web Tokens:
 
 <table class="table">
   <thead>
