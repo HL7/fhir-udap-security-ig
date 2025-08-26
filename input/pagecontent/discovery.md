@@ -150,7 +150,13 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
   </tbody>
 </table>
 
-An Authorization Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata]. However, a conforming client application might not support additional metadata elements.
+FHIR servers with the same `registration_endpoint` URL belong to the same logical group. A registration for any FHIR server in this logical group registers the client application for all endpoints in that group.
+
+<div class="stu-note" markdown="1">
+The above paragraph is informational and reflects deployment models that may be encountered in the real world. This guide does not currently expect or require client applications to track registration endpoints or logical groups when determining whether or not registration is necessary, nor does it expect registration endpoint URLs published by servers to be static. Implementers should be aware of the possible side effects when different registration parameters are requested for two FHIR servers in the same logical group, i.e. the second registration at the same registration endpoint URL will modify the first registration as discussed in [Section 3.4] of this guide. Implementer feedback is requested to determine if additional client and/or server requirements relating to this topic should be added in the future.
+</div>
+
+A FHIR Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata]. However, a conforming client application might not support additional metadata elements.
 
 ### Signed metadata elements
 

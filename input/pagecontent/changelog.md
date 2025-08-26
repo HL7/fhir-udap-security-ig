@@ -21,6 +21,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
+|[FHIR-48986](https://jira.hl7.org/browse/FHIR-48986)|Add text and STU note about logical server groups|
 |[FHIR-49141](https://jira.hl7.org/browse/FHIR-49141)|Move conformance language out of home page|
 |[FHIR-49142](https://jira.hl7.org/browse/FHIR-49142)|Update invalid conformance language|
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|

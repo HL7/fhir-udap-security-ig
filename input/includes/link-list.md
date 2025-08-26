@@ -14,6 +14,7 @@
 [Section 2.4]: discovery.html#multiple-trust-communities
 [Section 3]: registration.html#registration
 [Section 3.1]: registration.html#software-statement
+[Section 3.4]: registration.html#modifying-and-cancelling-registrations
 [Section 4.1]: consumer.html#obtaining-an-authorization-code
 [Section 4.2.1]: consumer.html#constructing-authentication-token
 [Section 4.2.2]: consumer.html#submitting-a-token-request
