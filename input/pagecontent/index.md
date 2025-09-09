@@ -28,7 +28,11 @@ Guidance regarding the use of this IG with the SMART App Launch Framework can be
 
 ### Trust Community Checklist
 
-This section lists some additional topics to be addressed by trust communities adopting this guide:
+A trust community is a group of member entities that has come together to support one or more interoperability use cases between its members. Typical examples of trust communities include health information networks and interoperability frameworks (e.g. a network of networks). Trust communities may be defined by geography (e.g. regional, national, international) or any other criteria (e.g. affiliated healthcare organizations, users of a common technology platform, support of specific use cases required by regulation, etc.).
+
+This guide provides a technical framework to securely scale FHIR transactions within a trust community using X.509 certificates as the basis of community trust, including both consumer-facing and B2B workflows. It is expected that trust communities will establish agreements and policies to address certain community-specific parameters in this guide, as well as non-technical aspects necessary for interoperability, e.g. criteria for community membership, data-sharing agreements, certificate issuance policies, etc.
+
+Additional topics to be addressed by trust communities adopting this guide are listed below:
 
 1. Assignment of unique URIs to servers for use in certificates and in the `iss` and `sub` claims of signed metadata elements (see [Section 2.3]).
 1. URI used to identify the community in metadata requests (see [Section 2.4]).

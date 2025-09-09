@@ -27,6 +27,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49141](https://jira.hl7.org/browse/FHIR-49141)|Move conformance language out of home page|
 |[FHIR-49142](https://jira.hl7.org/browse/FHIR-49142)|Update invalid conformance language|
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
+|[FHIR-49175](https://jira.hl7.org/browse/FHIR-49175)|Expand introduction to explain trust communities and certificate-based trust|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
 |[FHIR-49181](https://jira.hl7.org/browse/FHIR-49181)|Clarify how certification template is used and the non-normative nature of examples|
