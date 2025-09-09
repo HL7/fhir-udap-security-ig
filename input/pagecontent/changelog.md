@@ -15,6 +15,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-43024](https://jira.hl7.org/browse/FHIR-43024)|Add STU Note regarding concurrent use with SMART|
 |[FHIR-43120](https://jira.hl7.org/browse/FHIR-43120)|Clarify JWT conformance requirements|
 |[FHIR-45173](https://jira.hl7.org/browse/FHIR-45173)|Add certification example for privacy disclosures|
+|[FHIR-45723](https://jira.hl7.org/browse/FHIR-45723)|Clarify scopes to register for when using Tiered OAuth|
 |[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
 |[FHIR-48921](https://jira.hl7.org/browse/FHIR-48921)|Clarify that Registered Claim Names should be omitted from registration response|
