@@ -399,3 +399,5 @@ Alternative workflow:
 1. Clients **MAY** omit the `x5c` header from an Authentication JWT and instead include the `jku` header containing their pre-registered JWKS URL and the `kid` header identifying a key in the corresponding JWKS key set. If the `jku` header is included, then the key entry from the JWKS set at this URL matching the `kid` value in the JWT header **SHALL** include an `x5c` parameter populated with the corresponding certificate data in the same manner that the `x5c` JWT header would have been populated if it had been included in the JWT.
 1. Servers that receive a JWT in a UDAP worfklow without an `x5c` header **MAY** dereference the `jku` header, attempt to locate the `x5c` parameter from the key entry corresponding to the `kid` value in the JWT, and use the `x5c` value from the JWKS in subsequent processing in the same way as if it had been included directly in the JWT as the value of `x5c` JWT header. 
 1. Clients intending to utilize this workflow **SHALL** register their JWKS URL by including the `jku` parameter with the JWKS URL value in their signed software statement at the time of registration.
+
+{% include link-list.md %}
