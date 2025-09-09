@@ -39,6 +39,8 @@ Signature algorithm identifiers used in this guide are defined in [Section 3.1](
    </tbody>
 </table>
 
+While this guide mandates a baseline of support, clients and servers **MAY** support and use additional signature algorithms that meet the security requirements of the use case.
+
 #### JWT headers
 
 All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and Encryption (JOSE) header as defined in [Section 4](https://datatracker.ietf.org/doc/html/rfc7515#section-4) of RFC 7515 that conforms to the following requirements:
