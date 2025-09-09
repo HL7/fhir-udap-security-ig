@@ -109,7 +109,7 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 ##### B2B Authorization Extension Object
 
-The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under which the request for data would be authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`. Servers that support the B2B `client credentials` flow described in this guide **SHALL** support this B2B Authorization Extension Object.
+The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under which the request for data would be authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
 
 <table class="table">
   <thead>
@@ -181,6 +181,8 @@ The B2B Authorization Extension Object is used by client apps following the `cli
     </tr>
   </tbody>
 </table>
+
+Servers that support the B2B client credentials flow described in this guide **SHALL** support this B2B Authorization Extension Object. Other implementation guides **MAY** define additional Authorization Extension Objects to use together with this object for B2B client credentials workflows.
 
 ##### Preferred code systems and naming systems for US Realm
 
