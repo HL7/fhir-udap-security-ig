@@ -345,15 +345,25 @@ This guide is intended to be compatible and harmonious with client and server us
 The FAST Security project team is working to identify any potential incompatibilities experienced by servers or client applications that support both this IG and the SMART App Launch IG concurrently. Implementers are requested to submit feedback regarding any other potential issues they have identified related to the concurrent use of both IGs so these may be addressed and resolved in future updates.
 </div>
 
-Key Algorithms: JWT-based authentication in version 2 of the SMART IG requires server support for either the RS384 or ES384 signature algorithms, while this IG requires server support for RS256. However, this does not present a compatibility issue because RS256 is permitted as an optional algorithm in the SMART IG, while both RS384 and ES384 are permitted as optional algorithms in this IG. Therefore, using any of these three signature algorithms would be compliant with both IGs.
+#### Key Algorithms
 
-Consistent use of both guides: the question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as “Dynamic Client Registration”, authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for both client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community.
+JWT-based authentication in version 2 of the SMART IG requires server support for either the RS384 or ES384 signature algorithms, while this IG requires server support for RS256. However, this does not present a compatibility issue because RS256 is permitted as an optional algorithm in the SMART IG, while both RS384 and ES384 are permitted as optional algorithms in this IG. Therefore, using any of these three signature algorithms would be compliant with both IGs.
+
+#### Public Key Distribution
+
+This guide uses X.509 certificates included inline within JWTs to distribute public keys. The entity generating a JWT includes the corresponding certificate in the `x5c` header of every signed JWT. Therefore, no separate key discovery or retrieval mechanism is required by the party consuming the JWT. The SMART App Launch framework instead prefers that client apps publish their public keys at a publicly available URL using the JWKS format, and submit this JWKS URL during registration. A server will then dereference this URL to obtain the client's public key. The client may signal to the server to repeat dereferencing by including the same URL in the `jku` header of a JWT.
+
+#### Consistent use of both guides
+
+The question has been raised as to whether this IG can be used for client registration but not used for subsequent authentication. Though adopters of this IG sometimes colloquially refer to its entire workflow as “Dynamic Client Registration”, authentication consistent with this IG is also core to a compliant implementation and the HL7 UDAP FAST Security workgroup recommends that trust communities adopting this IG require the use of this IG for both client registration and authentication, even when SMART is also used, since omitting the UDAP workflow from the authentication step significantly reduces the security benefits to the community.
 
 <div class="bg-info">
 Editor's Note: The preceding paragraph may be moved back to Section 1 during final editorial review as it is not limited to SMART.
 </div>
 
-Discovery: Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
+#### Discovery
+
+Servers conforming to this guide are generally expected, but not required, to also support the HL7 SMART App Launch Framework, which defines additional discovery and metadata requirements.
 
 For servers that also support the SMART App Launch Framework, there is some expected overlap in the UDAP metadata elements defined in Section 2 and metadata that a server may return for other workflows, e.g. OAuth 2.0 authorization and token endpoints are also included in metadata defined in the SMART App Launch Framework. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide. Thus, for the workflows defined in this guide, client applications **SHALL** use the applicable values returned in a server's UDAP metadata.
 
@@ -363,8 +373,27 @@ Editor's Note: The SHALL requirement in the previous paragraph is duplicative wi
 
 Note for client apps that also support the SMART App Launch framework: apps requesting the `"client_credentials"` grant type **SHOULD** request `system` scopes; apps requesting the `"authorization_code"` grant type **SHOULD** request `user` or `patient` scopes.
 
-Authorization Requests: Client applications that also support the SMART App Launch IG are not required to include a launch scope or launch context requirement scope in an authorization request. However, the capability for a client application to request a launch context from the server is useful in many workflows, e.g. consumer facing workflows. Since this IG does not restrict the inclusion of additional parameters in an authorization request or in the corresponding server response, clients are able initiate either the SMART standalone or EHR launch workflows to request a launch context. For example, a client could initiate the SMART standalone launch by including the `launch/patient` scope in its authorization request to a server that supports this SMART workflow.
+#### Authorization Request
 
-Token Requests: For clients and servers that also support the SMART App Launch IG, the requirement to authenticate using a private key in Section 4.2.1 overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
+Client applications that also support the SMART App Launch IG are not required to include a launch scope or launch context requirement scope in an authorization request. However, the capability for a client application to request a launch context from the server is useful in many workflows, e.g. consumer facing workflows. Since this IG does not restrict the inclusion of additional parameters in an authorization request or in the corresponding server response, clients are able initiate either the SMART standalone or EHR launch workflows to request a launch context. For example, a client could initiate the SMART standalone launch by including the `launch/patient` scope in its authorization request to a server that supports this SMART workflow.
 
-Token Response: Although this guide does not currently constrain the type or format of access tokens, the SMART App Launch framework, when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT). Since this IG does not restrict the server from including additional parameters in the token response, servers can include other parameters specified by the SMART App Launch framework for this purpose, e.g. launch context parameters.
+#### Token Request
+
+For clients and servers that also support the SMART App Launch IG, the requirement to authenticate using a private key in Section 4.2.1 overrides the requirement for the client to use HTTP Basic Authentication with a client_secret in [Section 7.1.3](http://hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-3-app-exchanges-authorization-code-for-access-token) of the SMART App Launch IG v1.0.0.
+
+#### Token Response
+
+Although this guide does not currently constrain the type or format of access tokens, the SMART App Launch framework, when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT). Since this IG does not restrict the server from including additional parameters in the token response, servers can include other parameters specified by the SMART App Launch framework for this purpose, e.g. launch context parameters.
+
+### Experimental workflow alternative using 'jku' dereferencing
+
+<div class="stu-note" markdown="1">
+Since many servers support `jku` dereferencing for certain SMART App Launch workflows, the question has been raised as to whether there may be some advantage to allowing clients and servers to re-use this `jku` mechanism for UDAP workflows, as an alternative to requiring a JWT signer to include their certificate inline in the `x5c` header of the JWT. To facilitate future discussion of this topic, this guide defines the following experimental workflow changes for testing purposes. Implementer feedback is requested to determine whether to expand or remove this option in future versions of this guide.
+</div>
+
+This sections defines an experimental JWT processing alernative to test the use of `jku` dereferencing for access token request/response workflows. Support for this variation is **OPTIONAL** for both clients and servers, and may be removed in future versions of this guide.  This variation overrides the requirement in [Section 7.1.3] to include an `x5c` header in a JWT. This section does not apply to registration requests or to JWTs signed by servers.
+
+Alternative workflow:
+1. Clients **MAY** omit the `x5c` header from an Authentication JWT and instead include the `jku` header containing their pre-registered JWKS URL and the `kid` header identifying a key in the corresponding JWKS key set. If the `jku` header is included, then the key entry from the JWKS set at this URL matching the `kid` value in the JWT header **SHALL** include an `x5c` parameter populated with the corresponding certificate data in the same manner that the `x5c` JWT header would have been populated if it had been included in the JWT.
+1. Servers that receive a JWT in a UDAP worfklow without an `x5c` header **MAY** dereference the `jku` header, attempt to locate the `x5c` parameter from the key entry corresponding to the `kid` value in the JWT, and use the `x5c` value from the JWKS in subsequent processing in the same way as if it had been included directly in the JWT as the value of `x5c` JWT header. 
+1. Clients intending to utilize this workflow **SHALL** register their JWKS URL by including the `jku` parameter with the JWKS URL value in their signed software statement at the time of registration.
