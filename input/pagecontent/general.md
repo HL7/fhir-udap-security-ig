@@ -86,6 +86,10 @@ This guide does not require the canonicalization of URIs included in JWTs before
 
 Note: To ensure interoperability, a URI included as the `iss` value of a JWT should exactly match a URI included in the Subject Alternative Name extension of the JWT producer's corresponding certificate, including, for example, the case used for the host name and the presence or absence of a port number or trailing slash. Similarly, clients that include a URI provided by a server in its server metadata as the `aud` value of a JWT subsequently submitted to that server should include the URI exactly as it was originally provided by that server.
 
+#### JWT validation
+
+Several workflows described in this guide require validation of JWTs by the JWT consumer. This includes the requirement that the JWT consumer validate that it trusts the corresponding JWT's producer's X.509 certificate by constructing a valid certificate chain from the JWT producer's certificate to an anchor trusted by the JWT consumer, and by verifying that the certificates in the chain have not expired or been revoked. The full validation requirements for each workflow can be found in the UDAP profile sections referenced in Sections [2.3](discovery.html#required-udap-metadata), [3.2.3](registration.html#request-body), [4.2.3](consumer.html#server-processing-of-token-requests), and [5.2.3](b2b.html#server-processing-of-token-requests).
+
 ### Authorization code flow
 
 The constraints in the following subsections apply to all workflows utilizing the authorization code flow. Authorization requests submitted by client applications **SHALL** include the following parameters:
