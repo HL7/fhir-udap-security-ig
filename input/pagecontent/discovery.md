@@ -226,7 +226,7 @@ A server's UDAP metadata **SHALL** include the `signed_metadata` element. The va
   </tbody>
 </table>
 
-The client **SHALL** validate the signed metadata returned by the server as per Section 3 of [UDAP Server Metadata].
+The client **SHALL** validate the signed metadata returned by the server as per Section 3 of [UDAP Server Metadata]. If the signed metadata fails validation for any reason, the client **SHALL NOT** proceed with the workflows in this guide.
 
 Note: The use of the `signed_metadata` parameter in this guide is intended to align with [Section 2.1 of RFC 8414]. However, the requirements specified in this section are stricter than the corresponding requirements in RFC 8414.
 
@@ -238,6 +238,6 @@ To address this, a client application **SHOULD** add the optional query paramete
 
 Servers **SHALL** support the `community` parameter. IF a client includes this parameter in its metadata request and the server recognizes the community URI, the server **SHALL** select a certificate intended for use within the identified trust community, if it has been issued such a certificate, and use that certificate when generating the signed JWT returned for the `signed_metadata` element. If a server supports different UDAP capabilities for different communities, it **MAY** also return different values for other metadata elements described in [Section 2.2] as appropriate for the identified community. If the server does not recognize the community URI or does not have a suitable certificate for the identified community, it **MAY** return a `204 No Content` response to the metadata request to indicate that no UDAP workflows are supported by server in the context of that community, or it **MAY** return its default metadata, i.e. the metadata that it would have returned if the `community` parameter was not included in the request.
 
-Note: The authors recommend that the client be prepared to handle server metadata signed with a key for a different trust community than expected, regardless if the community parameter was used.
+Note: The authors recommend that the client be prepared to handle server metadata signed with a key for a different trust community than expected, regardless if the community parameter was used. If the client cannot validate the server's signed metadata because the server's certificate is from a different community that is not trusted by the client, then the client will terminate the workflow as per the validation requirements in the previous section.
 
 {% include link-list.md %}
