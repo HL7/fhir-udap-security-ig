@@ -34,6 +34,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49182](https://jira.hl7.org/browse/FHIR-49182)|Clarify that additional signature algorithms may be used|
 |[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
 |[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
+|[FHIR-49186](https://jira.hl7.org/browse/FHIR-49186)|Add section level references to validation steps in UDAP specifications|
 |[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements to General Requirements page|
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
 |[FHIR-49241](https://jira.hl7.org/browse/FHIR-49241)|Add alternative workflow using "jku" instead of "x5c" (experimental)|
