@@ -342,7 +342,7 @@ This guide uses X.509 certificates included inline within JWTs to distribute pub
 
 Both this guide and the SMART App Launch framework have requirements regarding the publishing of server metadata at well-known URLs. There is some expected overlap in the UDAP metadata elements defined in [Section 2] of this guide and the metadata required by the SMART IG, e.g. OAuth 2.0 authorization and token endpoints are included in both. This is not a compatibility issue as each guide specifies a different metadata endpoint. Having different metadata endpoints permits servers to return different metadata values for different workflows. For example, a server could operate a different token endpoint to handle token requests from clients conforming to this guide, or use the same endpoint for token requests conforming to both guides. We also note a server can easily identify token requests conforming to this guide by the presence of the extension parameter `udap` with a value of `1` in the request body.
 
-### Scopes
+#### Scopes
 
 This guide does not restrict the scopes defined outside this guide that may be supported by a client or server. It is expected that clients that support both this guide and the FHIR resource scopes defined in the SMART App Launch framework will request SMART system-level scopes when using the `"client_credentials"` grant type and either SMART user-level or patient-specific scopes when using the `"authorization_code"` grant type.
 
