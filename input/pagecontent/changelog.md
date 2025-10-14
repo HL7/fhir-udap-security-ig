@@ -40,6 +40,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
+|[FHIR-51052](https://jira.hl7.org/browse/FHIR-51052)|Clarify URI normalization expectations in JWTs|
 |[FHIR-51054](https://jira.hl7.org/browse/FHIR-51054)|Add time synchronization to community checklist|
 |[FHIR-51150](https://jira.hl7.org/browse/FHIR-51150)|Add PKI policies as separate trust community checklist item|
 |[FHIR-51161](https://jira.hl7.org/browse/FHIR-51161)|Clarify additional Authorization Extension Objects are allowed for B2B workflows|

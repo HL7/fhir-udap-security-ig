@@ -78,7 +78,13 @@ All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and
 
 All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
 
-Additional JWT Claim requirements are defined elsewhere in this guide. 
+Additional JWT Claim requirements are defined elsewhere in this guide.
+
+#### Normalization of URI values in JWTs
+
+This guide does not require the canonicalization of URIs included in JWTs before making string comparisons. Per Section 2 of [RFC 7519], URI values in JWTs are compared as case-sensitive strings with no transformations or canonicalizations applied. The JWT producer **SHOULD** include URI values that are normalized to facilitate successful string matching by the JWT consumer. The JWT consumer is **NOT REQUIRED** to perform any normalization of URI values prior to making comparisons. For example, a JWT producer cannot assume that a JWT consumer will consider `"https://FHIR.example.com:443"` and `"https://fhir.example.com/"` to be equivalent strings when evaluating a JWT.
+
+Note: To ensure interoperability, a URI included as the `iss` value of a JWT should exactly match a URI included in the Subject Alternative Name extension of the JWT producer's corresponding certificate, including, for example, the case used for the host name and the presence or absence of a port number or trailing slash. Similarly, clients that include a URI provided by a server in its server metadata as the `aud` value of a JWT subsequently submitted to that server should include the URI exactly as it was originally provided by that server.
 
 ### Authorization code flow
 
