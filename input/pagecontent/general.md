@@ -172,15 +172,12 @@ The constraints enumerated below apply for scope negotiation between client appl
 1. Client applications and servers **MAY** support wildcard scopes.
 1. A client application **MAY** request a wildcard scope only if wildcards are specified in the server's `scopes_supported` metadata list.
 1. If a client application requests a wildcard scope and the server supports wildcards, then the server **SHOULD** return either the wildcard scope or an expanded set of scopes that the client has been granted in its response.
-1. If a client application requests a wildcard scope and the server does not support wildcard scopes, then the server **SHOULD** respond with:
- a. an error of "invalid_client_metadata" for registration requests.
- b. an error of "invalid_scope" for token requests.
+1. If a client application requests a wildcard scope and the server does not support wildcard scopes, then the server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests or an error of "invalid_scope" for token requests.
 1. If a server supports OIDC or SMART App Launch scopes, the server **SHOULD** put the corresponding scopes (e.g. "openid", "offline_access", "email", "fhirUser", etc.) in their `scopes_supported` metadata.
-1. A server **MAY** grant fewer scopes than requested by the client application if the client application cannot have a scope specified in the request based on technical or policy guidelines at the responding organization or if the server does not recognize one or more of the requested scopes.
-1. If a wildcard scope is requested and not supported, or if none of the requested scopes are supported, then the server **SHOULD** respond with:
- a. an error of "invalid_client_metadata" for registration requests.
- b. an error of "invalid_scope" for token requests.
-1. At the time of a token request, an authorization server **MAY** grant additional scopes that are not in the set of scopes requested by the client application if the application has been registered with the server with a different set of scopes than was requested at registration based on technical or policy guidelines at the responding organization.
+1. A server **MAY** grant fewer scopes than requested by the client application, e.g. if the client application cannot have a scope specified in the request based on technical or policy guidelines at the responding organization or if the server does not recognize one or more of the requested scopes.
+1. A server **SHOULD** respond with an error of "invalid_scope" for token requests only if a wildcard scope is requested and not supported, or if none of the requested scopes are supported.
+1. A server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests if a wildcard scope is requested and not supported, or if none of the requested scopes are supported.
+1. At the time of a token request, an authorization server **MAY** grant additional scopes that are not in the set of scopes requested by the client application, e.g. if the application has been registered with the server with a different set of scopes than was requested at registration based on technical or policy guidelines at the responding organization.
 1. The scopes granted by a server to a client application at the time of a token request **MAY** be the same as the set from registration or **MAY** be a subset.
 1. The scopes granted by a server to a client application at the time of a token request **MAY** be the same as the set of scopes requested by the client application or **MAY** be a subset.
 1. An application **SHOULD** be able to receive a superset of the scopes requested if the server's policies dictate that a request with a certain system or user/user role is granted specific scopes that are not part of the original request.
