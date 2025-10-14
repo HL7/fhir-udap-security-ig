@@ -29,6 +29,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
+|[FHIR-49180](https://jira.hl7.org/browse/FHIR-49180)|Consolidate scope negotiation requirements, add trust community scope guidance|
 |[FHIR-49181](https://jira.hl7.org/browse/FHIR-49181)|Clarify how certification template is used and the non-normative nature of examples|
 |[FHIR-49182](https://jira.hl7.org/browse/FHIR-49182)|Clarify that additional signature algorithms may be used|
 |[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
