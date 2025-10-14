@@ -44,9 +44,9 @@ Client applications using the authorization code flow **SHALL** include a `code_
 
 #### Constructing Authentication Token
 
-Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
+Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
 
-Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication and [Section 4](https://www.udap.org/udap-client-authorization-grants.html) of UDAP Client Authorization Grants using JSON Web Tokens:
+Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-4) of UDAP JWT-Based Client Authentication and [Section 4](https://www.udap.org/udap-client-authorization-grants-stu1.html#section-4) of UDAP Client Authorization Grants using JSON Web Tokens:
 
 <table class="table">
   <thead>
@@ -208,7 +208,7 @@ For example, the U.S. NPI number 1234567890 can be represented as `urn:oid:2.16.
 
 ##### Authorization code grant
 
-Client applications using the authorization code grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications using the authorization code grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -262,7 +262,7 @@ Client applications using the authorization code grant and authenticating with a
 
 ##### Client credentials grant
 
-Client applications using the client credentials grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications using the client credentials grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.2) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -309,7 +309,7 @@ Client applications using the client credentials grant and authenticating with a
 
 #### Server processing of token requests
 
-An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html) of UDAP JWT-Based Client Authentication.
+An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication.
 
 For client applications using an authorization code grant, the Authorization Server **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
 
