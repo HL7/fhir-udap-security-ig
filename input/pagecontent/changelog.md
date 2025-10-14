@@ -19,25 +19,25 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
 |[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
 |[FHIR-48921](https://jira.hl7.org/browse/FHIR-48921)|Clarify that Registered Claim Names should be omitted from registration response|
-|[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
-|[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
-|[FHIR-49242](https://jira.hl7.org/browse/FHIR-49242)|Clarify that clients will terminate workflow if server metadata is not trusted|
-|[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
-|[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-48986](https://jira.hl7.org/browse/FHIR-48986)|Add text and STU note about logical server groups|
 |[FHIR-49141](https://jira.hl7.org/browse/FHIR-49141)|Move conformance language out of home page|
 |[FHIR-49142](https://jira.hl7.org/browse/FHIR-49142)|Update invalid conformance language|
+|[FHIR-49143](https://jira.hl7.org/browse/FHIR-49143)|Representation/formatting of word may be confused as conformance language|
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
 |[FHIR-49175](https://jira.hl7.org/browse/FHIR-49175)|Expand introduction to explain trust communities and certificate-based trust|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
+|[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
 |[FHIR-49181](https://jira.hl7.org/browse/FHIR-49181)|Clarify how certification template is used and the non-normative nature of examples|
 |[FHIR-49182](https://jira.hl7.org/browse/FHIR-49182)|Clarify that additional signature algorithms may be used|
+|[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
 |[FHIR-49185](https://jira.hl7.org/browse/FHIR-49185)|Add guidance on how to use this IG and SMART App Launch framework together|
 |[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements to General Requirements page|
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
 |[FHIR-49241](https://jira.hl7.org/browse/FHIR-49241)|Add alternative workflow using "jku" instead of "x5c" (experimental)|
+|[FHIR-49242](https://jira.hl7.org/browse/FHIR-49242)|Clarify that clients will terminate workflow if server metadata is not trusted|
 |[FHIR-49631](https://jira.hl7.org/browse/FHIR-49631)|Clarify that unassigned parameters should be omitted from registration response|
+|[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
 |[FHIR-51054](https://jira.hl7.org/browse/FHIR-51054)|Add time synchronization to community checklist|
