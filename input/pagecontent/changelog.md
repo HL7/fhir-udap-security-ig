@@ -39,6 +39,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49242](https://jira.hl7.org/browse/FHIR-49242)|Clarify that clients will terminate workflow if server metadata is not trusted|
 |[FHIR-49631](https://jira.hl7.org/browse/FHIR-49631)|Clarify that unassigned parameters should be omitted from registration response|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
+|[FHIR-50137](https://jira.hl7.org/browse/FHIR-50137)|Clarify scope negotiation errors for token vs. registration requests|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
 |[FHIR-51052](https://jira.hl7.org/browse/FHIR-51052)|Clarify URI normalization expectations in JWTs|
