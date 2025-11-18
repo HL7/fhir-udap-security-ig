@@ -1,3 +1,6 @@
 == Suppressed Messages ==
 # IG contains no FHIR artifacts
 ERROR: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide|4.0.1)
+
+# INFORMATION: Conformance language notes will be ignored and addressed in a future version of the IG
+%The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
