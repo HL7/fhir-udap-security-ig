@@ -162,6 +162,82 @@ Client applications and Authorization Servers **SHALL** utilize Proof Key for Co
 
 The Authorization Server **SHALL** return an error in response to a token request as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
 
+### JSON Web Token (JWT) Requirements
+
+The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them.
+
+#### General requirements and serialization
+
+All JSON Web Tokens (JWTs) defined in this guide:
+1. **SHALL** conform to the mandatory requirements of [RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519).
+1. **SHALL** be JSON Web Signatures conforming to the mandatory requirements of [RFC 7515](https://datatracker.ietf.org/doc/html/rfc7515).
+1. **SHALL** be serialized using JWS Compact Serialization as per [Section 7.1](https://datatracker.ietf.org/doc/html/rfc7515#section-7.1) of RFC 7515.
+
+#### Signature algorithm identifiers
+
+Signature algorithm identifiers used in this guide are defined in [Section 3.1](https://datatracker.ietf.org/doc/html/rfc7518#section-3.1) of RFC 7518.
+
+<table class="table">
+   <thead>
+      <th colspan="3">Signature Algorithm Identifier Conformance</th>
+   </thead>
+   <tbody>
+      <tr>
+         <td><code>RS256</code></td>
+         <td>Implementers <b>SHALL</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES256</code></td>
+         <td>Implementers <b>SHOULD</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>RS384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+      <tr>
+         <td><code>ES384</code></td>
+         <td>Implementers <b>MAY</b> support this algorithm.</td>
+      </tr>
+   </tbody>
+</table>
+
+#### JWT headers
+
+All JWTs defined in this guide **SHALL** contain a Javascript Object Signing and Encryption (JOSE) header as defined in [Section 4](https://datatracker.ietf.org/doc/html/rfc7515#section-4) of RFC 7515 that conforms to the following requirements:
+
+<table class="table">
+  <thead>
+    <th colspan="3">JWT Header Values</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alg</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        A string identifying the signature algorithm used to sign the JWT. For
+        example:<br>
+        <code>"RS256"</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>x5c</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of one or more strings containing the X.509 certificate or
+        certificate chain, where the leaf certificate corresponds to the
+        key used to digitally sign the JWT. Each string in the array is the
+        base64-encoded DER representation of the corresponding certificate, with the leaf
+        certificate appearing as the first (or only) element of the array.<br>
+        See <a href="https://tools.ietf.org/html/rfc7515#section-4.1.6">Section 4.1.6 of RFC 7515</a>.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+#### JWT Claims
+
+All JWTs defined in this guide contain the `iss`, `exp`, and `jti` claims. The value of the `jti` claim is a nonce string value that uniquely identifies a JWT until the expiration of that JWT, i.e. until the time specified in the `exp` claim of that JWT has passed. Thus, the issuer of a JWT **SHALL NOT** reuse the same `jti` value in a new JWT with the same `iss` value prior to the expiration of the previous JWT. Implementers who track `jti` values to detect the replay of received JWTs **SHALL** allow a `jti` value to be reused after the expiration of any other previously received JWTs containing the same `iss` and `jti` values.
+
 ### Scope negotiation
 
 A wildcard scope is a scope that can be alternatively represented as a set of non-wildcard scopes. An example of a wildcard scope is the SMART App Launch v1.0.0 scope `patient/Observation.*` which can expanded to the set of two non-wildcard scopes: `patient/Observation.read` and `patient/Observation.write`. Granting the wildcard scope to a client application is equivalent to granting the corresponding expanded set of non-wildcard scopes.

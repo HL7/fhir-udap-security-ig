@@ -27,6 +27,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49175](https://jira.hl7.org/browse/FHIR-49175)|Expand introduction to explain trust communities and certificate-based trust|
 |[FHIR-49176](https://jira.hl7.org/browse/FHIR-49176)|Update UDAP.org STU1 links|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
+|[FHIR-49187](https://jira.hl7.org/browse/FHIR-49187)|Move JWT requirements from home page to General Requirements section|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
 |[FHIR-49180](https://jira.hl7.org/browse/FHIR-49180)|Consolidate scope negotiation requirements, add trust community scope guidance|
