@@ -17,12 +17,13 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 4
 license: "CC-BY-4.0"
-version: 2.0.0
+version: 3.0.0-ballot
 fhirVersion: 4.0.1
 copyrightYear: 2025+
-releaseLabel: STU 2
-date: 2025-07-28
-jurisdiction: "urn:iso:std:iso:3166#US"
+releaseLabel: STU 3 Ballot
+#date: 2025-07-28
+#jurisdiction: "urn:iso:std:iso:3166#US"
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001
 publisher:
   name: HL7 International / Security
   url: http://www.hl7.org/Special/committees/secure

@@ -3,7 +3,6 @@
 ERROR: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide|4.0.1)
 
 # INFORMATION: Conformance language notes will be ignored and addressed in a future version of the IG
-%The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
+%The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause%
+%The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause%
 
-# jurisdiction is used by IG publisher and is known to be draft
-INFORMATION: ImplementationGuide/hl7.fhir.us.udap-security: ImplementationGuide.jurisdiction[0]: Reference to draft CodeSystem urn:iso:std:iso:3166|20210120
