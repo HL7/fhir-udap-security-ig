@@ -1,10 +1,10 @@
 {
   "package-id" : "hl7.fhir.uv.fast-security",
   "version" : "3.0.0-ballot",
-  "path" : "http://hl7.org/fhir/uv/fast-security/2025May",
+  "path" : "http://hl7.org/fhir/uv/fast-security/2026May",
   "mode" : "working",
   "status" : "ballot",
   "sequence" : "STU 3",
-  "desc" : "Universal Realm ballot from the STU2 version.",
+  "desc" : "Universal Realm ballot from the STU2 us version.",
   "first" : false
 }
