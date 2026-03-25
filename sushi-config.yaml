@@ -41,20 +41,39 @@ parameters:
   excludexml: true
   excludettl: true
   excludemap: true
+  shownav: true
 
 pages:
   index.md:
     title: Home
   discovery.md:
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   registration.md:
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   consumer.md:
     title: Consumer-Facing
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   b2b.md:
     title: Business-to-Business
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   user.md:
     title: Tiered OAuth for User Authentication
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   general.md:
     title: General Requirements
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   about.md:
   changelog.md:
     title: Change Log

@@ -1,15 +1,11 @@
-<div class="stu-note" markdown="1">
-This Security FHIR&reg; IG has been established upon the recommendations of ONC's FHIR at Scale Taskforce (FAST) Security Tiger Team, and has been adapted from IGs previously published by UDAP.org. This IG is based on the UDAP STU1 profiles. The workflows defined in the Unified Data Access Profiles (UDAP&trade;) have been used in several FHIR IGs, including the TEFCA Facilitated FHIR IG, Carequality FHIR IG, Carin BB IG, DaVinci HREX IG, and others. The objective of this IG is to harmonize workflows for both consumer-facing and B2B applications to facilitate cross-organizational and cross-network interoperability.
 
-Additional enhancements include a formal definition for a B2B Authorization Extension Object to facilitate these transactions.
+<div class="note-to-balloters" markdown="1">
+This ballot is moving a US realm publication to International. The content of the IG is not changing from the US STU2 (December 2025) publication, but the title, id, canonical URL, and some of the metadata are being updated to reflect the new realm. The ballot is inviting any comments or feedback from the community. Please review the changes carefully and provide any feedback you may have.
 </div>
 
 ### Introduction
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.
-
-The requirements described in this guide are intended to align with the proposed solutions of the ONC FHIR at Scale Taskforce’s Security Tiger Team, the security model and UDAP workflows outlined in the [Carequality FHIR-Based Exchange IG], and implementation guides incorporating UDAP workflows published by the [CARIN Alliance](http://hl7.org/fhir/us/carin-bb/STU1/Authorization_Authentication_and_Registration.html#authorization-and-authentication) and the [Da Vinci Project](http://hl7.org/fhir/us/davinci-hrex/STU1/smart-app-reg.html).
-{:.bg-info}
 
 This Guide is divided into several pages which are listed at the top of each page in the menu bar.
 
@@ -20,7 +16,6 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Business-to-Business]\: This page provides detailed guidance for authorization and authentication of B2B apps.
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [General Requirements]\: This page provides general requirements applicable to multiple authorization and authentication workflows.
-- [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources.
 
 Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.5].
 
