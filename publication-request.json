@@ -6,5 +6,6 @@
   "status" : "ballot",
   "sequence" : "STU 3",
   "desc" : "Universal Realm ballot from the STU2 us version.",
-  "first" : false
+  "first" : false,
+  "movedFrom" : "http://hl7.org/fhir/us/udap-security"
 }
