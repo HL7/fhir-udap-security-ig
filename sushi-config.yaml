@@ -70,7 +70,7 @@ pages:
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
         valueCode: trial-use 
   general.md:
-    title: General Requirements
+    title: Common Requirements
     extension: 
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
         valueCode: trial-use 
@@ -91,7 +91,7 @@ menu:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
-    General Requirements: general.html
+  Common Requirements: general.html
   About: about.html
   Change Log: changelog.html
   #FHIR Artifacts: artifacts.html #note: no artifacts

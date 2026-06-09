@@ -1,4 +1,4 @@
-This section contains general requirements applicable to multiple authorization and authentication workflows.
+This section contains common requirements applicable to multiple authorization and authentication workflows.
 
 ### JSON Web Token (JWT) Requirements
 
