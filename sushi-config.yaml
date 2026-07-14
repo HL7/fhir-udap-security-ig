@@ -17,7 +17,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 4
 license: "CC-BY-4.0"
-version: 3.0.0-ballot
+version: 3.0.0-current
 fhirVersion: 4.0.1
 copyrightYear: 2025+
 releaseLabel: STU 3 Ballot
