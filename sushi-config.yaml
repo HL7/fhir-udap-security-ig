@@ -74,6 +74,11 @@ pages:
     extension: 
       - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
         valueCode: trial-use 
+  references.md:
+    title: References
+    extension: 
+      - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+        valueCode: trial-use 
   about.md:
   changelog.md:
     title: Change Log
@@ -91,7 +96,9 @@ menu:
     Consumer-Facing: consumer.html
     Business-to-Business: b2b.html
     Tiered OAuth for User Authentication: user.html
-  Common Requirements: general.html
+  Common: 
+    General: general.html
+    References: references.html
   About: about.html
   Change Log: changelog.html
   #FHIR Artifacts: artifacts.html #note: no artifacts
