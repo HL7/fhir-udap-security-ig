@@ -8,6 +8,7 @@ In addition to the tickets below, this version includes changes necessary to mov
 |---------|----------|
 |[FHIR-56931](https://jira.hl7.org/browse/FHIR-56931)|Move common requirements to a separate menu bar tab|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registraton|
+|[FHIR-52960](https://jira.hl7.org/browse/FHIR-52960)|Require servers to support POST|
 
 ### Version 2.0.0
 
