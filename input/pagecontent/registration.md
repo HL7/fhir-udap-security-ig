@@ -14,7 +14,7 @@ The dynamic registration workflow is summarized in the following diagram:
 
 To register dynamically, the client application first constructs a software statement as per [Section 2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-2) of UDAP Dynamic Client Registration.
 
-The software statement **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below.  The software statement **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the software statement and with the private key that corresponds to the public key listed in the client's X.509 certificate identified in the `x5c` header of the software statement.
+The software statement **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below.  The software statement **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the software statement and with the private key that corresponds to the public key listed in the client's X.509 certificate identified in the `x5c` header of the software statement. Scope negotiation requirements for registration and token requests are described in [Section 7.3].
 
 <table class="table">
   <thead>

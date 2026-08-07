@@ -14,7 +14,7 @@ Client applications **SHALL** request an authorization code as per [Section 4.1.
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749. 
 
-Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
+Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide. The related requirements for the state parameter and PKCE handling are described in [Section 7.2.1] and [Section 7.2.2], and the related scope negotiation rules are described in [Section 7.3].
 
 ### Obtaining an access token
 
