@@ -156,6 +156,8 @@ A Client application **SHALL** include the `state` parameter in its authorizatio
 
 Servers **SHALL** include the `state` parameter and corresponding value provided by the client application in the authorization response as per RFC 6749. The client application **SHALL NOT** proceed if the `state` parameter is not included in the authorization response or its value does not match the value provided by the client application in the corresponding authorization request.
 
+Authorization Servers **SHALL** support both `GET` and `POST` requests to their authorization endpoint for the authorization code flow. Clients **SHALL** be prepared to submit authorization requests using either HTTP method, and servers **SHALL** accept and process both forms in a manner consistent with the requirements of this guide.
+
 #### Proof Key for Code Exchange (PKCE)
 
 Client applications and Authorization Servers **SHALL** utilize Proof Key for Code Exchange (PKCE) with `code_challenge_method` of `S256` as defined in RFC 7636. An Authorization Server **SHOULD** return an error as per Section 4.4.1 of RFC 7636 if a client application does not include a `code_challenge` is its authorization request. 
