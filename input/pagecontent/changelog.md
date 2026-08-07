@@ -7,6 +7,7 @@ In addition to the tickets below, this version includes changes necessary to mov
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-56931](https://jira.hl7.org/browse/FHIR-56931)|Move common requirements to a separate menu bar tab|
+|[FHIR-57877](https://jira.hl7.org/browse/FHIR-57877)|Need references section|
 
 ### Version 2.0.0
 
