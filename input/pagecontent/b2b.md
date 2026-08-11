@@ -315,13 +315,13 @@ For client applications using an authorization code grant, the Authorization Ser
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 
+The Resource Server **SHALL** process access tokens as per [Section 7 of RFC 6749].
+
 <div class="stu-note" markdown="1">
 This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
 </div>
 
 #### Client application use of access tokens
-
-A FHIR Server **SHALL** only provide access to resources in a manner consistent with any assertions granted by the Authorization Server. For example, if the Authorization Server only granted read access to Patient resources, then the FHIR Server **SHALL NOT** return Observation resources in response to a request using that access token. This specification does not define how the FHIR Server assesses the assertions granted by the Authorization Server.
 
 A client application **SHALL** only use an access token in a manner consistent with any assertions made when requesting that token. For example, if a client asserted a `subject_id` and `purpose_of_use` in the B2B Authorization Extension Object included in its token request, then the access token granted in response to that request can only be used in that authorization context, i.e. for that requestor and for that purpose. If the same client application subsequently needs to retrieve a resource for a different requestor and/or for a different purpose from the same resource server, it cannot reuse the same access token. Instead, it must obtain a new access token by submitting another token request with an updated B2B Authorization Extension Object asserting the new authorization context.
 
