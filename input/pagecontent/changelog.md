@@ -10,6 +10,9 @@ In addition to the tickets below, this version includes changes necessary to mov
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registraton|
 |[FHIR-56880](https://jira.hl7.org/browse/FHIR-56880)|Suggest the spec to be self-contained as much as possible| 
 |[FHIR-56881](https://jira.hl7.org/browse/FHIR-56881)|Clarify the rationale to have hl7-b2b and the requirements to the server when receiving it|
+|[FHIR-57840](https://jira.hl7.org/browse/FHIR-57840)|Clarify that a person may be assigned more than one (iss,sub) pair|
+|[FHIR-57844](https://jira.hl7.org/browse/FHIR-57844)|Clarify that registration modifications are validated in same manner as new requests|
+|[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registraton|
 
 ### Version 2.0.0
 
