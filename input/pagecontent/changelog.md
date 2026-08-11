@@ -11,6 +11,7 @@ In addition to the tickets below, this version includes changes necessary to mov
 |[FHIR-57840](https://jira.hl7.org/browse/FHIR-57840)|Clarify that a person may be assigned more than one (iss,sub) pair|
 |[FHIR-57844](https://jira.hl7.org/browse/FHIR-57844)|Clarify that registration modifications are validated in same manner as new requests|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registraton|
+|[FHIR-58057](https://jira.hl7.org/browse/FHIR-58057)|Clarify Resource Server must process access tokens as per RFC 6749|
 
 ### Version 2.0.0
 
