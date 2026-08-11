@@ -74,7 +74,7 @@ The software statement **SHALL** contain the required header elements specified 
       <td><code>redirect_uris</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        An array of one or more redirection URIs used by the client application. This claim SHALL be present if <code>grant_types</code> includes <code>"authorization_code"</code> and this claim SHALL be absent otherwise. Each URI SHALL use the https scheme.
+        An array of one or more complete redirection URIs used by the client application. This claim SHALL be present if <code>grant_types</code> includes <code>"authorization_code"</code> and this claim SHALL be absent otherwise. Each URI SHALL use the https scheme.
       </td>
     </tr>
     <tr>

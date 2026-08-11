@@ -6,3 +6,5 @@ ERROR: ImplementationGuide/hl7.fhir.uv.fast-security: ImplementationGuide.defini
 %The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause%
 %The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause%
 
+# There are no resources created by this IG, so no OID is needed
+The resource ImplementationGuide/hl7.fhir.uv.fast-security could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
