@@ -1,11 +1,10 @@
 # FAST Security IG – Dependency Tree
 
 - **UDAP Specifications**
-  - [UDAP Trusted Dynamic Client Registration](https://udap.org/udap-dcr.html)
-  - [UDAP JWT-Based Client Authentication](https://udap.org/udap-auth.html)
-  - [UDAP Tiered OAuth for User Authentication](https://udap.org/udap-tiered-oauth.html)
-  - [UDAP Metadata](https://udap.org/udap-metadata.html)
-  - [UDAP B2B Authorization Extensions](https://udap.org/udap-b2b.html)
+  - [UDAP Client Authorization Grants using JSON Web Tokens](https://www.udap.org/udap-client-authorization-grants-stu1.html)
+  - [UDAP JWT-Based Client Authentication](https://www.udap.org/udap-jwt-client-auth-stu1.html)
+  - [UDAP Tiered OAuth for User Authentication](https://www.udap.org/udap-user-auth-stu1.html)
+  - [UDAP Metadata](https://www.udap.org/udap-server-metadata-stu1.html)
   - [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html)
 
 - **OAuth 2.0 Family (IETF RFCs)**
@@ -14,8 +13,8 @@
   - [RFC 7592 — Client Configuration](https://www.rfc-editor.org/rfc/rfc7592)
   - [RFC 7636 — PKCE](https://www.rfc-editor.org/rfc/rfc7636)
   - [RFC 7523 — JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523)
-  - [RFC 8414 — AS Metadata](https://www.rfc-editor.org/rfc/rfc8414) - informative
-  - [RFC 9126 — AS Metadata (updated)](https://www.rfc-editor.org/rfc/rfc9126) - informative
+  - [RFC 8414 — OAuth 2.0 Authorization Server Metadata](https://www.rfc-editor.org/rfc/rfc8414) - informative
+  - [RFC 9126 — OAuth 2.0 Pushed Authorization Requests](https://www.rfc-editor.org/rfc/rfc9126) - informative
 
 - **JOSE / JWT (IETF RFCs)**
   - [RFC 7515 — JWS](https://www.rfc-editor.org/rfc/rfc7515)
