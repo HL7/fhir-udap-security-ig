@@ -315,6 +315,8 @@ For client applications using an authorization code grant, the Authorization Ser
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 
+The Resource Server **SHALL** process access tokens as per [Section 7 of RFC 6749].
+
 <div class="stu-note" markdown="1">
 This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
 </div>
