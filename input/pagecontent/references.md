@@ -6,15 +6,16 @@
   - [UDAP Tiered OAuth for User Authentication](https://udap.org/udap-tiered-oauth.html)
   - [UDAP Metadata](https://udap.org/udap-metadata.html)
   - [UDAP B2B Authorization Extensions](https://udap.org/udap-b2b.html)
+  - [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html)
 
 - **OAuth 2.0 Family (IETF RFCs)**
   - [RFC 6749 — OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749)
   - [RFC 7591 — Dynamic Client Registration](https://www.rfc-editor.org/rfc/rfc7591)
   - [RFC 7592 — Client Configuration](https://www.rfc-editor.org/rfc/rfc7592)
   - [RFC 7636 — PKCE](https://www.rfc-editor.org/rfc/rfc7636)
-  - [RFC 8705 — OAuth MTLS](https://www.rfc-editor.org/rfc/rfc8705)
-  - [RFC 8414 — AS Metadata](https://www.rfc-editor.org/rfc/rfc8414)
-  - [RFC 9126 — AS Metadata (updated)](https://www.rfc-editor.org/rfc/rfc9126)
+  - [RFC 7523 — JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523)
+  - [RFC 8414 — AS Metadata](https://www.rfc-editor.org/rfc/rfc8414) - informative
+  - [RFC 9126 — AS Metadata (updated)](https://www.rfc-editor.org/rfc/rfc9126) - informative
 
 - **JOSE / JWT (IETF RFCs)**
   - [RFC 7515 — JWS](https://www.rfc-editor.org/rfc/rfc7515)
