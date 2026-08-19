@@ -92,7 +92,7 @@ Several workflows described in this guide require validation of JWTs by the JWT 
 
 ### Authorization code flow
 
-The constraints in the following subsections apply to all workflows utilizing the authorization code flow. Authorization requests submitted by client applications **SHALL** include the following parameters:
+The constraints in the following subsections apply to all workflows utilizing the authorization code flow. Authorization Servers **SHALL** support both `GET` and `POST` requests to their authorization endpoint for the authorization code flow. Clients **SHALL** support at least one of these two HTTP methods. Authorization requests submitted by client applications **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
