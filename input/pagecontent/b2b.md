@@ -111,6 +111,8 @@ The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. th
 
 The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under which the request for data would be authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
 
+Servers that support the B2B client credentials flow described in this guide **SHALL** support this B2B Authorization Extension Object. The extension content is intended to assist with authorization decisions and audit logging.   Authorization Servers **SHALL** process this extension in accordance with policies established by the trust community or communities governing the transactions. Other implementation guides **MAY** define additional Authorization Extension Objects to use together with this object for B2B client credentials workflows.
+
 <table class="table">
   <thead>
     <th colspan="3">B2B Authorization Extension Object<br>Key Name: "hl7-b2b"</th>
@@ -181,8 +183,6 @@ The B2B Authorization Extension Object is used by client apps following the `cli
     </tr>
   </tbody>
 </table>
-
-Servers that support the B2B client credentials flow described in this guide **SHALL** support this B2B Authorization Extension Object. Other implementation guides **MAY** define additional Authorization Extension Objects to use together with this object for B2B client credentials workflows.
 
 ##### Preferred code systems and naming systems for US Realm
 
@@ -314,6 +314,8 @@ An Authorization Server receiving token requests containing Authentication Token
 For client applications using an authorization code grant, the Authorization Server **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
 
 For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
+
+The Resource Server **SHALL** process access tokens as per [Section 7 of RFC 6749].
 
 <div class="stu-note" markdown="1">
 This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
