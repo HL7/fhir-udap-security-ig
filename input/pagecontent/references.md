@@ -9,7 +9,6 @@
 
 - **OAuth 2.0 Family (IETF RFCs)**
   - [RFC 6749 — OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749)
-  - [RFC 6750 — Bearer Tokens](https://www.rfc-editor.org/rfc/rfc6750)
   - [RFC 7591 — Dynamic Client Registration](https://www.rfc-editor.org/rfc/rfc7591)
   - [RFC 7592 — Client Configuration](https://www.rfc-editor.org/rfc/rfc7592)
   - [RFC 7636 — PKCE](https://www.rfc-editor.org/rfc/rfc7636)
