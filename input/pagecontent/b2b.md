@@ -271,7 +271,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>exp</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        Expiration time integer for this authentication JWT, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC)
+        Expiration time integer for this authentication JWT, expressed in seconds since the "Epoch" (1970-01-01T00:00:00Z UTC).
       </td>
     </tr>
     <tr>

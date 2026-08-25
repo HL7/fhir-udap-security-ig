@@ -75,15 +75,17 @@ Authorization Servers **SHALL** support both `GET` and `POST` requests to their 
 
 #### Authorization response
 
-Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749. 
+Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
 
-#### Token Request
+#### Token request
 
 Client applications **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints.
 
-Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token request. The token request **SHALL** include the following parameters:
+Client applications **SHALL** generate an Authentication Token JWT as detailed [Section 4.2]. 
+
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -129,7 +131,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
       <td><code>client_assertion</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The signed Authentication Token JWT constructed as per <href a="#constructing-an-authentication-token">Section 4.3</a>.
+        The signed Authentication Token JWT constructed as per <href a="#constructing-an-authentication-token">Section 4.2</a>.
       </td>
     </tr>
     <tr>
@@ -148,17 +150,17 @@ Authorization Servers **SHALL** validate and respond to token requests as per [S
 
 Authorization Servers **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
 
-For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes. 
+For all successful token requests, Authorization Servers **SHALL** issue access tokens with a lifetime no longer than 60 minutes. 
 
 <div class="stu-note" markdown="1">
 This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
 </div>
 
-### Constructing Authentication Token
+### Constructing an Authentication Token
 
 Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 4.1.3] of this guide.
 
-Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-4) of UDAP JWT-Based Client Authentication:
+Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-4) of UDAP JWT-Based Client Authentication:
 
 <table class="table">
   <thead>
