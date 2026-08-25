@@ -15,11 +15,13 @@
 [Section 3]: registration.html#registration
 [Section 3.1]: registration.html#software-statement
 [Section 3.4]: registration.html#modifying-and-cancelling-registrations
-[Section 4.1]: consumer.html#obtaining-an-authorization-code
-[Section 4.2.1]: consumer.html#constructing-authentication-token
-[Section 4.2.2]: consumer.html#submitting-a-token-request
+[Section 4.1]: consumer.html#authorization-code-workflow
+[Section 4.1.4]: consumer.html#token-response
+[Section 4.3]: consumer.html#constructing-an-authentication-token
 [Section 5.1]: b2b.html#authorization-code-workflow
+[Section 5.1.3]: b2b.html#token-request
 [Section 5.2]: b2b.html#client-credentials-workflow
+[Section 5.2.1]: b2b.html#token-request-1
 [Section 5.3]: b2b.html#constructing-an-authentication-token
 [Section 5.3.1]: b2b.html#b2b-authorization-extension-object
 [Section 5.4]: b2b.html#access-tokens

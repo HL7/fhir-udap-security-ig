@@ -92,64 +92,7 @@ Several workflows described in this guide require validation of JWTs by the JWT 
 
 ### Authorization code flow
 
-The constraints in the following subsections apply to all workflows utilizing the authorization code flow. Authorization Servers **SHALL** support both `GET` and `POST` requests to their authorization endpoint for the authorization code flow. Clients **SHALL** support at least one of these two HTTP methods. Authorization requests submitted by client applications **SHALL** include the following parameters:
-
-<table class="table">
-  <thead>
-    <th colspan="3">Authorization request parameters</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>response_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>code</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_id</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        The client identifier issued to the client application at registration.
-      </td>
-    </tr>
-    <tr>
-      <td><code>redirect_uri</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        The client application's redirection URI for this session, <strong>REQUIRED</strong> when the client application registered more than one redirection URI. The value <strong>SHALL</strong> match one of the redirection URIs registered by the client.
-      </td>
-    </tr>
-    <tr>
-      <td><code>scope</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Space-delimited list of requested scopes of access.
-      </td>
-    </tr>
-    <tr>
-      <td><code>state</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="#the-state-parameter">Section 7.2.1</a>
-      </td>
-    </tr>
-    <tr>
-      <td><code>code_challenge</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        PKCE code challenge, as discussed further in <a href="#proof-key-for-code-exchange-pkce">Section 7.2.2</a>
-      </td>
-    </tr>
-    <tr>
-      <td><code>code_challenge_method</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>S256</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+The constraints in the following subsections apply to all workflows utilizing the authorization code flow.
 
 #### The state parameter
 A Client application **SHALL** include the `state` parameter in its authorization request. An Authorization Server **SHALL** return an error code of `invalid_request` as per Section 4.1.2.1 of RFC 6749 if a client application does not include a `state` value in its authorization request.
@@ -160,7 +103,7 @@ Servers **SHALL** include the `state` parameter and corresponding value provided
 
 Client applications and Authorization Servers **SHALL** utilize Proof Key for Code Exchange (PKCE) with `code_challenge_method` of `S256` as defined in RFC 7636. An Authorization Server **SHOULD** return an error as per Section 4.4.1 of RFC 7636 if a client application does not include a `code_challenge` is its authorization request. 
 
-The Authorization Server **SHALL** return an error in response to a token request as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
+The Authorization Server **SHALL** return an error in response to a token request as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
 
 ### Scope negotiation
 

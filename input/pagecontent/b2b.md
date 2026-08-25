@@ -26,11 +26,70 @@ Client applications **SHALL** obtain an access token for access to FHIR resource
 
 Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
 
+Authorization Servers **SHALL** support both `GET` and `POST` requests to their authorization endpoint for the authorization code flow. Clients **SHALL** support at least one of these two HTTP methods. Authorization requests submitted by client applications **SHALL** include the following parameters:
+
+<table class="table">
+  <thead>
+    <th colspan="3">Authorization request parameters</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>response_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>code</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>client_id</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        The client identifier issued to the client application at registration.
+      </td>
+    </tr>
+    <tr>
+      <td><code>redirect_uri</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        The client application's redirection URI for this session, <strong>REQUIRED</strong> when the client application registered more than one redirection URI. The value <strong>SHALL</strong> match one of the redirection URIs registered by the client.
+      </td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Space-delimited list of requested scopes of access.
+      </td>
+    </tr>
+    <tr>
+      <td><code>state</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="general.html#the-state-parameter">Section 7.2.1</a>
+      </td>
+    </tr>
+    <tr>
+      <td><code>code_challenge</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        PKCE code challenge, as discussed further in <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a>
+      </td>
+    </tr>
+    <tr>
+      <td><code>code_challenge_method</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>S256</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 #### Authorization response
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
-Client applications and Authorization Servers using the authorization code flow **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
+Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
 
 #### Token request
 
@@ -38,7 +97,7 @@ Client applications **SHALL** exchange authorization codes for access tokens as 
 
 Client applications **SHALL** generate an Authentication Token JWT as detailed [Section 5.3]. 
 
-Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -178,7 +237,7 @@ The use of access tokens by client applications and resource servers is discusse
 
 This section applies to client applications using either the authorization code grant or client credentials grant.
 
-Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.1] for authorization code grants and [Section 5.2] for client credentials grants.
+Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.1.3] for authorization code grants and [Section 5.2.1] for client credentials grants.
 
 Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-4) of UDAP JWT-Based Client Authentication and [Section 4](https://www.udap.org/udap-client-authorization-grants-stu1.html#section-4) of UDAP Client Authorization Grants using JSON Web Tokens:
 
