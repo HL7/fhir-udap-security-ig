@@ -38,7 +38,7 @@ Client applications **SHALL** exchange authorization codes for access tokens as 
 
 Client applications **SHALL** generate an Authentication Token JWT as detailed [Section 5.3]. 
 
-Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -99,7 +99,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
 
 #### Token response
 
-Authorization Servers receiving token requests containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
+Authorization Servers **SHALL** validate and respond to token requests as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
 Authorization Servers **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
 
@@ -121,7 +121,7 @@ Client applications **SHALL** obtain an access token for access to FHIR resource
 
 Client applications **SHALL** generate an Authentication Token JWT as detailed in [Section 5.3].
 
-Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.2) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.2) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
 <table class="table">
   <thead>
@@ -168,7 +168,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
 
 #### Token response
 
-An Authorization Server receiving a token request containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
+Authorization Servers **SHALL** validate and respond to token requests as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
 For all successful token requests, Authorization Servers **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 
