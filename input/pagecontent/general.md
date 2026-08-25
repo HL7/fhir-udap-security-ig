@@ -166,7 +166,7 @@ The Authorization Server **SHALL** return an error in response to a token reques
 
 A wildcard scope is a scope that can be alternatively represented as a set of non-wildcard scopes. An example of a wildcard scope is the SMART App Launch v1.0.0 scope `patient/Observation.*` which can expanded to the set of two non-wildcard scopes: `patient/Observation.read` and `patient/Observation.write`. Granting the wildcard scope to a client application is equivalent to granting the corresponding expanded set of non-wildcard scopes.
 
-The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers.
+The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers. These requirements are referenced by the discovery, registration, consumer, and B2B workflows described elsewhere in this guide.
 
 1. Client applications and servers **MAY** support wildcard scopes.
 1. The `scopes_supported` metadata **SHALL** be present in the .well-known/udap object and **SHALL** list all scopes supported by the server including all supported wildcard scopes.

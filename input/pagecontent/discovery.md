@@ -92,7 +92,7 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
       <td><code>scopes_supported</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
+        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Scope negotiation requirements and related constraints are described in [Section 7.3]. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
       </td>
     </tr>
