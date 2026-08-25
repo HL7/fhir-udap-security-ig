@@ -94,19 +94,19 @@ Several workflows described in this guide require validation of JWTs by the JWT 
 
 A wildcard scope is a scope that can be alternatively represented as a set of non-wildcard scopes. An example of a wildcard scope is the SMART App Launch v1.0.0 scope `patient/Observation.*` which can expanded to the set of two non-wildcard scopes: `patient/Observation.read` and `patient/Observation.write`. Granting the wildcard scope to a client application is equivalent to granting the corresponding expanded set of non-wildcard scopes.
 
-The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers.
+The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers. These requirements are referenced by the discovery, registration, consumer, and B2B workflows described elsewhere in this guide.
 
 1. Client applications and servers **MAY** support wildcard scopes.
 1. The `scopes_supported` metadata **SHALL** be present in the .well-known/udap object and **SHALL** list all scopes supported by the server including all supported wildcard scopes.
 1. A client application **MAY** request a wildcard scope only if wildcards are specified in the server's `scopes_supported` metadata list.
 1. If a client application requests a wildcard scope and the server supports wildcards, then the server **SHOULD** return either the wildcard scope or an expanded set of scopes that the client has been granted in its response.
 1. If a client application requests a wildcard scope and the server does not support wildcard scopes, then the server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests or an error of "invalid_scope" for token requests.
-1. If a server supports scopes defined in other specifications or implementaton guides for a workflow defined in this guide, then the server **SHOULD** include the corresponding scopes in its `scopes_supported` metadata.
+1. If a server supports scopes defined in other specifications or implementation guides for a workflow defined in this guide, then the server **SHOULD** include the corresponding scopes in its `scopes_supported` metadata.
 1. In registration requests and token requests, an authorization server **MAY** grant all scopes requested by the client or a subset thereof. It **MAY** also grant additional scopes that were not in the set of scopes requested by the client application. For example, the set of scopes granted or not granted by the server could be based on technical or policy guidelines at the responding organization, or, for token requests, based on the application having registered with the server for a different set of scopes.
 1. A server **SHALL** include the `scope` parameter in a token response if the set of scopes granted by the server to the client application is not identical to the set of scopes requested by the client application, or if the client application does not include a set of requested scopes in its request.
 1. A server **SHOULD** respond with an error of "invalid_scope" for token requests only if a wildcard scope is requested and not supported, or if none of the requested scopes are supported.
 1. A server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests if a wildcard scope is requested and not supported, if none of the requested scopes are supported, and/or if the server will not grant any of the requested scopes to the client based on technical or policy guidelines at the responding organization.
-1. Client applications **SHOULD** be able to handle a response granting a different set of scopes than the scopes requested. This may be a superset, subset, or entirly different set, as described in items 4 and 6 above.
+1. Client applications **SHOULD** be able to handle a response granting a different set of scopes than the scopes requested. This may be a superset, subset, or entirely different set, as described in items 4 and 6 above.
 
 ### Certifications for client applications
 

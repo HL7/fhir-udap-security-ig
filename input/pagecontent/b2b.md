@@ -20,7 +20,9 @@ This section applies to B2B client applications registered to use the authorizat
 {% include authz.svg %}
 </div>
 
-Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints below. 
+Client applications **SHALL** obtain an access token for access to protected resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints below.
+
+Client applications and Authorization Servers **SHALL** conform to the scope negotiation constraints found in [Section 7.2] of this guide.
 
 #### Authorization request
 
@@ -177,7 +179,9 @@ This section applies to B2B client applications registered to use the client cre
 {% include token.svg %}
 </div>
 
-Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, with the additional options and constraints below. Note that client applications do not use authorization codes in this workflow.
+Client applications **SHALL** obtain an access token for access to protected resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, with the additional options and constraints below. As discussed in the [Section 5] introduction, the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor. Note that client applications do not use authorization codes in this workflow.
+
+Client applications and Authorization Servers **SHALL** conform to the scope negotiation constraints found in [Section 7.2] of this guide.
 
 #### Token request
 

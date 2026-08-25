@@ -1,6 +1,6 @@
 This guide supports consumer-facing client applications using the authorization code grant type. 
 
-Consumer-facing client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow, with the additional options and constraints discussed below.
+Consumer-facing client applications **SHALL** obtain an access token for access to protected resources by following the OAuth 2.0 authorization code grant flow, with the additional options and constraints discussed below.
 
 ### Authorization code workflow
 
@@ -9,6 +9,8 @@ The workflow for obtaining an access token using this grant type is summarized i
 <div>
 {% include authz.svg %}
 </div>
+
+Client applications and Authorization Servers **SHALL** conform to the scope negotiation constraints found in [Section 7.2] of this guide.
 
 #### Authorization request
 
