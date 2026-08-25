@@ -1,6 +1,6 @@
-This guide supports B2B client applications using either the client credentials or authorization code grant types. The B2B transactions in this guide occur between a requesting organization (the Requestor operating the client application) and a responding organization (the Responder operating the OAuth Server and Resource Server holding the data of interest to the Requestor). In some cases, the Requestor's client app operates in an automated manner. In other cases, there will also be a local user from the requesting organization (the User interacting with the Requestor's client application). The client credentials grant type is always used for automated (aka "headless") client apps. However, when a User is involved, either the client credentials or authorization code grant may be used, as discussed below.
+This guide supports business-to-business (B2B) client applications using either the authorization code or client credentials grant types. The workflows for these two grant types are described in [Section 5.1] and [Section 5.2], respectively. 
 
-For client credentials flow, any necessary User authentication and authorization is performed by the Requestor as a prerequisite, before the Requestor's client app interacts with the Responder's servers, i.e. the Requestor is responsible for ensuring that only its authorized Users access the client app and only make requests allowed by the Requestor. How the Requestor performs this is out of scope for this guide but will typically rely on internal user authentication and access controls.
+B2B transactions in this guide occur between a requesting organization (the Requestor operating the client application) and a responding organization (the Responder operating the Authorization Server and the Resource Server holding the data of interest to the Requestor). In some cases, the Requestor's client application operates in an automated manner. In other cases, there will also be a local user from the requesting organization (the User interacting with the Requestor's client application). The client credentials grant type is always used for automated (aka "headless") client apps. However, when a User is involved, either the client credentials or authorization code grant may be used, as discussed below.
 
 <div class="stu-note" markdown="1">
  Examples of automated client apps that use the client credentials grant type include SMART App Launch Backend Services and certain IUA Authorization Clients.
@@ -8,19 +8,19 @@ For client credentials flow, any necessary User authentication and authorization
 
 For authorization code flow, the User is expected to be interacting with the Requestor's client app in real time, at least during the initial authorization of the client app with the Responder's OAuth Server. Typically, the User must authenticate to the Responder's system at the time of initial authorization. If the local user has been issued credentials by the Responder to use for this purpose, the authorization code flow will typically involve use of those credentials. However, it is anticipated that in some workflows, the local user will not have their own credentials on the Responder's system, but will instead have credentials on their "home" system. In these cases, the UDAP Tiered OAuth workflow is used so that the Responder's OAuth Server can interact with the Requestor's OIDC Server in an automated manner to authenticate the User, as described in [Section 6].
 
+For client credentials flow, any necessary User authentication and authorization is performed by the Requestor as a prerequisite, before the Requestor's client app interacts with the Responder's servers, i.e. the Requestor is responsible for ensuring that only its authorized Users access the client app and only make requests allowed by the Requestor. How the Requestor performs this is out of scope for this guide but will typically rely on internal user authentication and access controls.
+
 Thus, this guide provides two different paths (client credentials grants and authorization code grants with Tiered OAuth) that a user affiliated with the Requestor without credentials on the Responder's system may use to obtain access to data held by the Responder.
-
-B2B client applications registered to use the authorization code grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints discussed below. 
-
-Client applications registered to use the client credentials grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, and with the additional options and constraints discussed below. As noted in [Section 3], the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor.
 
 ### Authorization code workflow
 
-This section applies to client applications registered to use the authorization code grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
+This section applies to B2B client applications registered to use the authorization code grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
 <br>
 <div>
 {% include authz.svg %}
 </div>
+
+Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints below. 
 
 Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
 
@@ -91,7 +91,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
   </tbody>
 </table>
 
-Authorization Servers receiving token requests containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the following additional constraints.
+Authorization Servers receiving token requests containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
 Authorization Servers **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
 
@@ -101,13 +101,13 @@ The use of access tokens by client applications and resource servers is discusse
 
 ### Client credentials workflow
 
-This section applies to client applications registered to use the client credentials grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
+This section applies to B2B client applications registered to use the client credentials grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
 <br>
 <div>
 {% include token.svg %}
 </div>
 
-Client applications using the client credentials flow do not use authorization codes when requesting an access token.
+Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, with the additional options and constraints below. Note that client applications do not use authorization codes in this workflow.
 
 Client applications **SHALL** generate an Authentication Token JWT as detailed in [Section 5.3].
 
@@ -156,7 +156,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
   </tbody>
 </table>
 
-An Authorization Server receiving a token request containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the following additional constraints.
+An Authorization Server receiving a token request containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
 For all successful token requests, Authorization Servers **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
 
