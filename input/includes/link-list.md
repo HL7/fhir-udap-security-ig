@@ -15,21 +15,24 @@
 [Section 3]: registration.html#registration
 [Section 3.1]: registration.html#software-statement
 [Section 3.4]: registration.html#modifying-and-cancelling-registrations
-[Section 4.1]: consumer.html#obtaining-an-authorization-code
-[Section 4.2.1]: consumer.html#constructing-authentication-token
-[Section 4.2.2]: consumer.html#submitting-a-token-request
-[Section 5.1]: b2b.html#obtaining-an-authorization-code
-[Section 5.2.1]: b2b.html#constructing-authentication-token
-[Section 5.2.1.1]: b2b.html#b2b-authorization-extension-object
-[Section 5.2.2]: b2b.html#submitting-a-token-request
+[Section 4.1]: consumer.html#authorization-code-workflow
+[Section 4.1.4]: consumer.html#token-response
+[Section 4.2]: consumer.html#constructing-an-authentication-token
+[Section 5]: b2b.html
+[Section 5.1]: b2b.html#authorization-code-workflow
+[Section 5.1.3]: b2b.html#token-request
+[Section 5.2]: b2b.html#client-credentials-workflow
+[Section 5.2.1]: b2b.html#token-request-1
+[Section 5.3]: b2b.html#constructing-an-authentication-token
+[Section 5.3.1]: b2b.html#b2b-authorization-extension-object
+[Section 5.4]: b2b.html#access-tokens
 [Section 6]: user.html
 [Section 7.1]: general.html#json-web-token-jwt-requirements
 [Section 7.1.3]: general.html#jwt-headers
 [Section 7.1.4]: general.html#jwt-claims
-[Section 7.2]: general.html#authorization-code-flow
-[Section 7.3]: general.html#scope-negotiation
-[Section 7.4]: general.html#certifications-for-client-applications
-[Section 7.5]: general.html#using-this-guide-with-the-smart-app-launch-framework
+[Section 7.2]: general.html#scope-negotiation
+[Section 7.3]: general.html#certifications-for-client-applications
+[Section 7.4]: general.html#using-this-guide-with-the-smart-app-launch-framework
 [CapabilityStatement]: StructureDefinition-udap-security-capabilitystatement.html
 [Carequality FHIR-Based Exchange IG]: https://carequality.org/wp-content/uploads/2020/12/Carequality-FHIR-Implementation-Guide.pdf
 [UDAP Server Metadata]: https://www.udap.org/udap-server-metadata-stu1.html

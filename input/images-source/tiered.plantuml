@@ -3,7 +3,7 @@ skinparam sequenceMessageAlign left
 skinparam shadowing false
 hide footbox
 participant "Client App" as App
-participant "Protected Resource's\nAuthorization Server" as Server
+participant "Data Holder's\nAuthorization Server" as Server
 participant "Identity Provider's\nAuthorization Server" as IDP
 App -> Server : Authorization request\n(including idp parameter)
 Server->IDP: Discovery request

@@ -49,7 +49,7 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
       <td><span class="label label-success">required</span></td>
       <td>
         An array of zero or more recognized key names 
-        for Authorization Extension Objects supported by the Authorization Server. If the Authorization Server supports the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a>, then the following key name <strong>SHALL</strong> be included:<br>
+        for Authorization Extension Objects supported by the Authorization Server. If the Authorization Server supports the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.3.1</a>, then the following key name <strong>SHALL</strong> be included:<br>
         <code>["hl7-b2b"]</code>
       </td>
     </tr>
@@ -58,7 +58,7 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
       <td><span class="label label-warning">conditional</span></td>
       <td>
         An array of zero or more recognized key names 
-        for Authorization Extension Objects required by the Authorization Server in every token request. The array <strong>SHALL NOT</strong> include key names that are not also elements of the <code>udap_authorization_extensions_supported</code> array. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_authorization_extensions_supported</code> parameter is not an empty array. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.2.1.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
+        for Authorization Extension Objects required by the Authorization Server in every token request. The array <strong>SHALL NOT</strong> include key names that are not also elements of the <code>udap_authorization_extensions_supported</code> array. This metadata parameter <strong>SHALL</strong> be present if the value of the <code>udap_authorization_extensions_supported</code> parameter is not an empty array. If the Authorization Server requires the B2B Authorization Extension Object defined in <a href="b2b.html#b2b-authorization-extension-object">Section 5.3.1</a> in every token request, then the following key name <strong>SHALL</strong> be included:<br>
         <code>["hl7-b2b"]</code>
       </td>
     </tr>
@@ -92,7 +92,7 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
       <td><code>scopes_supported</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Scope negotiation requirements and related constraints are described in [Section 7.3]. Example for a server that also supports SMART App Launch v1 scopes:<br>
+        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Scope negotiation requirements and related constraints are described in [Section 7.2]. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
       </td>
     </tr>
