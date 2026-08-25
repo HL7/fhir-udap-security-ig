@@ -14,37 +14,159 @@ B2B client applications registered to use the authorization code grant **SHALL**
 
 Client applications registered to use the client credentials grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, and with the additional options and constraints discussed below. As noted in [Section 3], the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor.
 
-### Obtaining an authorization code
+### Authorization code workflow
 
-The section does not apply to client applications registered to use the client credentials grant.
-
-The workflow for obtaining an authorization code is summarized in the following diagram:
+This section applies to client applications registered to use the authorization code grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
 <br>
 <div>
 {% include authz.svg %}
 </div>
 
-Client applications registered to use the authorization code grant **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
+Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 Client applications and Authorization Servers using the authorization code flow **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
 
-### Obtaining an access token
+Client applications **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints.
 
-The workflow for obtaining an access token is summarized in the following diagram:
+Client applications **SHALL** generate an Authentication Token JWT as detailed [Section 5.3]. 
+
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
+
+<table class="table">
+  <thead>
+    <th colspan="3">Token request parameters</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>grant_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>authorization_code</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>code</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        The code that the app received from the Authorization Server
+      </td>
+    </tr>
+    <tr>
+      <td><code>code_verifier</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        The code verifier corresponding to the PKCE code challenge included by the client in the authorization request, as per Section 4.5 of RFC 7636 and Section 7.2.2 of this guide.
+      </td>
+    </tr>
+    <tr>
+      <td><code>redirect_uri</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        The client application's redirection URI. This parameter <strong>SHALL</strong> be present only if the <code>redirect_uri</code> parameter was included in the authorization request in Section 5.1, and their values <strong>SHALL</strong> be identical.
+      </td>
+    </tr>
+    <tr>
+      <td><code>client_assertion_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>client_assertion</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        The signed Authentication Token JWT constructed as per Section 5.3 of this guide.
+      </td>
+    </tr>
+    <tr>
+      <td><code>udap</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>1</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Authorization Servers receiving token requests containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the following additional constraints.
+
+Authorization Servers **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
+
+For all successful token requests, Authorization Servers **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
+
+The use of access tokens by client applications and resource servers is discussed in [Section 5.4].
+
+### Client credentials workflow
+
+This section applies to client applications registered to use the client credentials grant. The workflow for obtaining an access token using this grant type is summarized in the following diagram:
 <br>
 <div>
 {% include token.svg %}
 </div>
 
-Client applications using the authorization code flow **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints. Client applications using the client credentials flow do not use authorization codes when requesting an access token.
+Client applications using the client credentials flow do not use authorization codes when requesting an access token.
 
-Client applications using the authorization code flow **SHALL** include a `code_verifier` parameter and value in the token request as per Section 4.5 of RFC 7636.
+Client applications **SHALL** generate an Authentication Token JWT as detailed in [Section 5.3].
 
-#### Constructing Authentication Token
+Client applications **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.2) of UDAP JWT-Based Client Authentication. A client application authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
 
-Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.2.2] of this guide.
+<table class="table">
+  <thead>
+    <th colspan="3">Token request parameters</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>grant_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>client_credentials</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>scope</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Space-delimited list of requested scopes of access.
+      </td>
+    </tr>
+    <tr>
+      <td><code>client_assertion_type</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>client_assertion</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        The signed Authentication Token JWT
+      </td>
+    </tr>
+    <tr>
+      <td><code>udap</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        Fixed value: <code>1</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+An Authorization Server receiving a token request containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the following additional constraints.
+
+For all successful token requests, Authorization Servers **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
+
+The use of access tokens by client applications and resource servers is discussed in [Section 5.4].
+
+### Constructing an Authentication Token
+
+This section applies to client applications using either the authorization code grant or client credentials grant.
+
+Client apps following this guide will have registered to authenticate using a private key rather than a shared `client_secret`. Thus, the client **SHALL** use its private key to sign an Authentication Token as described in this section, and include this JWT in the `client_assertion` parameter of its token request as described in [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication and detailed further in [Section 5.1] for authorization code grants and [Section 5.2] for client credentials grants.
 
 Authentication Tokens submitted by client apps **SHALL** conform to the general JWT header requirements in [Section 7.1] of this guide and **SHALL** include the following parameters in the JWT claims, as defined in [Section 4](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-4) of UDAP JWT-Based Client Authentication and [Section 4](https://www.udap.org/udap-client-authorization-grants-stu1.html#section-4) of UDAP Client Authorization Grants using JSON Web Tokens:
 
@@ -107,7 +229,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
 
 The maximum lifetime for an Authentication Token **SHALL** be 5 minutes, i.e. the value of `exp` minus the value of `iat` **SHALL** NOT exceed 300 seconds. The Authorization Server **MAY** ignore any unrecognized claims in the Authentication Token. The Authentication Token **SHALL** be signed and serialized using the JSON compact serialization method.
 
-##### B2B Authorization Extension Object
+#### B2B Authorization Extension Object
 
 The B2B Authorization Extension Object is used by client apps following the `client_credentials` flow to provide additional information regarding the context under which the request for data would be authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the `extensions` object of the Authentication JWT as the value associated with the key name `hl7-b2b`.
 
@@ -136,14 +258,14 @@ Servers that support the B2B client credentials flow described in this guide **S
       <td><code>subject_id</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present and the human requestor has been assigned an applicable identifier. Omit for non-human requestors and for human requestors who have not been assigned an applicable identifier. See Section 5.2.1.3 below for the preferred format of the identifier value string.
+        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present and the human requestor has been assigned an applicable identifier. Omit for non-human requestors and for human requestors who have not been assigned an applicable identifier. See Section 5.3.3 below for the preferred format of the identifier value string.
       </td>
     </tr>
     <tr>
       <td><code>subject_role</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. See Section 5.2.1.3 below for the preferred format of the code value string.
+        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. See Section 5.3.3 below for the preferred format of the code value string.
       </td>
     </tr>
     <tr>
@@ -164,7 +286,7 @@ Servers that support the B2B client credentials flow described in this guide **S
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. See Section 5.2.1.3 below for the preferred format of each code value string array element.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. See Section 5.3.3 below for the preferred format of each code value string array element.
       </td>
     </tr>
     <tr>
@@ -184,7 +306,7 @@ Servers that support the B2B client credentials flow described in this guide **S
   </tbody>
 </table>
 
-##### Preferred code systems and naming systems for US Realm
+#### Preferred code systems and naming systems for US Realm
 
 For `subject_id`, trust communities <strong>SHALL</strong> constrain the allowed naming system or systems, and are encouraged to require the individual National Provider Identifier (NPI) when known for human requestors who have been assigned an individual NPI.
 
@@ -192,7 +314,7 @@ For `subject_role`, trust communities <strong>SHOULD</strong> constrain the allo
 
 For `purpose_of_use`, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant.
 
-##### Preferred format for identifiers and codes
+#### Preferred format for identifiers and codes
 
 The preferred format to represent an identifier or code as a string value within an authorization extension object is as a Uniform Resource Identifier (URI) as defined in [RFC 3986]. Trust communities are encouraged to use this preferred format, but are not required to do so to be considered conformant with this guide. 
 
@@ -204,129 +326,24 @@ For codes, concatenate a URI identifying the code system, the '#' character, and
 
 For example, the U.S. NPI number 1234567890 can be represented as `urn:oid:2.16.840.1.113883.4.6#1234567890` and the purpose of use treatment can be represented as `urn:oid:2.16.840.1.113883.5.8#TREAT`.
 
-#### Submitting a token request
+### Access Tokens
 
-##### Authorization code grant
-
-Client applications using the authorization code grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.1](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.1) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
-
-<table class="table">
-  <thead>
-    <th colspan="3">Token request parameters</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>grant_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>authorization_code</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>code</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        The code that the app received from the Authorization Server
-      </td>
-    </tr>
-    <tr>
-      <td><code>redirect_uri</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        The client application's redirection URI. This parameter <strong>SHALL</strong> be present only if the <code>redirect_uri</code> parameter was included in the authorization request in Section 5.1, and their values <strong>SHALL</strong> be identical.
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_assertion_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_assertion</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        The signed Authentication Token JWT
-      </td>
-    </tr>
-    <tr>
-      <td><code>udap</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>1</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-##### Client credentials grant
-
-Client applications using the client credentials grant and authenticating with a private key and Authentication Token as per [Section 5.2.1] **SHALL** submit a POST request to the Authorization Server's token endpoint containing the following parameters as per [Section 5.2](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-5.2) of UDAP JWT-Based Client Authentication. Client apps authenticating in this manner **SHALL NOT** include an HTTP Authorization header or client secret in its token endpoint request. The token request **SHALL** include the following parameters:
-
-<table class="table">
-  <thead>
-    <th colspan="3">Token request parameters</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>grant_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>client_credentials</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>scope</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Space-delimited list of requested scopes of access.
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_assertion_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>urn:ietf:params:oauth:client-assertion-type:jwt-bearer</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_assertion</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        The signed Authentication Token JWT
-      </td>
-    </tr>
-    <tr>
-      <td><code>udap</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>1</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### Server processing of token requests
-
-An Authorization Server receiving token requests containing Authentication Tokens as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication.
-
-For client applications using an authorization code grant, the Authorization Server **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
-
-For all successful token requests, the Authorization Server **SHALL** issue access tokens with a lifetime no longer than 60 minutes.
-
-The Resource Server **SHALL** process access tokens as per [Section 7 of RFC 6749].
-
-<div class="stu-note" markdown="1">
 This guide does not currently constrain the type or format of access tokens issued by Authorization Servers. Note that other implementation guides (e.g. SMART App Launch, IUA, etc.), when used together with this guide, may limit the allowed access token types (e.g. Bearer) and/or formats (e.g. JWT).
+
+A client application **SHALL** only use an access token in a manner consistent with any assertions made when requesting that token. For example, if a client asserted a `subject_id` and `purpose_of_use` in a B2B Authorization Extension Object included in its token request, then the access token granted in response to that request can only be used in that authorization context, i.e. for that requestor and for that purpose. If the same client application in this example subsequently needs to retrieve a resource for a different requestor and/or for a different purpose from the same resource server, it cannot reuse the same access token. Instead, it must obtain a new access token by submitting another token request with an updated B2B Authorization Extension Object asserting the new authorization context.
+
+Resource Servers **SHALL** process access tokens as per [Section 7 of RFC 6749].
+
+### Refresh token workflow
+
+This guide supports the use of refresh tokens, as described in [Section 1.5 of RFC 6749]. Authorization Servers **MAY** issue refresh tokens to B2B client applications that use the authorization code grant type as per [Section 5 of RFC 6749]. Refresh tokens are not used with the client credentials grant type. Client apps that have been issued refresh tokens **MAY** make refresh requests to the token endpoint as per [Section 6 of RFC 6749]. 
+
+The workflow for obtaining an access token using this grant type is summarized in the following diagram:
+<br>
+<div>
+{% include token.svg %}
 </div>
 
-#### Client application use of access tokens
-
-A client application **SHALL** only use an access token in a manner consistent with any assertions made when requesting that token. For example, if a client asserted a `subject_id` and `purpose_of_use` in the B2B Authorization Extension Object included in its token request, then the access token granted in response to that request can only be used in that authorization context, i.e. for that requestor and for that purpose. If the same client application subsequently needs to retrieve a resource for a different requestor and/or for a different purpose from the same resource server, it cannot reuse the same access token. Instead, it must obtain a new access token by submitting another token request with an updated B2B Authorization Extension Object asserting the new authorization context.
-
-### Refresh tokens
-
-This guide supports the use of refresh tokens, as described in [Section 1.5 of RFC 6749]. Authorization Servers **MAY** issue refresh tokens to B2B client applications that use the authorization code grant type as per [Section 5 of RFC 6749]. Refresh tokens are not used with the client credentials grant type. Client apps that have been issued refresh tokens **MAY** make refresh requests to the token endpoint as per [Section 6 of RFC 6749]. Client apps authenticate to the Authorization Server for refresh requests by constructing and including an Authentication Token in the same manner as for initial token requests.
+Client apps authenticate to the Authorization Server for refresh requests by constructing and including an Authentication Token in the same manner as for initial token requests.
 
 {% include link-list.md %}

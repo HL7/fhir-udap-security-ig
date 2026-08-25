@@ -18,10 +18,10 @@
 [Section 4.1]: consumer.html#obtaining-an-authorization-code
 [Section 4.2.1]: consumer.html#constructing-authentication-token
 [Section 4.2.2]: consumer.html#submitting-a-token-request
-[Section 5.1]: b2b.html#obtaining-an-authorization-code
-[Section 5.2.1]: b2b.html#constructing-authentication-token
-[Section 5.2.1.1]: b2b.html#b2b-authorization-extension-object
-[Section 5.2.2]: b2b.html#submitting-a-token-request
+[Section 5.1]: b2b.html#authorization-code-workflow
+[Section 5.2]: b2b.html#client-credentials-workflow
+[Section 5.3]: b2b.html#constructing-an-authentication-token
+[Section 5.3.1]: b2b.html#b2b-authorization-extension-object
 [Section 6]: user.html
 [Section 7.1]: general.html#json-web-token-jwt-requirements
 [Section 7.1.3]: general.html#jwt-headers
