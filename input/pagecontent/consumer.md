@@ -131,7 +131,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
       <td><code>client_assertion</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The signed Authentication Token JWT constructed as per <href a="#constructing-an-authentication-token">Section 4.2</a>.
+        The signed Authentication Token JWT constructed as per <a href="#constructing-an-authentication-token">Section 4.2</a>.
       </td>
     </tr>
     <tr>
