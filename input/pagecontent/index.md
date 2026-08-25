@@ -17,7 +17,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [Common Requirements]\: This page provides general requirements applicable to multiple authorization and authentication workflows.
 
-Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.5].
+Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.4].
 
 ### Trust Community Checklist
 

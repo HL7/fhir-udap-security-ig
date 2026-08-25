@@ -65,14 +65,14 @@ Authorization Servers **SHALL** support both `GET` and `POST` requests to their 
       <td><code>state</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="general.html#the-state-parameter">Section 7.2.1</a>.
+        An opaque value used by the client to maintain state between the request and callback.
       </td>
     </tr>
     <tr>
       <td><code>code_challenge</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        PKCE code challenge, as discussed further in <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a>.
+        PKCE code challenge.
       </td>
     </tr>
     <tr>
@@ -89,7 +89,10 @@ Authorization Servers **SHALL** support both `GET` and `POST` requests to their 
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
-Client applications and Authorization Servers **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
+An Authorization Server **SHALL** return an error code of `invalid_request` as per Section 4.1.2.1 of RFC 6749 if a client application does not include a `state` value in its authorization request. Servers **SHALL** include the `state` parameter and corresponding value provided by the client application in the authorization response as per RFC 6749. The client application **SHALL NOT** proceed if the `state` parameter is not included in the authorization response or its value does not match the value provided by the client application in the corresponding authorization request.
+
+
+Client applications and Authorization Servers **SHALL** utilize Proof Key for Code Exchange (PKCE) with `code_challenge_method` of `S256` as defined in RFC 7636. Authorization Servers **SHOULD** return an error as per Section 4.4.1 of RFC 7636 if a client application does not include a `code_challenge` is its authorization request. 
 
 #### Token request
 
@@ -122,7 +125,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
       <td><code>code_verifier</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The code verifier corresponding to the PKCE code challenge included by the client in the authorization request, as per Section 4.5 of RFC 7636 and <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a> of this guide.
+        The code verifier corresponding to the PKCE code challenge included by the client in the authorization request, as per Section 4.5 of RFC 7636.
       </td>
     </tr>
     <tr>
