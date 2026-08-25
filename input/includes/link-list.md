@@ -22,6 +22,7 @@
 [Section 5.2]: b2b.html#client-credentials-workflow
 [Section 5.3]: b2b.html#constructing-an-authentication-token
 [Section 5.3.1]: b2b.html#b2b-authorization-extension-object
+[Section 5.4]: b2b.html#access-tokens
 [Section 6]: user.html
 [Section 7.1]: general.html#json-web-token-jwt-requirements
 [Section 7.1.3]: general.html#jwt-headers
