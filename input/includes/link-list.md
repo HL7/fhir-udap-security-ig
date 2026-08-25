@@ -18,6 +18,7 @@
 [Section 4.1]: consumer.html#authorization-code-workflow
 [Section 4.1.4]: consumer.html#token-response
 [Section 4.2]: consumer.html#constructing-an-authentication-token
+[Section 5]: b2b.html
 [Section 5.1]: b2b.html#authorization-code-workflow
 [Section 5.1.3]: b2b.html#token-request
 [Section 5.2]: b2b.html#client-credentials-workflow

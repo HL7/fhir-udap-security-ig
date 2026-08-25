@@ -1,6 +1,6 @@
 The requirements in this section are applicable to both consumer-facing and B2B apps and the servers that support them.
 
-Before FHIR data requests can be made, Client application operators **SHALL** register each of their applications with the Authorization Servers identified by the FHIR servers with which they wish to exchange data.  Client applications **SHALL** use the client_id assigned by an Authorization Server in subsequent authorization and token requests to that server.
+Before requests for protected resources can be made, Client application operators **SHALL** register each of their applications with the Authorization Servers identified by the Resource Servers with which they wish to exchange data.  Client applications **SHALL** use the client_id assigned by an Authorization Server in subsequent authorization and token requests to that server.
 
 Authorization Servers **SHALL** support dynamic registration as specified in the [UDAP Dynamic Client Registration](https://www.udap.org/udap-dynamic-client-registration-stu1.html) profile with the additional options and constraints defined in this guide. Confidential clients that can secure a secret **MAY** use this dynamic client registration protocol as discussed further below to obtain a `client_id`. Other client types **SHOULD** follow the manual registration processes for each Authorization Server. Future versions of this guide may add support for dynamic client registration by public clients which cannot protect a private key.
 
@@ -14,7 +14,7 @@ The dynamic registration workflow is summarized in the following diagram:
 
 To register dynamically, the client application first constructs a software statement as per [Section 2](https://www.udap.org/udap-dynamic-client-registration-stu1.html#section-2) of UDAP Dynamic Client Registration.
 
-The software statement **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below.  The software statement **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the software statement and with the private key that corresponds to the public key listed in the client's X.509 certificate identified in the `x5c` header of the software statement.
+The software statement **SHALL** contain the required header elements specified in [Section 7.1.3] of this guide and the JWT claims listed in the table below.  The software statement **SHALL** be signed by the client application operator using the signature algorithm identified in the `alg` header of the software statement and with the private key that corresponds to the public key listed in the client's X.509 certificate identified in the `x5c` header of the software statement. Scope negotiation constraints relevant to registration requests are described in [Section 7.2].
 
 <table class="table">
   <thead>
@@ -125,7 +125,7 @@ The software statement **SHALL** contain the required header elements specified 
 
 
 <div class="stu-note" markdown="1">
-1. This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify FHIR servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
+1. This guide does not currently constrain the URI scheme used to identify clients in the `iss` claim of the Authentication Token. The `https` scheme is used to identify Resource Servers, and can generally also be used for clients. However, other URI schemes can be used by communities where client app operators are not well represented by unique URLs. Communities supporting emerging concepts such as decentralized identifiers to represent client app operators may also consider using the `did` scheme for issuers of UDAP assertions.
 </div>
 
 ### Example

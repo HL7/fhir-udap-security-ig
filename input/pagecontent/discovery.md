@@ -2,7 +2,7 @@ The requirements in this section are applicable to both consumer-facing and B2B 
 
 ### Discovery of Endpoints
 
-A FHIR Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Servers **SHALL** respond to `GET` requests to the following metadata URL by unregistered client applications and without requiring client authentication, where {baseURL} represents the base FHIR URL for the FHIR server: {baseURL}/.well-known/udap
+A Resource Server **SHALL** make its Authorization Server's authorization, token, and registration endpoints, and associated metadata available for discovery by client applications. Resource Servers **SHALL** respond to `GET` requests to the following metadata URL by unregistered client applications and without requiring client authentication, where {baseURL} represents the base URL for the Resource Server: {baseURL}/.well-known/udap
 
 The discovery workflow is summarized in the following diagram:
 <br>
@@ -92,7 +92,7 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
       <td><code>scopes_supported</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Example for a server that also supports SMART App Launch v1 scopes:<br>
+        An array of one or more strings containing scopes supported by the Authorization Server. The server <strong>MAY</strong> grant different subsets of these scopes for different client types or entities. Scope negotiation requirements and related constraints are described in [Section 7.2]. Example for a server that also supports SMART App Launch v1 scopes:<br>
         <code>["openid", "launch/patient", "system/Patient.read", "system/AllergyIntolerance.read", "system/Procedures.read"]</code>
       </td>
     </tr>
@@ -150,13 +150,13 @@ The metadata returned from the UDAP metadata endpoint defined above **SHALL** re
   </tbody>
 </table>
 
-FHIR servers with the same `registration_endpoint` URL belong to the same logical group. A registration for any FHIR server in this logical group registers the client application for all endpoints in that group.
+Resource Servers with the same `registration_endpoint` URL belong to the same logical group. A registration for any Resource Server in this logical group registers the client application for all endpoints in that group.
 
 <div class="stu-note" markdown="1">
-The above paragraph is informational and reflects deployment models that may be encountered in the real world. This guide does not currently expect or require client applications to track registration endpoints or logical groups when determining whether or not registration is necessary, nor does it expect registration endpoint URLs published by servers to be static. Implementers should be aware of the possible side effects when different registration parameters are requested for two FHIR servers in the same logical group, i.e. the second registration at the same registration endpoint URL will modify the first registration as discussed in [Section 3.4] of this guide. Implementer feedback is requested to determine if additional client and/or server requirements relating to this topic should be added in the future.
+The above paragraph is informational and reflects deployment models that may be encountered in the real world. This guide does not currently expect or require client applications to track registration endpoints or logical groups when determining whether or not registration is necessary, nor does it expect registration endpoint URLs published by servers to be static. Implementers should be aware of the possible side effects when different registration parameters are requested for two Resource Servers in the same logical group, i.e. the second registration at the same registration endpoint URL will modify the first registration as discussed in [Section 3.4] of this guide. Implementer feedback is requested to determine if additional client and/or server requirements relating to this topic should be added in the future.
 </div>
 
-A FHIR Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata]. However, a conforming client application might not support additional metadata elements.
+A Resource Server **MAY** include additional metadata elements in its metadata response as described in [UDAP Server Metadata]. However, a conforming client application might not support additional metadata elements.
 
 ### Signed metadata elements
 
