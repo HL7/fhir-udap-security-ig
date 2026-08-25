@@ -65,14 +65,14 @@ Authorization Servers **SHALL** support both `GET` and `POST` requests to their 
       <td><code>state</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="general.html#the-state-parameter">Section 7.2.1</a>
+        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="general.html#the-state-parameter">Section 7.2.1</a>.
       </td>
     </tr>
     <tr>
       <td><code>code_challenge</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        PKCE code challenge, as discussed further in <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a>
+        PKCE code challenge, as discussed further in <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a>.
       </td>
     </tr>
     <tr>
@@ -122,14 +122,14 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
       <td><code>code_verifier</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The code verifier corresponding to the PKCE code challenge included by the client in the authorization request, as per Section 4.5 of RFC 7636 and Section 7.2.2 of this guide.
+        The code verifier corresponding to the PKCE code challenge included by the client in the authorization request, as per Section 4.5 of RFC 7636 and <a href="general.html#proof-key-for-code-exchange-pkce">Section 7.2.2</a> of this guide.
       </td>
     </tr>
     <tr>
       <td><code>redirect_uri</code></td>
       <td><span class="label label-warning">conditional</span></td>
       <td>
-        The client application's redirection URI. This parameter <strong>SHALL</strong> be present only if the <code>redirect_uri</code> parameter was included in the authorization request in Section 5.1, and their values <strong>SHALL</strong> be identical.
+        The client application's redirection URI. This parameter <strong>SHALL</strong> be present only if the <code>redirect_uri</code> parameter was included in the authorization request in <a href="#authorization-request">Section 5.1.1</a>, and their values <strong>SHALL</strong> be identical.
       </td>
     </tr>
     <tr>
@@ -143,7 +143,7 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
       <td><code>client_assertion</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The signed Authentication Token JWT constructed as per Section 5.3 of this guide.
+        The signed Authentication Token JWT constructed as per <a href="#constructing-an-authentication-token">Section 5.3</a>.
       </td>
     </tr>
     <tr>
@@ -357,7 +357,7 @@ Servers that support the B2B client credentials flow described in this guide **S
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. See Section 5.3.3 below for the preferred format of each code value string array element.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. See <a href="#preferred-format-for-identifiers-and-codes">Section 5.3.3</a> below for the preferred format of each code value string array element.
       </td>
     </tr>
     <tr>
