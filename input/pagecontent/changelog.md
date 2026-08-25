@@ -8,7 +8,9 @@ In addition to the tickets below, this version includes changes necessary to mov
 |---------|----------|
 |[FHIR-52960](https://jira.hl7.org/browse/FHIR-52960)|Specify requirements regarding GET and POST support for authorization requests|
 |[FHIR-56931](https://jira.hl7.org/browse/FHIR-56931)|Move common requirements to a separate menu bar tab|
+|[FHIR-57086](https://jira.hl7.org/browse/FHIR-57086)|Move auth code flow requirements including scope back from section 7.2|
 |[FHIR-56881](https://jira.hl7.org/browse/FHIR-56881)|Clarify the rationale to have hl7-b2b and the requirements to the server when receiving it|
+|[FHIR-56882](https://jira.hl7.org/browse/FHIR-56882)|Split B2B auth code flow and client credentials into dedicated sections|
 |[FHIR-57840](https://jira.hl7.org/browse/FHIR-57840)|Clarify that a person may be assigned more than one (iss,sub) pair|
 |[FHIR-57844](https://jira.hl7.org/browse/FHIR-57844)|Clarify that registration modifications are validated in same manner as new requests|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registraton|
