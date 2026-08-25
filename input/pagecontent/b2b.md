@@ -10,9 +10,9 @@ For authorization code flow, the User is expected to be interacting with the Req
 
 Thus, this guide provides two different paths (client credentials grants and authorization code grants with Tiered OAuth) that a user affiliated with the Requestor without credentials on the Responder's system may use to obtain access to data held by the Responder.
 
-B2B client applications registered to use the authorization code grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints discussed below. 
+B2B client applications registered to use the authorization code grant **SHALL** obtain an access token for access to Protected Resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints discussed below. 
 
-Client applications registered to use the client credentials grant **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, and with the additional options and constraints discussed below. As noted in [Section 3], the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor.
+Client applications registered to use the client credentials grant **SHALL** obtain an access token for access to Protected Resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, and with the additional options and constraints discussed below. As noted in [Section 3], the Requestor is responsible for ensuring that the Requestor's User, if applicable, is using the app only as authorized by the Requestor.
 
 ### Obtaining an authorization code
 
@@ -71,7 +71,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>aud</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The FHIR Authorization Server's token endpoint URL
+        The Authorization Server's token endpoint URL
       </td>
     </tr>
     <tr>
