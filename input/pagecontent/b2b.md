@@ -22,11 +22,17 @@ This section applies to B2B client applications registered to use the authorizat
 
 Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 authorization code grant flow described in [Section 4.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1) of RFC 6749, with the additional options and constraints below. 
 
+#### Authorization request
+
 Client applications **SHALL** request an authorization code as per [Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1) of RFC 6749, with the following additional constraints. Client applications and servers **MAY** optionally support UDAP Tiered OAuth for User Authentication to allow for cross-organizational or third party user authentication as described in [Section 6].
+
+#### Authorization response
 
 Servers **SHALL** handle and respond to authorization code requests as per [Section 4.1.2](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2) of RFC 6749.
 
 Client applications and Authorization Servers using the authorization code flow **SHALL** conform to the additional constraints for authorization code flow found in [Section 7.2] of this guide.
+
+#### Token request
 
 Client applications **SHALL** exchange authorization codes for access tokens as per [Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3) of RFC 6749, with the following additional options and constraints.
 
@@ -91,6 +97,8 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
   </tbody>
 </table>
 
+#### Token response
+
 Authorization Servers receiving token requests containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
 Authorization Servers **SHALL** return an error as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verifier` value in the corresponding token request.
@@ -108,6 +116,8 @@ This section applies to B2B client applications registered to use the client cre
 </div>
 
 Client applications **SHALL** obtain an access token for access to FHIR resources by following the OAuth 2.0 client credentials grant flow described in [Section 4.4](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) of RFC 6749, with the additional options and constraints below. Note that client applications do not use authorization codes in this workflow.
+
+#### Token request
 
 Client applications **SHALL** generate an Authentication Token JWT as detailed in [Section 5.3].
 
@@ -155,6 +165,8 @@ Client applications **SHALL** submit a POST request to the Authorization Server'
     </tr>
   </tbody>
 </table>
+
+#### Token response
 
 An Authorization Server receiving a token request containing an Authentication Token JWT as above **SHALL** validate and respond to the request as per [Sections 6 and 7](https://www.udap.org/udap-jwt-client-auth-stu1.html#section-6) of UDAP JWT-Based Client Authentication, with the additional constraints below.
 
