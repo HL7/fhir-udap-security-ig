@@ -271,7 +271,7 @@ Authentication Tokens submitted by client apps **SHALL** conform to the general 
       <td><code>aud</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        The FHIR Authorization Server's token endpoint URL
+        The Authorization Server's token endpoint URL
       </td>
     </tr>
     <tr>
