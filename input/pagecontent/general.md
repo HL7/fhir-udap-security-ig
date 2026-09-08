@@ -90,101 +90,29 @@ Note: To ensure interoperability, a URI included as the `iss` value of a JWT sho
 
 Several workflows described in this guide require validation of JWTs by the JWT consumer. This includes the requirement that the JWT consumer validate that it trusts the corresponding JWT's producer's X.509 certificate by constructing a valid certificate chain from the JWT producer's certificate to an anchor trusted by the JWT consumer, and by verifying that the certificates in the chain have not expired or been revoked. To ensure interoperable certificate validation, JWT consumers SHALL support both Online Certificate Status Protocol (OCSP) and Certificate Revocation List (CRL) mechanisms for obtaining certificate revocation status. The full validation requirements for each workflow can be found in the UDAP profile sections referenced in Sections [2.3](discovery.html#required-udap-metadata), [3.2.3](registration.html#request-body), [4.2.3](consumer.html#server-processing-of-token-requests), and [5.2.3](b2b.html#server-processing-of-token-requests).
 
-### Authorization code flow
-
-The constraints in the following subsections apply to all workflows utilizing the authorization code flow. Authorization Servers **SHALL** support both `GET` and `POST` requests to their authorization endpoint for the authorization code flow. Clients **SHALL** support at least one of these two HTTP methods. Authorization requests submitted by client applications **SHALL** include the following parameters:
-
-<table class="table">
-  <thead>
-    <th colspan="3">Authorization request parameters</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>response_type</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>code</code>
-      </td>
-    </tr>
-    <tr>
-      <td><code>client_id</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        The client identifier issued to the client application at registration.
-      </td>
-    </tr>
-    <tr>
-      <td><code>redirect_uri</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        The client application's redirection URI for this session, <strong>REQUIRED</strong> when the client application registered more than one redirection URI. The value <strong>SHALL</strong> match one of the redirection URIs registered by the client.
-      </td>
-    </tr>
-    <tr>
-      <td><code>scope</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Space-delimited list of requested scopes of access.
-      </td>
-    </tr>
-    <tr>
-      <td><code>state</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        An opaque value used by the client to maintain state between the request and callback, as discused further in <a href="#the-state-parameter">Section 7.2.1</a>
-      </td>
-    </tr>
-    <tr>
-      <td><code>code_challenge</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        PKCE code challenge, as discussed further in <a href="#proof-key-for-code-exchange-pkce">Section 7.2.2</a>
-      </td>
-    </tr>
-    <tr>
-      <td><code>code_challenge_method</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        Fixed value: <code>S256</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-#### The state parameter
-A Client application **SHALL** include the `state` parameter in its authorization request. An Authorization Server **SHALL** return an error code of `invalid_request` as per Section 4.1.2.1 of RFC 6749 if a client application does not include a `state` value in its authorization request.
-
-Servers **SHALL** include the `state` parameter and corresponding value provided by the client application in the authorization response as per RFC 6749. The client application **SHALL NOT** proceed if the `state` parameter is not included in the authorization response or its value does not match the value provided by the client application in the corresponding authorization request.
-
-#### Proof Key for Code Exchange (PKCE)
-
-Client applications and Authorization Servers **SHALL** utilize Proof Key for Code Exchange (PKCE) with `code_challenge_method` of `S256` as defined in RFC 7636. An Authorization Server **SHOULD** return an error as per Section 4.4.1 of RFC 7636 if a client application does not include a `code_challenge` is its authorization request. 
-
-The Authorization Server **SHALL** return an error in response to a token request as per Section 4.6 of RFC 7636 if the client included a `code_challenge` in its authorization request but did not include the correct `code_verfier` value in the corresponding token request.
-
 ### Scope negotiation
 
 A wildcard scope is a scope that can be alternatively represented as a set of non-wildcard scopes. An example of a wildcard scope is the SMART App Launch v1.0.0 scope `patient/Observation.*` which can expanded to the set of two non-wildcard scopes: `patient/Observation.read` and `patient/Observation.write`. Granting the wildcard scope to a client application is equivalent to granting the corresponding expanded set of non-wildcard scopes.
 
-The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers.
+The constraints enumerated below apply for scope negotiation between client applications and servers. Unless otherwise specified, these constraints apply for both registration requests and access token requests made by client applications, and the corresponding responses returned by servers. These requirements are referenced by the discovery, registration, consumer-facing, and business-to-business workflows described elsewhere in this guide.
 
 1. Client applications and servers **MAY** support wildcard scopes.
 1. The `scopes_supported` metadata **SHALL** be present in the .well-known/udap object and **SHALL** list all scopes supported by the server including all supported wildcard scopes.
 1. A client application **MAY** request a wildcard scope only if wildcards are specified in the server's `scopes_supported` metadata list.
 1. If a client application requests a wildcard scope and the server supports wildcards, then the server **SHOULD** return either the wildcard scope or an expanded set of scopes that the client has been granted in its response.
 1. If a client application requests a wildcard scope and the server does not support wildcard scopes, then the server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests or an error of "invalid_scope" for token requests.
-1. If a server supports scopes defined in other specifications or implementaton guides for a workflow defined in this guide, then the server **SHOULD** include the corresponding scopes in its `scopes_supported` metadata.
+1. If a server supports scopes defined in other specifications or implementation guides for a workflow defined in this guide, then the server **SHOULD** include the corresponding scopes in its `scopes_supported` metadata.
 1. In registration requests and token requests, an authorization server **MAY** grant all scopes requested by the client or a subset thereof. It **MAY** also grant additional scopes that were not in the set of scopes requested by the client application. For example, the set of scopes granted or not granted by the server could be based on technical or policy guidelines at the responding organization, or, for token requests, based on the application having registered with the server for a different set of scopes.
 1. A server **SHALL** include the `scope` parameter in a token response if the set of scopes granted by the server to the client application is not identical to the set of scopes requested by the client application, or if the client application does not include a set of requested scopes in its request.
 1. A server **SHOULD** respond with an error of "invalid_scope" for token requests only if a wildcard scope is requested and not supported, or if none of the requested scopes are supported.
 1. A server **SHOULD** respond with an error of "invalid_client_metadata" for registration requests if a wildcard scope is requested and not supported, if none of the requested scopes are supported, and/or if the server will not grant any of the requested scopes to the client based on technical or policy guidelines at the responding organization.
-1. Client applications **SHOULD** be able to handle a response granting a different set of scopes than the scopes requested. This may be a superset, subset, or entirly different set, as described in items 4 and 6 above.
+1. Client applications **SHOULD** be able to handle a response granting a different set of scopes than the scopes requested. This may be a superset, subset, or entirely different set, as described in items 4 and 6 above.
 
 ### Certifications for client applications
 
 As discussed in [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html), certifications can be used by client applications or third parties to declare additional information about a client application at the time of registration.
 
-The table in Section 7.4.1 provides a template for UDAP Certification definitions. A trust community **MAY** publish one or more Certification definitions using this template. A Certification definition specifies the values to be used for the `certification_name` and `certification_uris` keys and the allowed `grant_types`. The trust community determines whether or not the optional `scopes` and `extensions` keys will be included in their Certification definition, any restrictions on their allowed values, and whether these keys will be optional, required, or conditionally included when generating a certification. If the `extensions` keys are used, the Certification definition specifies the additional extensions keys to be included in the `extensions` object, as discussed in section 7.4.2.
+The table in Section 7.3.1 provides a template for UDAP Certification definitions. A trust community **MAY** publish one or more Certification definitions using this template. A Certification definition specifies the values to be used for the `certification_name` and `certification_uris` keys and the allowed `grant_types`. The trust community determines whether or not the optional `scopes` and `extensions` keys will be included in their Certification definition, any restrictions on their allowed values, and whether these keys will be optional, required, or conditionally included when generating a certification. If the `extensions` keys are used, the Certification definition specifies the additional extensions keys to be included in the `extensions` object, as discussed in section 7.3.2.
 
 The trust community also determines who will sign the certification, e.g. the app operator or another party. For example, a certification self-signed by a client app operator can be used to declare the intended use of the application within a trust community, while certifications signed by another party, such as the trust community administrator or an independent accreditor, can be used to assist servers in determining what a client application is authorized to do within a trust community. Note that a trust community could use such a certification to communicate the exchange purposes for which a particular client application operator has been approved.
 

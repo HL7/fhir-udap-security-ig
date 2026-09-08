@@ -17,24 +17,24 @@ This Guide is divided into several pages which are listed at the top of each pag
 - [Tiered OAuth for User Authentication]\: This page provides detailed guidance for user authentication.
 - [Common Requirements]\: This page provides general requirements applicable to multiple authorization and authentication workflows.
 
-Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.5].
+Guidance regarding the use of this IG with the SMART App Launch Framework can be found in [Section 7.4].
 
 ### Trust Community Checklist
 
 A trust community is a group of member entities that has come together to support one or more interoperability use cases between its members. Typical examples of trust communities include health information networks and interoperability frameworks (e.g. a network of networks). Trust communities may be defined by geography (e.g. regional, national, international) or any other criteria (e.g. affiliated healthcare organizations, users of a common technology platform, support of specific use cases required by regulation, etc.).
 
-This guide provides a technical framework to securely scale FHIR transactions within a trust community using X.509 certificates as the basis of community trust, including both consumer-facing and B2B workflows. It is expected that trust communities will establish agreements and policies to address certain community-specific parameters in this guide, as well as non-technical aspects necessary for interoperability, e.g. criteria for community membership, data-sharing agreements, certificate issuance policies, etc.
+This guide provides a technical framework to securely scale transactions (e.g., FHIR) within a trust community using X.509 certificates as the basis of community trust, including both consumer-facing and B2B workflows. It is expected that trust communities will establish agreements and policies to address certain community-specific parameters in this guide, as well as non-technical aspects necessary for interoperability, e.g. criteria for community membership, data-sharing agreements, certificate issuance policies, etc.
 
 Additional topics to be addressed by trust communities adopting this guide are listed below:
 
 1. Assignment of unique URIs to servers for use in certificates and in the `iss` and `sub` claims of signed metadata elements (see [Section 2.3]).
 1. URI used to identify the community in metadata requests (see [Section 2.4]).
 1. Assignment of unique URIs to client applications for use in certificates and in the `iss` and `sub` claims of software statements (see [Section 3.1]).
-1. Assignment of unique URIs to organizational requestors for use in a B2B Authorization Extension Object (see `organization_id` in [Section 5.2.1.1]).
+1. Assignment of unique URIs to organizational requestors for use in a B2B Authorization Extension Object (see `organization_id` in [Section 5.3.1]).
 1. Minimum set of scopes that servers must support (see `scopes_supported` in [Section 2.2]).
-1. Allowed values for requestor roles in a B2B Authorization Extension Object (see `subject_role` in [Section 5.2.1.1]).
-1. Permitted purposes of use for which data may be requested in a B2B Authorization Extension Object (see `purpose_of_use` in [Section 5.2.1.1]).
-1. Consent and authorization policies that may be asserted in a B2B Authorization Extension Object and supporting documentation (see `consent_policy` and `consent_reference` in [Section 5.2.1.1]).
+1. Allowed values for requestor roles in a B2B Authorization Extension Object (see `subject_role` in [Section 5.3.1]).
+1. Permitted purposes of use for which data may be requested in a B2B Authorization Extension Object (see `purpose_of_use` in [Section 5.3.1]).
+1. Consent and authorization policies that may be asserted in a B2B Authorization Extension Object and supporting documentation (see `consent_policy` and `consent_reference` in [Section 5.3.1]).
 1. Time synchronization between community participants.
 1. PKI policies including policies for certificate issuance and distribution, certificate revocation handling (including support for OCSP and/or CRL endpoints), and the policy to be applied when revocation status cannot be checked due to infrastructure failure (see [Section 7.1.6](general.html#jwt-validation) and the workflow-specific validation requirements in [Section 2.3](discovery.html#required-udap-metadata), [Section 3.2.3](registration.html#request-body), [Section 4.2.3](consumer.html#server-processing-of-token-requests), and [Section 5.2.3](b2b.html#server-processing-of-token-requests)).
 1. Other community policies or conditions that an actor may need to meet before exchanging data with community participants or with other trust communities. Examples include community legal agreements, certificate policies, policies regarding what claims an actor has the authority to assert, and other community requirements relating to the specific use cases, client types and/or grant types supported by the community.
