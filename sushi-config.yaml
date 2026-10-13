@@ -15,7 +15,7 @@ extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: trial-use
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
-    valueInteger: 4
+    valueInteger: 5
 license: "CC0-1.0"
 version: 3.0.0
 fhirVersion: 4.0.1
