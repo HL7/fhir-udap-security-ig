@@ -3,7 +3,7 @@ skinparam sequenceMessageAlign left
 skinparam shadowing false
 hide footbox
 participant "Client App" as App
-participant "FHIR Server" as Server
+participant "Resource Server" as Server
 
 App -> Server : Discovery request
 App <-- Server : Discovery response

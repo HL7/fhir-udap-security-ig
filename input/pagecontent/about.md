@@ -9,17 +9,17 @@ The following package file includes an NPM package file used by many FHIR tools.
 The following ZIP file contains a downloadable version of this IG that can be hosted locally:
 [Downloadable Copy](full-ig.zip)
 
-### Cross Version Analysis 
+### FAST Security and UDAP.org Specification Relationship
 
-{% include cross-version-analysis.xhtml %} 
+The aim of this project is to expand upon the existing work by [UDAP.org](https://www.udap.org/) within the HL7 consensus process to produce a more complete set of implementation guides targeted at implementers of both client and server systems using FHIR for data exchange at scale.
+The [UDAP.org](https://www.udap.org/) specification is recognized as a legitimate normative reference for this implementation guide. Substantial portions of the FAST Security content are derived from and aligned with the technical work published by [UDAP.org specifications](https://www.udap.org/). HL7 and UDAP.org maintain a Memorandum of Understanding to support joint development and publication activities, and implementers should rely on UDAP.org publications as revision-controlled artifacts when referencing foundational UDAP requirements.
 
-### Dependency Table 
-
-{% include dependency-table-short.xhtml %} 
-
-### Globals Table 
-
-{% include globals-table.xhtml %} 
+- [UDAP JWT-Based Client Authentication](https://www.udap.org/udap-jwt-client-auth-stu1.html) STU1
+- [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html) STU1
+- [UDAP Tiered OAuth for User Authentication](https://www.udap.org/udap-user-auth-stu1.html) STU1
+- [UDAP Dynamic Client Registration](https://www.udap.org/udap-dynamic-client-registration-stu1.html) STU1
+- [UDAP Client Authorization Grants using JSON Web Tokens](https://www.udap.org/udap-client-authorization-grants-stu1.html) STU1
+- [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html) STU1
 
 ### Notices
 
@@ -36,3 +36,15 @@ This implementation guide was made possible by the thoughtful contributions and 
 The members of the ONC FHIR at Scale Taskforce (FAST) Security Tiger Team<br>
 The members of the HL7/UDAP.org joint project working group<br>
 The members of the HL7 Security Work Group
+
+### Cross Version Analysis 
+
+{% include cross-version-analysis.xhtml %} 
+
+### Dependency Table 
+
+{% include dependency-table-short.xhtml %} 
+
+### Globals Table 
+
+{% include globals-table.xhtml %} 
