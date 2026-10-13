@@ -1,10 +1,10 @@
 == Suppressed Messages ==
-# IG is security focused and contains no FHIR artifacts
+# 1 IG is security focused and contains no FHIR artifacts
 ERROR: ImplementationGuide/hl7.fhir.uv.fast-security: ImplementationGuide.definition: ImplementationGuide.definition.resource: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ImplementationGuide|4.0.1)
 
-# INFORMATION: Conformance language notes will be ignored and addressed in a future version of the IG
+# 2 INFORMATION: Conformance language notes will be ignored and addressed in a future version of the IG
 %The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause%
 %The html source contains the word 'MAY' but it is not in a text phrase marked as a conformance clause%
 
-# There are no resources created by this IG, so no OID is needed
-The resource ImplementationGuide/hl7.fhir.uv.fast-security could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+# 3 There are no resources created by this IG, so no OID is needed
+The resource ImplementationGuide/hl7.fhir.uv.fast-security could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)

@@ -16,11 +16,11 @@ extension:
     valueCode: trial-use
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 4
-license: "CC-BY-4.0"
-version: 3.0.0-current
+license: "CC0-1.0"
+version: 3.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2025+
-releaseLabel: STU 3 Post-Ballot CI
+releaseLabel: STU 3
 #date: 2025-07-28
 #jurisdiction: "urn:iso:std:iso:3166#US"
 jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001
