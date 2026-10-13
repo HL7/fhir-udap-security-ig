@@ -88,7 +88,7 @@ Note: To ensure interoperability, a URI included as the `iss` value of a JWT sho
 
 #### JWT validation
 
-Several workflows described in this guide require validation of JWTs by the JWT consumer. This includes the requirement that the JWT consumer validate that it trusts the corresponding JWT's producer's X.509 certificate by constructing a valid certificate chain from the JWT producer's certificate to an anchor trusted by the JWT consumer, and by verifying that the certificates in the chain have not expired or been revoked. The full validation requirements for each workflow can be found in the UDAP profile sections referenced in Sections [2.3](discovery.html#required-udap-metadata), [3.2.3](registration.html#request-body), [4.2.3](consumer.html#server-processing-of-token-requests), and [5.2.3](b2b.html#server-processing-of-token-requests).
+Several workflows described in this guide require validation of JWTs by the JWT consumer. This includes the requirement that the JWT consumer validate that it trusts the corresponding JWT's producer's X.509 certificate by constructing a valid certificate chain from the JWT producer's certificate to an anchor trusted by the JWT consumer, and by verifying that the certificates in the chain have not expired or been revoked. The full validation requirements for each workflow can be found in the UDAP profile sections referenced in Sections [2.3](discovery.html#required-udap-metadata), [3.2.3](registration.html#request-body), [4.1.4](consumer.html#token-response), and [5.1.4](b2b.html#token-response).
 
 ### Scope negotiation
 
