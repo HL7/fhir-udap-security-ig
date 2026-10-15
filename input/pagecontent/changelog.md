@@ -7,8 +7,7 @@ In addition to the tickets below, this version includes changes necessary to mov
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-52960](https://jira.hl7.org/browse/FHIR-52960)|Specify requirements regarding GET and POST support for authorization requests|
-|[FHIR-56280](https://jira.hl7.org/browse/FHIR-56280)|Generalize from FHIR server to resource server and FHIR resources to protected resources|
-|[FHIR-56880](https://jira.hl7.org/browse/FHIR-56880)|Suggest the spec to be self-contained as much as possible| 
+|[FHIR-57877](https://jira.hl7.org/browse/FHIR-57877)|Need references section|
 |[FHIR-56881](https://jira.hl7.org/browse/FHIR-56881)|Clarify the rationale to have hl7-b2b and the requirements to the server when receiving it|
 |[FHIR-56882](https://jira.hl7.org/browse/FHIR-56882)|Split B2B auth code flow and client credentials into dedicated sections|
 |[FHIR-56931](https://jira.hl7.org/browse/FHIR-56931)|Move common requirements to a separate menu bar tab|
