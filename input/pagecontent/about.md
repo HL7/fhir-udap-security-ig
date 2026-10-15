@@ -2,7 +2,7 @@
 
 The following package file includes an NPM package file used by many FHIR tools. It includes all the value sets, profiles, extensions, list of pages and urls in the IG, etc. for this version of the Implementation Guide. This file should be the first choice when generating any implementation artifacts as it contains all of the rules about what makes the profiles valid. Implementers will still need to be familiar with the contents of this specification and the applicable profiles in order to make a conformant implementation. See the overview on validating [FHIR profiles and resources](http://hl7.org/fhir/R4/validation.html):
 
-[Package](package.tgz)
+[Package](../package.tgz)
 
 ### Downloadable Copy of Entire Specification
 
@@ -29,7 +29,12 @@ UDAP&trade; and the gear design are trademarks of UDAP.org.
 
 ### Credits
 
-Editor: Luis C. Maas, EMR Direct and UDAP.org
+- Luis C. Maas, EMR Direct and UDAP.org
+- Jason Vogt, Meditech
+- Joe Shook, Surescripts LLC
+- Joe Lamy, AEGIS
+- David Pyke, Pyke Health IT inc
+- John Moehrke, Moehrke Research LLC
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
