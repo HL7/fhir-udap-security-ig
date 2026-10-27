@@ -8,11 +8,10 @@
   - [UDAP Tiered OAuth for User Authentication](https://www.udap.org/udap-user-auth-stu1.html)
   
 - **OAuth 2.0 Family (IETF RFCs)**
-  - [RFC 6749 — OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749)
+  - [RFC 6749 — The OAuth 2.0 Authorization Framework](https://www.rfc-editor.org/rfc/rfc6749)
   - [RFC 7523 — JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523)
-  - [RFC 7591 — Dynamic Client Registration](https://www.rfc-editor.org/rfc/rfc7591)
-  - [RFC 7592 — Client Configuration](https://www.rfc-editor.org/rfc/rfc7592)
-  - [RFC 7636 — PKCE](https://www.rfc-editor.org/rfc/rfc7636)
+  - [RFC 7591 — OAuth 2.0 Dynamic Client Registration Protocol](https://www.rfc-editor.org/rfc/rfc7591)
+  - [RFC 7636 — Proof Key for Code Exchange by OAuth Public Clients](https://www.rfc-editor.org/rfc/rfc7636)
   - [RFC 8414 — OAuth 2.0 Authorization Server Metadata](https://www.rfc-editor.org/rfc/rfc8414) - informative
 
 - **JOSE / JWT (IETF RFCs)**
