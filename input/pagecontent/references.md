@@ -15,19 +15,16 @@
   - [RFC 8414 — OAuth 2.0 Authorization Server Metadata](https://www.rfc-editor.org/rfc/rfc8414) - informative
 
 - **JOSE / JWT (IETF RFCs)**
-  - [RFC 7515 — JWS](https://www.rfc-editor.org/rfc/rfc7515)
-  - [RFC 7516 — JWE](https://www.rfc-editor.org/rfc/rfc7516)
-  - [RFC 7517 — JWK](https://www.rfc-editor.org/rfc/rfc7517)
-  - [RFC 7518 — JOSE Algorithms](https://www.rfc-editor.org/rfc/rfc7518)
-  - [RFC 7519 — JWT](https://www.rfc-editor.org/rfc/rfc7519)
+  - [RFC 7515 — JSON Web Signature (JWS)](https://www.rfc-editor.org/rfc/rfc7515)
+  - [RFC 7517 — JSON Web Key (JWK)](https://www.rfc-editor.org/rfc/rfc7517)
+  - [RFC 7518 — JSON Web Algorithms (JWA)](https://www.rfc-editor.org/rfc/rfc7518)
+  - [RFC 7519 — JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519)
 
 - **OpenID Connect**
   - [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
-  - [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html)
-  - [OpenID Connect Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html)
 
 - **X.509 / PKI**
-  - [RFC 5280 — X.509 Certificate Profile](https://www.rfc-editor.org/rfc/rfc5280)
+  - [RFC 5280 — Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile](https://www.rfc-editor.org/rfc/rfc5280)
 
 - **Related Implementation Guides**
   - [SMART App Launch](https://hl7.org/fhir/smart-app-launch/)
