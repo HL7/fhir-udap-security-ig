@@ -28,6 +28,5 @@
 
 - **Related Implementation Guides**
   - [SMART App Launch](https://hl7.org/fhir/smart-app-launch/)
-  - [IHE BALP](https://profiles.ihe.net/ITI/BALP/volume-1.html)
-  - [FAST Identity](https://hl7.org/fhir/us/identity-matching/)
-  - [FAST National Directory of Healthcare Providers & Services (NDH)](https://hl7.org/fhir/us/ndh/)
+  - [FAST Interoperable Digital Identity and Patient Matching](https://hl7.org/fhir/us/identity-matching/STU2)
+  - [FAST National Directory of Healthcare Providers & Services (NDH) IG](https://hl7.org/fhir/us/ndh/)
