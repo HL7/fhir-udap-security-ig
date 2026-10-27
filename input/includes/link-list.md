@@ -30,6 +30,7 @@
 [Section 7.1]: general.html#json-web-token-jwt-requirements
 [Section 7.1.3]: general.html#jwt-headers
 [Section 7.1.4]: general.html#jwt-claims
+[Section 7.1.6]: general.html#jwt-validation
 [Section 7.2]: general.html#scope-negotiation
 [Section 7.3]: general.html#certifications-for-client-applications
 [Section 7.4]: general.html#using-this-guide-with-the-smart-app-launch-framework
