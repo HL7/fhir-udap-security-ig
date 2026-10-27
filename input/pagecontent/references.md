@@ -1,11 +1,12 @@
 
 - **UDAP Specifications**
-  - [UDAP Client Authorization Grants using JSON Web Tokens](https://www.udap.org/udap-client-authorization-grants-stu1.html)
-  - [UDAP JWT-Based Client Authentication](https://www.udap.org/udap-jwt-client-auth-stu1.html)
-  - [UDAP Tiered OAuth for User Authentication](https://www.udap.org/udap-user-auth-stu1.html)
-  - [UDAP Metadata](https://www.udap.org/udap-server-metadata-stu1.html)
   - [UDAP Certifications and Endorsements for Client Applications](https://www.udap.org/udap-certifications-and-endorsements-stu1.html)
-
+  - [UDAP Client Authorization Grants using JSON Web Tokens](https://www.udap.org/udap-client-authorization-grants-stu1.html)
+  - [UDAP Dynamic Client Registration](https://www.udap.org/udap-dynamic-client-registration-stu1.html)
+  - [UDAP JWT-Based Client Authentication](https://www.udap.org/udap-jwt-client-auth-stu1.html)
+  - [UDAP Server Metadata](https://www.udap.org/udap-server-metadata-stu1.html)
+  - [UDAP Tiered OAuth for User Authentication](https://www.udap.org/udap-user-auth-stu1.html)
+  
 - **OAuth 2.0 Family (IETF RFCs)**
   - [RFC 6749 — OAuth 2.0](https://www.rfc-editor.org/rfc/rfc6749)
   - [RFC 7591 — Dynamic Client Registration](https://www.rfc-editor.org/rfc/rfc7591)
