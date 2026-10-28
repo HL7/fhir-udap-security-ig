@@ -1,11 +1,12 @@
 {
   "package-id" : "hl7.fhir.uv.fast-security",
-  "version" : "3.0.0-ballot",
-  "path" : "http://hl7.org/fhir/uv/fast-security/2026May",
-  "mode" : "working",
-  "status" : "ballot",
+  "version" : "3.0.0",
+  "path" : "http://hl7.org/fhir/uv/fast-security/3.0.0",
+  "mode" : "milestone",
+  "status" : "trial-use",
   "sequence" : "STU 3",
-  "desc" : "Universal Realm ballot from the STU2 us version.",
+  "desc" : "Universal Realm version.",
+  "changes" : "changelog.html",
   "first" : false,
   "movedFrom" : "http://hl7.org/fhir/us/udap-security"
 }
