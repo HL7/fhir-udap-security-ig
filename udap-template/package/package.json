@@ -2,7 +2,7 @@
   "name": "hl7.udap-fast.template",
   "version": "0.10.0",
   "type": "fhir.template",
-  "license": "CC0-1.0",
+  "license": "CC-BY-4.0",
   "description": "HL7/UDAP.org joint Template - for use with FHIR IGs published jointly by HL7 and UDAP.org, when FAST logo is also included",
   "author" : "http://hl7.org/fhir",
   "base": "hl7.fhir.template",
