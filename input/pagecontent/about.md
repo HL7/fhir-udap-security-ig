@@ -27,13 +27,17 @@ HL7&reg;, FHIR&reg;, the HL7&reg; logo, and the FHIR&reg; flame design are regis
 UDAP&trade; and the gear design are trademarks of UDAP.org.
 {% include ip-statements.xhtml %} 
 
+Copyright (c) 2021+ Health Level Seven International and UDAP.org.
+
+Published under the Creative Commons "Attribution 4.0 International" (CC BY 4.0) License
+
 ### Credits
 
 - Luis C. Maas, EMR Direct and UDAP.org
-- Jason Vogt, Meditech
-- Joe Shook, Surescripts LLC
-- Joe Lamy, AEGIS
-- David Pyke, Pyke Health IT inc
+- Jason Vogt, MEDITECH
+- Joe Shook, Surescripts, LLC
+- Joe Lamy, AEGIS.net, Inc.
+- David Pyke, Pyke Health IT Inc.
 - John Moehrke, Moehrke Research LLC
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:

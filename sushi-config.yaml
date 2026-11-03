@@ -16,7 +16,7 @@ extension:
     valueCode: trial-use
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 5
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 version: 3.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2025+
