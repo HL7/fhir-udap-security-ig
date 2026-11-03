@@ -27,9 +27,7 @@ HL7&reg;, FHIR&reg;, the HL7&reg; logo, and the FHIR&reg; flame design are regis
 UDAP&trade; and the gear design are trademarks of UDAP.org.
 {% include ip-statements.xhtml %} 
 
-Copyright (c) 2021+ Health Level Seven International and UDAP.org.
-
-Published under the Creative Commons "Attribution 4.0 International" (CC BY 4.0) License
+Published under the Creative Commons "Attribution 4.0 International" (CC BY 4.0) License.
 
 ### Credits
 
