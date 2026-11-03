@@ -4,8 +4,6 @@ Changes from the previous version are summarized below with links to the corresp
 
 In addition to the tickets below, this version includes changes necessary to move from US realm to International realm, including updates to title, id, canonical URL, and some metadata.
 
-The page footer template has been synchronized with the updated base template, including localized navigation and footer text, language forwarding, and additional scripts, while retaining the UDAP.org reference.
-
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-52960](https://jira.hl7.org/browse/FHIR-52960)|Specify requirements regarding GET and POST support for authorization requests|
@@ -22,6 +20,7 @@ The page footer template has been synchronized with the updated base template, i
 |[FHIR-57844](https://jira.hl7.org/browse/FHIR-57844)|Clarify that registration modifications are validated in same manner as new requests|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registration|
 |[FHIR-58057](https://jira.hl7.org/browse/FHIR-58057)|Clarify Resource Server must process access tokens as per RFC 6749|
+|[FHIR-59775](https://jira.hl7.org/browse/FHIR-59775)|Update footer for publication|
 
 ### Version 2.0.0
 
