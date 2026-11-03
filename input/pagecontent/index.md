@@ -1,8 +1,4 @@
 
-<div class="note-to-balloters" markdown="1">
-This ballot is moving a US realm publication to International. The content of the IG is not changing from the US STU2 (December 2025) publication, but the title, id, canonical URL, and some of the metadata are being updated to reflect the new realm. The ballot is inviting any comments or feedback from the community. Please review the changes carefully and provide any feedback you may have.
-</div>
-
 ### Introduction
 
 This implementation guide describes how to extend OAuth 2.0 using UDAP workflows for both consumer-facing apps that implement the authorization code flow, and business-to-business (B2B) apps that implement the client credentials flow or authorization code flow. This guide covers automating the client application registration process and increasing security using asymmetric cryptographic keys bound to digital certificates to authenticate ecosystem participants. This guide also provides a grammar for communicating metadata critical to healthcare information exchange.

@@ -21,6 +21,7 @@ In addition to the tickets below, this version includes changes necessary to mov
 |[FHIR-57877](https://jira.hl7.org/browse/FHIR-57877)|Add references section|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registration|
 |[FHIR-58057](https://jira.hl7.org/browse/FHIR-58057)|Clarify Resource Server must process access tokens as per RFC 6749|
+|[FHIR-59775](https://jira.hl7.org/browse/FHIR-59775)|Update footer for publication|
 
 ### Version 2.0.0
 
