@@ -4,43 +4,73 @@ Changes from the previous version are summarized below with links to the corresp
 
 In addition to the tickets below, this version includes changes necessary to move from US realm to International realm, including updates to title, id, canonical URL, and some metadata.
 
+**Change Impact: Non-compatible**
+
+none
+
+**Change Impact: Compatible, substantive**
+
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-52960](https://jira.hl7.org/browse/FHIR-52960)|Specify requirements regarding GET and POST support for authorization requests|
+|[FHIR-56882](https://jira.hl7.org/browse/FHIR-56882)|Split B2B auth code flow and client credentials into dedicated sections|
+|[FHIR-57086](https://jira.hl7.org/browse/FHIR-57086)|Move auth code flow requirements including scope back from section 7|
+|[FHIR-58057](https://jira.hl7.org/browse/FHIR-58057)|Clarify Resource Server must process access tokens as per RFC 6749|
+
+**Change Impact: Non-substantive**
+
+|Ticket|Ticket Description|
+|---------|----------|
 |[FHIR-55945](https://jira.hl7.org/browse/FHIR-55945)|Clarify trailing slash handling for FHIR base URLs|
 |[FHIR-56122](https://jira.hl7.org/browse/FHIR-56122)|Include certificate revocation checking policies in trust community checklist|
 |[FHIR-56280](https://jira.hl7.org/browse/FHIR-56280)|Generalize from FHIR server to resource server and FHIR resources to protected resources|
-|[FHIR-56880](https://jira.hl7.org/browse/FHIR-56880)|Suggest the spec to be self-contained as much as possible| 
+|[FHIR-56880](https://jira.hl7.org/browse/FHIR-56880)|Suggest the spec to be self-contained as much as possible|
 |[FHIR-56881](https://jira.hl7.org/browse/FHIR-56881)|Clarify the rationale to have hl7-b2b and the requirements to the server when receiving it|
-|[FHIR-56882](https://jira.hl7.org/browse/FHIR-56882)|Split B2B auth code flow and client credentials into dedicated sections|
 |[FHIR-56931](https://jira.hl7.org/browse/FHIR-56931)|Move common requirements to a separate menu bar tab|
-|[FHIR-57086](https://jira.hl7.org/browse/FHIR-57086)|Move auth code flow requirements including scope back from section 7|
 |[FHIR-57236](https://jira.hl7.org/browse/FHIR-57236)|Add references to Section 7 rules from related workflow guidance|
 |[FHIR-57840](https://jira.hl7.org/browse/FHIR-57840)|Clarify that a person may be assigned more than one (iss,sub) pair|
 |[FHIR-57844](https://jira.hl7.org/browse/FHIR-57844)|Clarify that registration modifications are validated in same manner as new requests|
 |[FHIR-57877](https://jira.hl7.org/browse/FHIR-57877)|Add references section|
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registration|
-|[FHIR-58057](https://jira.hl7.org/browse/FHIR-58057)|Clarify Resource Server must process access tokens as per RFC 6749|
 |[FHIR-59775](https://jira.hl7.org/browse/FHIR-59775)|Update footer for publication|
 
 ### Version 2.0.0
 
+**Change Impact: Non-compatible**
+
+|Ticket|Ticket Description|
+|---------|----------|
+|[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
+|[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
+|[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
+
+**Change Impact: Compatible, substantive**
+
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-40510](https://jira.hl7.org/browse/FHIR-40510)|Update client and server requirements for "community" parameter|
-|[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
 |[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
+|[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
+|[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
+|[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
+|[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
+|[FHIR-49180](https://jira.hl7.org/browse/FHIR-49180)|Consolidate scope negotiation requirements, add trust community scope guidance|
+|[FHIR-49631](https://jira.hl7.org/browse/FHIR-49631)|Clarify that unassigned parameters should be omitted from registration response|
+|[FHIR-49632](https://jira.hl7.org/browse/FHIR-49632)|Clarify addition and removal of scopes by server during scope negotiation|
+|[FHIR-51052](https://jira.hl7.org/browse/FHIR-51052)|Clarify URI normalization expectations in JWTs|
+
+**Change Impact: Non-substantive**
+
+|Ticket|Ticket Description|
+|---------|----------|
 |[FHIR-43003](https://jira.hl7.org/browse/FHIR-43003)|Update server metadata requirements for extensions and certifications |
 |[FHIR-43005](https://jira.hl7.org/browse/FHIR-43005)|Clarify server may grant a subset of "scopes_supported"|
 |[FHIR-43006](https://jira.hl7.org/browse/FHIR-43006)|Clarify scope requirements for Tiered OAuth|
-|[FHIR-43020](https://jira.hl7.org/browse/FHIR-43020)|Clarify where client requests scopes in each workflow|
 |[FHIR-43022](https://jira.hl7.org/browse/FHIR-43022)|Clarify use of a client secret is not permitted|
 |[FHIR-43024](https://jira.hl7.org/browse/FHIR-43024)|Add STU Note regarding concurrent use with SMART|
 |[FHIR-43120](https://jira.hl7.org/browse/FHIR-43120)|Clarify JWT conformance requirements|
 |[FHIR-45173](https://jira.hl7.org/browse/FHIR-45173)|Add certification example for privacy disclosures|
 |[FHIR-45723](https://jira.hl7.org/browse/FHIR-45723)|Clarify scopes to register for when using Tiered OAuth|
-|[FHIR-46113](https://jira.hl7.org/browse/FHIR-46113)|Add certification example for exchange purposes|
-|[FHIR-46448](https://jira.hl7.org/browse/FHIR-46448)|Add scope guidance based on TEFCA SOP|
 |[FHIR-48921](https://jira.hl7.org/browse/FHIR-48921)|Clarify that Registered Claim Names should be omitted from registration response|
 |[FHIR-48986](https://jira.hl7.org/browse/FHIR-48986)|Add text and STU note about logical server groups|
 |[FHIR-49141](https://jira.hl7.org/browse/FHIR-49141)|Move conformance language out of home page|
@@ -49,10 +79,6 @@ In addition to the tickets below, this version includes changes necessary to mov
 |[FHIR-49174](https://jira.hl7.org/browse/FHIR-49174)|Clarify token use must be consistent with authorization context|
 |[FHIR-49175](https://jira.hl7.org/browse/FHIR-49175)|Expand introduction to explain trust communities and certificate-based trust|
 |[FHIR-49176](https://jira.hl7.org/browse/FHIR-49176)|Update UDAP.org STU1 links|
-|[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
-|[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
-|[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
-|[FHIR-49180](https://jira.hl7.org/browse/FHIR-49180)|Consolidate scope negotiation requirements, add trust community scope guidance|
 |[FHIR-49181](https://jira.hl7.org/browse/FHIR-49181)|Clarify how certification template is used and the non-normative nature of examples|
 |[FHIR-49182](https://jira.hl7.org/browse/FHIR-49182)|Clarify that additional signature algorithms may be used|
 |[FHIR-49184](https://jira.hl7.org/browse/FHIR-49184)|Add underlying UDAP.org reference for "extensions" parameter|
@@ -62,37 +88,48 @@ In addition to the tickets below, this version includes changes necessary to mov
 |[FHIR-49239](https://jira.hl7.org/browse/FHIR-49239)|Clarify signed metadata has precedence over plain JSON elements|
 |[FHIR-49241](https://jira.hl7.org/browse/FHIR-49241)|Add alternative workflow using "jku" instead of "x5c" (experimental)|
 |[FHIR-49242](https://jira.hl7.org/browse/FHIR-49242)|Clarify that clients will terminate workflow if server metadata is not trusted|
-|[FHIR-49631](https://jira.hl7.org/browse/FHIR-49631)|Clarify that unassigned parameters should be omitted from registration response|
-|[FHIR-49632](https://jira.hl7.org/browse/FHIR-49632)|Clarify addition and removal of scopes by server during scope negotiation|
 |[FHIR-49633](https://jira.hl7.org/browse/FHIR-49633)|Example narrative should be for B2C and authorization code in 3.2.2|
 |[FHIR-50137](https://jira.hl7.org/browse/FHIR-50137)|Clarify scope negotiation errors for token vs. registration requests|
 |[FHIR-50929](https://jira.hl7.org/browse/FHIR-50929)|Remove dependency of hl7.fhir.us.core: 3.1.1|
 |[FHIR-50963](https://jira.hl7.org/browse/FHIR-50963)|Specify the IG standards status|
-|[FHIR-51052](https://jira.hl7.org/browse/FHIR-51052)|Clarify URI normalization expectations in JWTs|
 |[FHIR-51054](https://jira.hl7.org/browse/FHIR-51054)|Add time synchronization to community checklist|
 |[FHIR-51150](https://jira.hl7.org/browse/FHIR-51150)|Add PKI policies as separate trust community checklist item|
 |[FHIR-51161](https://jira.hl7.org/browse/FHIR-51161)|Clarify additional Authorization Extension Objects are allowed for B2B workflows|
 |[FHIR-51244](https://jira.hl7.org/browse/FHIR-51244)|Pluralize exchange_purpose in example certification keys table|
 
+Note: Change Impact is not set in Jira for FHIR-49633 and FHIR-50929; they are listed as non-substantive based on their correction-only descriptions.
+
 ### Version 1.1.0 - STU1 Update 1
+
+**Change Impact: Non-compatible**
 
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-40459](https://jira.hl7.org/browse/FHIR-40459)|Clarify client is required to validate signed_metadata as per the UDAP server metadata profile|
+|[FHIR-43014](https://jira.hl7.org/browse/FHIR-43014)|Correct status code to be returned by server when community is not recognized or not supported|
+
+**Change Impact: Compatible, substantive**
+
+|Ticket|Ticket Description|
+|---------|----------|
+|[FHIR-41517](https://jira.hl7.org/browse/FHIR-41517)|Clarify algorithm used by servers to sign UDAP metadata|
+|[FHIR-43121](https://jira.hl7.org/browse/FHIR-43121)|Remove duplicated requirements for "iss" parameter in software statement|
+
+**Change Impact: Non-substantive**
+
+|Ticket|Ticket Description|
+|---------|----------|
 |[FHIR-40579](https://jira.hl7.org/browse/FHIR-40579)|Correct inactive link in Required UDAP Metadata|
 |[FHIR-40601](https://jira.hl7.org/browse/FHIR-40601)|Correct invalid link to HL7 SMART App Launch IG history|
 |[FHIR-40791](https://jira.hl7.org/browse/FHIR-40791)|Clarify "aud" value in authentication JWTs|
-|[FHIR-41517](https://jira.hl7.org/browse/FHIR-41517)|Clarify algorithm used by servers to sign UDAP metadata|
 |[FHIR-43002](https://jira.hl7.org/browse/FHIR-43002)|Clarify that support for B2B extension is required for servers that support client credentials grants|
 |[FHIR-43007](https://jira.hl7.org/browse/FHIR-43007)|Clarify conformance strength of algorithms by listing as a table|
 |[FHIR-43008](https://jira.hl7.org/browse/FHIR-43008)|Clarify "jti" reuse is permitted after expiration of any previous JWTs using same value|
-|[FHIR-43014](https://jira.hl7.org/browse/FHIR-43014)|Correct status code to be returned by server when community is not recognized or not supported|
 |[FHIR-43021](https://jira.hl7.org/browse/FHIR-43021)|Add missing hyperlinks for certain UDAP profiles|
 |[FHIR-43048](https://jira.hl7.org/browse/FHIR-43048)|Clarify servers must respond to GET requests for metadata|
 |[FHIR-43116](https://jira.hl7.org/browse/FHIR-43116)|Clarify that registration updates are requested within the context of the client's trust community|
-|[FHIR-43121](https://jira.hl7.org/browse/FHIR-43121)|Remove duplicated requirements for "iss" parameter in software statement|
 |[FHIR-43554](https://jira.hl7.org/browse/FHIR-43554)|Clarify allowed registration claims returned by server may be different than claims submitted in software statement|
-|[FHIR-51423](https://jira.hl7.org/browse/FHIR-43121)|State IG FMM maturity level|
+|[FHIR-51423](https://jira.hl7.org/browse/FHIR-51423)|State IG FMM maturity level|
 
 <style>
 table, th, td 
