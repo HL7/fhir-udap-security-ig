@@ -2,8 +2,6 @@ Changes from the previous version are summarized below with links to the corresp
 
 ### Version 3.0.0
 
-In addition to the tickets below, this version includes changes necessary to move from US realm to International realm, including updates to title, id, canonical URL, and some metadata.
-
 **Change Impact: Non-compatible**
 
 none
@@ -53,8 +51,8 @@ Changes necessary to move from US realm to International realm, including update
 |Ticket|Ticket Description|
 |---------|----------|
 |[FHIR-40510](https://jira.hl7.org/browse/FHIR-40510)|Update client and server requirements for "community" parameter|
-|[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
 |[FHIR-41520](https://jira.hl7.org/browse/FHIR-41520)|Clarify "state" parameter required for authorization code flow|
+|[FHIR-42958](https://jira.hl7.org/browse/FHIR-42958)|Add guidance for use of PKCE|
 |[FHIR-49177](https://jira.hl7.org/browse/FHIR-49177)|Require supported signing algorithms for registration in server metadata|
 |[FHIR-49178](https://jira.hl7.org/browse/FHIR-49178)|Move US Realm requirements from 5.2.1.1; Change subject_id to recommend NPI|
 |[FHIR-49179](https://jira.hl7.org/browse/FHIR-49179)|Remove reference to SMART configuration for scope negotiation|
@@ -100,6 +98,7 @@ Changes necessary to move from US realm to International realm, including update
 |[FHIR-51150](https://jira.hl7.org/browse/FHIR-51150)|Add PKI policies as separate trust community checklist item|
 |[FHIR-51161](https://jira.hl7.org/browse/FHIR-51161)|Clarify additional Authorization Extension Objects are allowed for B2B workflows|
 |[FHIR-51244](https://jira.hl7.org/browse/FHIR-51244)|Pluralize exchange_purpose in example certification keys table|
+|[FHIR-51423](https://jira.hl7.org/browse/FHIR-51423)|State IG FMM maturity level|
 
 Note: Change Impact is not set in Jira for FHIR-49633 and FHIR-50929; they are listed as non-substantive based on their correction-only descriptions.
 
@@ -133,7 +132,6 @@ Note: Change Impact is not set in Jira for FHIR-49633 and FHIR-50929; they are l
 |[FHIR-43048](https://jira.hl7.org/browse/FHIR-43048)|Clarify servers must respond to GET requests for metadata|
 |[FHIR-43116](https://jira.hl7.org/browse/FHIR-43116)|Clarify that registration updates are requested within the context of the client's trust community|
 |[FHIR-43554](https://jira.hl7.org/browse/FHIR-43554)|Clarify allowed registration claims returned by server may be different than claims submitted in software statement|
-|[FHIR-51423](https://jira.hl7.org/browse/FHIR-51423)|State IG FMM maturity level|
 
 <style>
 table, th, td 
