@@ -34,6 +34,10 @@ none
 |[FHIR-57937](https://jira.hl7.org/browse/FHIR-57937)|Clarify that complete redirection URIs are required for registration|
 |[FHIR-59775](https://jira.hl7.org/browse/FHIR-59775)|Update footer for publication|
 
+### Version 3.0.0 - Ballot
+
+Changes necessary to move from US realm to International realm, including updates to title, id, canonical URL, and some metadata. No changes have been made to the content of the IG from the US STU2 (December 2025) publication. The ballot is inviting any comments or feedback from the community. Please review the changes carefully and provide any feedback you may have.
+
 ### Version 2.0.0
 
 **Change Impact: Non-compatible**
